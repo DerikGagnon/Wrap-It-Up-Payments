@@ -11,7 +11,7 @@ import UIKit
 class ItemCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
-    //@IBOutlet weak var desc: UILabel!
+    @IBOutlet weak var price: UILabel!
     @IBOutlet weak var cellImage: UIImageView!
     
     var cell: Item? {
@@ -20,7 +20,7 @@ class ItemCell: UITableViewCell {
                 return
             }
             self.name?.text = cell.name
-            //self.desc?.text = cell.desc
+            self.price?.text = cell.price.description
             self.cellImage?.image = UIImage(named: cell.image)
         }
     }
