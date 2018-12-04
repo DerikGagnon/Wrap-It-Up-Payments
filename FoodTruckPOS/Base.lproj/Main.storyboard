@@ -57,6 +57,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ao3-de-vcP" secondAttribute="trailing" id="PtV-fQ-KqC"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ay-9e-Nm9">
                                 <rect key="frame" x="0.0" y="698" width="320" height="58"/>
@@ -90,31 +93,31 @@
         <!--Root View Controller-->
         <scene sceneID="g9S-ON-kFA">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="KLz-zk-6bP" sceneMemberID="viewController">
+                <tableViewController autoresizesArchivedViewToFullSize="NO" clearsSelectionOnViewWillAppear="NO" id="KLz-zk-6bP" customClass="ItemTableViewController" customModule="FoodTruckPOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="99l-np-SUH">
                         <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="106" id="l0m-Qb-lO7" customClass="ItemCell" customModule="FoodTruckPOS" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="106" id="l0m-Qb-lO7" customClass="ItemCell" customModule="FoodTruckPOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="703.5" height="106"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l0m-Qb-lO7" id="ac7-KA-c4m">
                                     <rect key="frame" x="0.0" y="0.0" width="703.5" height="105.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="xjh-FN-s0X">
-                                            <rect key="frame" x="20" y="7" width="184.5" height="90"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="xjh-FN-s0X">
+                                            <rect key="frame" x="20" y="7" width="184.5" height="100"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AIA-qL-3Re" userLabel="ItemImage">
-                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                    <rect key="frame" x="0.0" y="5" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="90" id="Z7U-UL-9SF"/>
                                                         <constraint firstAttribute="width" constant="90" id="a9j-pX-Z2G"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GMa-RX-eAC" userLabel="LabelStack">
-                                                    <rect key="frame" x="128" y="21.5" width="56.5" height="47"/>
+                                                    <rect key="frame" x="128" y="26.5" width="56.5" height="47"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZa-vT-clT">
                                                             <rect key="frame" x="0.0" y="0.0" width="56.5" height="26.5"/>
@@ -132,10 +135,14 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="90" id="blC-dw-gs3"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="1Fj-5B-hhb"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="xjh-FN-s0X" firstAttribute="leading" secondItem="ac7-KA-c4m" secondAttribute="leading" constant="20" id="alb-vW-kBw"/>
+                                        <constraint firstItem="xjh-FN-s0X" firstAttribute="top" secondItem="ac7-KA-c4m" secondAttribute="top" constant="7" id="kSl-AZ-zTn"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cellImage" destination="AIA-qL-3Re" id="8xY-aO-9XD"/>
@@ -160,8 +167,9 @@
         <scene sceneID="2kZ-N4-HYK">
             <objects>
                 <navigationController id="tA6-7x-h3z" sceneMemberID="viewController">
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ggr-AW-1qX">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="703.5" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -175,11 +183,12 @@
         <!--Split View Controller-->
         <scene sceneID="Hd4-LX-jrx">
             <objects>
-                <splitViewController id="tCW-bY-PaG" sceneMemberID="viewController">
+                <splitViewController autoresizesArchivedViewToFullSize="NO" id="tCW-bY-PaG" sceneMemberID="viewController">
                     <value key="contentSizeForViewInPopover" type="size" width="33" height="0.0"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <segue destination="tA6-7x-h3z" kind="relationship" relationship="masterViewController" id="2TN-hC-NBl"/>
-                        <segue destination="kKY-1T-61z" kind="relationship" relationship="detailViewController" id="NVm-xv-dHi"/>
+                        <segue destination="kKY-1T-61z" kind="relationship" relationship="masterViewController" id="WjA-4J-pFh"/>
+                        <segue destination="tA6-7x-h3z" kind="relationship" relationship="detailViewController" id="A4d-bi-4zU"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2PO-u3-6Jn" userLabel="First Responder" sceneMemberID="firstResponder"/>
