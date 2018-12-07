@@ -90,7 +90,7 @@
             </objects>
             <point key="canvasLocation" x="-6.4453125" y="-489.0625"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Our Menu-->
         <scene sceneID="g9S-ON-kFA">
             <objects>
                 <tableViewController autoresizesArchivedViewToFullSize="NO" clearsSelectionOnViewWillAppear="NO" id="KLz-zk-6bP" customClass="ItemTableViewController" customModule="FoodTruckPOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -156,7 +156,7 @@
                             <outlet property="delegate" destination="KLz-zk-6bP" id="nx8-ut-4cx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Jm4-Ez-gFL"/>
+                    <navigationItem key="navigationItem" title="Our Menu" id="Jm4-Ez-gFL"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEy-oB-4mW" userLabel="First Responder" sceneMemberID="firstResponder"/>
