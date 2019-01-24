@@ -10,30 +10,43 @@ import UIKit
 
 class ItemCell: UITableViewCell {
     
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var price: UILabel!
-    @IBOutlet weak var cellImage: UIImageView!
-    
-    var cell: Item? {
-        didSet {
-            guard let cell = cell else {
-                return
-            }
-            self.name?.text = cell.name
-            self.price?.text = cell.price.description
-            self.cellImage?.image = UIImage(named: cell.image)
-        }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+//    @IBOutlet weak var name: UILabel!
+//    @IBOutlet weak var price: UILabel!
+//    @IBOutlet weak var cellImage: UIImageView!
+//    
+//    var cell: Item? {
+//        didSet {
+//            guard let cell = cell else {
+//                return
+//            }
+//            self.name?.text = cell.name
+//            self.price?.text = cell.price.description
+//            self.cellImage?.image = UIImage(named: cell.image)
+//        }
+//    }
+//    
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        // Initialization code
+//    }
     
 //    override func setSelected(_ selected: Bool, animated: Bool) {
 //        super.setSelected(selected, animated: animated)
 //
 //        // Configure the view for the selected state
 //    }
+    
+}
+
+extension ItemCell : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "videoCell", for: indexPath)
+        return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 12
+    }
     
 }

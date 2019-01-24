@@ -106,49 +106,39 @@
                                     <rect key="frame" x="0.0" y="0.0" width="703.5" height="105.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="xjh-FN-s0X">
-                                            <rect key="frame" x="20" y="7" width="184.5" height="100"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AIA-qL-3Re" userLabel="ItemImage">
-                                                    <rect key="frame" x="0.0" y="5" width="90" height="90"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="90" id="Z7U-UL-9SF"/>
-                                                        <constraint firstAttribute="width" constant="90" id="a9j-pX-Z2G"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GMa-RX-eAC" userLabel="LabelStack">
-                                                    <rect key="frame" x="128" y="26.5" width="56.5" height="47"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZa-vT-clT">
-                                                            <rect key="frame" x="0.0" y="0.0" width="56.5" height="26.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWA-FG-cC7" userLabel="Price">
-                                                            <rect key="frame" x="0.0" y="26.5" width="56.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="1Fj-5B-hhb"/>
-                                            </constraints>
-                                        </stackView>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="I7t-20-HUM">
+                                            <rect key="frame" x="0.0" y="0.0" width="703.5" height="105.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="HNX-Ps-38w">
+                                                <size key="itemSize" width="80" height="80"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="videoCell" id="xuk-fF-Iyn">
+                                                    <rect key="frame" x="5" y="13" width="80" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                    </view>
+                                                    <color key="backgroundColor" red="1" green="0.03624573524" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </collectionViewCell>
+                                            </cells>
+                                            <connections>
+                                                <outlet property="dataSource" destination="l0m-Qb-lO7" id="Tji-nu-CgP"/>
+                                                <outlet property="delegate" destination="l0m-Qb-lO7" id="QCj-lf-VRJ"/>
+                                            </connections>
+                                        </collectionView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="xjh-FN-s0X" firstAttribute="leading" secondItem="ac7-KA-c4m" secondAttribute="leading" constant="20" id="alb-vW-kBw"/>
-                                        <constraint firstItem="xjh-FN-s0X" firstAttribute="top" secondItem="ac7-KA-c4m" secondAttribute="top" constant="7" id="kSl-AZ-zTn"/>
+                                        <constraint firstAttribute="trailing" secondItem="I7t-20-HUM" secondAttribute="trailing" id="5Gj-SJ-Mvs"/>
+                                        <constraint firstItem="I7t-20-HUM" firstAttribute="leading" secondItem="ac7-KA-c4m" secondAttribute="leading" id="IkO-Nz-ael"/>
+                                        <constraint firstItem="I7t-20-HUM" firstAttribute="top" secondItem="ac7-KA-c4m" secondAttribute="top" id="Ury-JQ-g5D"/>
+                                        <constraint firstAttribute="bottom" secondItem="I7t-20-HUM" secondAttribute="bottom" id="WkU-6E-GtO"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="cellImage" destination="AIA-qL-3Re" id="8xY-aO-9XD"/>
-                                    <outlet property="name" destination="XZa-vT-clT" id="1kw-Ej-X6G"/>
-                                    <outlet property="price" destination="VWA-FG-cC7" id="bVT-aB-Eus"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

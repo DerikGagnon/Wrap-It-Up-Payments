@@ -15,6 +15,8 @@ class ItemTableViewController: UITableViewController {
         Item(name: "Hotdog", price: 5.99, image: "hotdog", type: "Entree"),
         Item(name: "Bean Burrito", price: 8.99, image: "bean_burrito", type: "Entree")
     ]
+    
+    let categories = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Dessert"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,21 +38,24 @@ class ItemTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return categories.count
     }
-
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return categories[section]
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return itemsArray.count
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //self.tableView.register(SightsCell.self, forCellReuseIdentifier: "SightCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
-        let item = itemsArray[indexPath.row]
-        //cell.desc.text = item.desc
-        cell.name.text = item.name
-        cell.cellImage.image = UIImage(named: item.image)
+//        let item = itemsArray[indexPath.row]
+//        //cell.desc.text = item.desc
+//        cell.name.text = item.name
+//        cell.cellImage.image = UIImage(named: item.image)
         
         return cell
     }
