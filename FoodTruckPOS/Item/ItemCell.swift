@@ -23,7 +23,7 @@ class ItemCell: UITableViewCell {
 //            self.price?.text = cell.price.description
 //            self.cellImage?.image = UIImage(named: cell.image)
 //        }
-//    }
+//    } 
 //    
 //    override func awakeFromNib() {
 //        super.awakeFromNib()
