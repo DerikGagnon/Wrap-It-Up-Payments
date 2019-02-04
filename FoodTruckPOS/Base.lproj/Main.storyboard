@@ -116,7 +116,7 @@
                                                 <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                                             </collectionViewFlowLayout>
                                             <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="videoCell" id="xuk-fF-Iyn">
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="collectionCell" id="xuk-fF-Iyn" customClass="CustomCollectionCell" customModule="FoodTruckPOS" customModuleProvider="target">
                                                     <rect key="frame" x="5" y="10" width="280" height="230"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -127,7 +127,7 @@
                                                                 <rect key="frame" x="20" y="0.0" width="240" height="128"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Au-xN-VV2">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Au-xN-VV2">
                                                                 <rect key="frame" x="20" y="144" width="240" height="27"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -144,12 +144,13 @@
                                                         </subviews>
                                                     </view>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <connections>
+                                                        <outlet property="collectionImageView" destination="YaL-dp-t0A" id="GTk-lD-7r7"/>
+                                                        <outlet property="collectionName" destination="8Au-xN-VV2" id="qif-kA-Qnj"/>
+                                                        <outlet property="collectionPrice" destination="Wcw-XH-g1e" id="iNK-06-Xph"/>
+                                                    </connections>
                                                 </collectionViewCell>
                                             </cells>
-                                            <connections>
-                                                <outlet property="dataSource" destination="l0m-Qb-lO7" id="Tji-nu-CgP"/>
-                                                <outlet property="delegate" destination="l0m-Qb-lO7" id="QCj-lf-VRJ"/>
-                                            </connections>
                                         </collectionView>
                                     </subviews>
                                     <constraints>
@@ -159,6 +160,9 @@
                                         <constraint firstAttribute="bottom" secondItem="I7t-20-HUM" secondAttribute="bottom" id="WkU-6E-GtO"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="collectionView" destination="I7t-20-HUM" id="Hmp-bb-uAC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
