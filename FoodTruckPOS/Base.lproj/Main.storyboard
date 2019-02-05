@@ -28,36 +28,33 @@
                                 <rect key="frame" x="16" y="69" width="288" height="533"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderCell" rowHeight="42" id="okm-1a-2sk" customClass="YourOrderTableCell" customModule="FoodTruckPOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="288" height="42"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderCell" rowHeight="45" id="okm-1a-2sk" customClass="YourOrderTableCell" customModule="FoodTruckPOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="288" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="okm-1a-2sk" id="Jfv-qd-RAn">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="41.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="171" translatesAutoresizingMaskIntoConstraints="NO" id="2Ja-HL-Tvb">
-                                                    <rect key="frame" x="16" y="10" width="256" height="21.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usf-cd-96t">
-                                                            <rect key="frame" x="0.0" y="0.0" width="46" height="21.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypl-1F-IIH">
-                                                            <rect key="frame" x="217" y="0.0" width="39" height="21.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypl-1F-IIH">
+                                                    <rect key="frame" x="229" y="10" width="44" height="24.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usf-cd-96t">
+                                                    <rect key="frame" x="15" y="10" width="185" height="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="2Ja-HL-Tvb" firstAttribute="top" secondItem="Jfv-qd-RAn" secondAttribute="top" constant="10" id="2c3-H7-Lom"/>
-                                                <constraint firstAttribute="trailing" secondItem="2Ja-HL-Tvb" secondAttribute="trailing" constant="16" id="CqL-6M-FWO"/>
-                                                <constraint firstItem="2Ja-HL-Tvb" firstAttribute="leading" secondItem="Jfv-qd-RAn" secondAttribute="leading" constant="16" id="FNq-bB-Ngg"/>
-                                                <constraint firstAttribute="bottom" secondItem="2Ja-HL-Tvb" secondAttribute="bottom" constant="10" id="igP-Mo-cm3"/>
+                                                <constraint firstItem="Usf-cd-96t" firstAttribute="leading" secondItem="Jfv-qd-RAn" secondAttribute="leading" constant="15" id="5Xh-cu-aHt"/>
+                                                <constraint firstItem="Ypl-1F-IIH" firstAttribute="top" secondItem="Jfv-qd-RAn" secondAttribute="top" constant="10" id="7ve-i9-qZh"/>
+                                                <constraint firstAttribute="bottom" secondItem="Usf-cd-96t" secondAttribute="bottom" constant="9.5" id="LY3-Dv-c2L"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ypl-1F-IIH" secondAttribute="trailing" constant="15" id="YKl-eX-YZc"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ypl-1F-IIH" secondAttribute="bottom" constant="10" id="d4E-oN-tAe"/>
+                                                <constraint firstItem="Usf-cd-96t" firstAttribute="top" secondItem="Jfv-qd-RAn" secondAttribute="top" constant="10" id="t5m-8N-kAe"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
