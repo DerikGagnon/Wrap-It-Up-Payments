@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		632650152208B9BF00138B8B /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632650142208B9BF00138B8B /* CustomCollectionCell.swift */; };
+		63265018220A0E9F00138B8B /* YourOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63265017220A0E9F00138B8B /* YourOrderViewController.swift */; };
+		6326501A220A0F2A00138B8B /* YourOrderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63265019220A0F2A00138B8B /* YourOrderTableCell.swift */; };
 		6376CA0121B60536000F9952 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376CA0021B60536000F9952 /* ItemCell.swift */; };
 		6376CA0321B6056E000F9952 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376CA0221B6056E000F9952 /* Item.swift */; };
 		6376CA0621B6089F000F9952 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376CA0521B6089F000F9952 /* ItemTableViewController.swift */; };
@@ -38,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		632650142208B9BF00138B8B /* CustomCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
+		63265017220A0E9F00138B8B /* YourOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourOrderViewController.swift; sourceTree = "<group>"; };
+		63265019220A0F2A00138B8B /* YourOrderTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourOrderTableCell.swift; sourceTree = "<group>"; };
 		6376CA0021B60536000F9952 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		6376CA0221B6056E000F9952 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		6376CA0521B6089F000F9952 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 				6376CA0221B6056E000F9952 /* Item.swift */,
 				6376CA0021B60536000F9952 /* ItemCell.swift */,
 				632650142208B9BF00138B8B /* CustomCollectionCell.swift */,
+				63265019220A0F2A00138B8B /* YourOrderTableCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -94,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				6376CA0521B6089F000F9952 /* ItemTableViewController.swift */,
+				63265017220A0E9F00138B8B /* YourOrderViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -285,7 +291,9 @@
 				632650152208B9BF00138B8B /* CustomCollectionCell.swift in Sources */,
 				6376CA0321B6056E000F9952 /* Item.swift in Sources */,
 				6376CA0121B60536000F9952 /* ItemCell.swift in Sources */,
+				63265018220A0E9F00138B8B /* YourOrderViewController.swift in Sources */,
 				63CE57ED21ADB14C00962B65 /* AppDelegate.swift in Sources */,
+				6326501A220A0F2A00138B8B /* YourOrderTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

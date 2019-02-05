@@ -70,7 +70,7 @@ extension ItemCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
-        let clickedIndex = itemsArray[indexPath.row]
+        let clickedIndex = itemsArray[indexPath.row].name
         
         print(clickedIndex)
         
