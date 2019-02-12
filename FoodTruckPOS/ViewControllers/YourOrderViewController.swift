@@ -10,6 +10,10 @@ import UIKit
 
 class YourOrderViewController: UIViewController {
     
+    @IBOutlet var subtotalLabel: UILabel!
+    @IBOutlet var taxLabel: UILabel!
+    @IBOutlet var totalLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
