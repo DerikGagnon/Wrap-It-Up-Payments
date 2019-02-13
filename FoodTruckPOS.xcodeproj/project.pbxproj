@@ -10,9 +10,10 @@
 		632650152208B9BF00138B8B /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632650142208B9BF00138B8B /* CustomCollectionCell.swift */; };
 		63265018220A0E9F00138B8B /* YourOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63265017220A0E9F00138B8B /* YourOrderViewController.swift */; };
 		6326501A220A0F2A00138B8B /* YourOrderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63265019220A0F2A00138B8B /* YourOrderTableCell.swift */; };
-		6376CA0121B60536000F9952 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376CA0021B60536000F9952 /* ItemCell.swift */; };
-		6376CA0321B6056E000F9952 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376CA0221B6056E000F9952 /* Item.swift */; };
-		6376CA0621B6089F000F9952 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376CA0521B6089F000F9952 /* ItemTableViewController.swift */; };
+		6376CA0121B60536000F9952 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376CA0021B60536000F9952 /* MenuItemCell.swift */; };
+		6376CA0321B6056E000F9952 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376CA0221B6056E000F9952 /* MenuItem.swift */; };
+		6376CA0621B6089F000F9952 /* MenuItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376CA0521B6089F000F9952 /* MenuItemTableViewController.swift */; };
+		637EC51522137FFF00B5D88A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 637EC51222137FFF00B5D88A /* Assets.xcassets */; };
 		63CE57ED21ADB14C00962B65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CE57EC21ADB14C00962B65 /* AppDelegate.swift */; };
 		63CE57F221ADB14C00962B65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63CE57F021ADB14C00962B65 /* Main.storyboard */; };
 		63CE57F421ADB14F00962B65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63CE57F321ADB14F00962B65 /* Assets.xcassets */; };
@@ -42,9 +43,10 @@
 		632650142208B9BF00138B8B /* CustomCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
 		63265017220A0E9F00138B8B /* YourOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourOrderViewController.swift; sourceTree = "<group>"; };
 		63265019220A0F2A00138B8B /* YourOrderTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourOrderTableCell.swift; sourceTree = "<group>"; };
-		6376CA0021B60536000F9952 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
-		6376CA0221B6056E000F9952 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		6376CA0521B6089F000F9952 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		6376CA0021B60536000F9952 /* MenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
+		6376CA0221B6056E000F9952 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		6376CA0521B6089F000F9952 /* MenuItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewController.swift; sourceTree = "<group>"; };
+		637EC51222137FFF00B5D88A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = FoodTruckPOS/Assets.xcassets; sourceTree = "<group>"; };
 		63CE57E921ADB14C00962B65 /* FoodTruckPOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTruckPOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63CE57EC21ADB14C00962B65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63CE57F121ADB14C00962B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,8 +89,8 @@
 		632650132208B98200138B8B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6376CA0221B6056E000F9952 /* Item.swift */,
-				6376CA0021B60536000F9952 /* ItemCell.swift */,
+				6376CA0221B6056E000F9952 /* MenuItem.swift */,
+				6376CA0021B60536000F9952 /* MenuItemCell.swift */,
 				632650142208B9BF00138B8B /* CustomCollectionCell.swift */,
 				63265019220A0F2A00138B8B /* YourOrderTableCell.swift */,
 			);
@@ -98,7 +100,7 @@
 		632650162208B9CC00138B8B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6376CA0521B6089F000F9952 /* ItemTableViewController.swift */,
+				6376CA0521B6089F000F9952 /* MenuItemTableViewController.swift */,
 				63265017220A0E9F00138B8B /* YourOrderViewController.swift */,
 			);
 			path = ViewControllers;
@@ -107,6 +109,7 @@
 		63CE57E021ADB14C00962B65 = {
 			isa = PBXGroup;
 			children = (
+				637EC51222137FFF00B5D88A /* Assets.xcassets */,
 				63CE57EB21ADB14C00962B65 /* FoodTruckPOS */,
 				63CE580021ADB14F00962B65 /* FoodTruckPOSTests */,
 				63CE580B21ADB14F00962B65 /* FoodTruckPOSUITests */,
@@ -263,6 +266,7 @@
 				63CE57F721ADB14F00962B65 /* LaunchScreen.storyboard in Resources */,
 				63CE57F421ADB14F00962B65 /* Assets.xcassets in Resources */,
 				63CE57F221ADB14C00962B65 /* Main.storyboard in Resources */,
+				637EC51522137FFF00B5D88A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,10 +291,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6376CA0621B6089F000F9952 /* ItemTableViewController.swift in Sources */,
+				6376CA0621B6089F000F9952 /* MenuItemTableViewController.swift in Sources */,
 				632650152208B9BF00138B8B /* CustomCollectionCell.swift in Sources */,
-				6376CA0321B6056E000F9952 /* Item.swift in Sources */,
-				6376CA0121B60536000F9952 /* ItemCell.swift in Sources */,
+				6376CA0321B6056E000F9952 /* MenuItem.swift in Sources */,
+				6376CA0121B60536000F9952 /* MenuItemCell.swift in Sources */,
 				63265018220A0E9F00138B8B /* YourOrderViewController.swift in Sources */,
 				63CE57ED21ADB14C00962B65 /* AppDelegate.swift in Sources */,
 				6326501A220A0F2A00138B8B /* YourOrderTableCell.swift in Sources */,

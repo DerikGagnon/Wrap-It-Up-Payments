@@ -28,7 +28,7 @@
                                 <rect key="frame" x="16" y="69" width="288" height="533"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderCell" rowHeight="45" id="okm-1a-2sk" customClass="YourOrderTableCell" customModule="FoodTruckPOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderCell" rowHeight="45" id="okm-1a-2sk" customClass="YourOrderTableCell" customModule="FoodTruckPOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="288" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="okm-1a-2sk" id="Jfv-qd-RAn">
@@ -156,13 +156,13 @@
         <!--Our Menu-->
         <scene sceneID="g9S-ON-kFA">
             <objects>
-                <tableViewController autoresizesArchivedViewToFullSize="NO" clearsSelectionOnViewWillAppear="NO" id="KLz-zk-6bP" customClass="ItemTableViewController" customModule="FoodTruckPOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController autoresizesArchivedViewToFullSize="NO" clearsSelectionOnViewWillAppear="NO" id="KLz-zk-6bP" customClass="MenuItemTableViewController" customModule="FoodTruckPOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="99l-np-SUH">
                         <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="250" id="l0m-Qb-lO7" customClass="ItemCell" customModule="FoodTruckPOS" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="250" id="l0m-Qb-lO7" customClass="MenuItemCell" customModule="FoodTruckPOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="703.5" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l0m-Qb-lO7" id="ac7-KA-c4m">
@@ -238,7 +238,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEy-oB-4mW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6.4453125" y="1066.40625"/>
+            <point key="canvasLocation" x="-6" y="1079"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2kZ-N4-HYK">

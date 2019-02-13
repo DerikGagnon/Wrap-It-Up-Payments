@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Item {
+class MenuItem {
     var name: String
     //var desc: String
     var price: Float32

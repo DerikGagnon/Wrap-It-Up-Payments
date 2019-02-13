@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemTableViewController: UITableViewController {
+class MenuItemTableViewController: UITableViewController {
     
     let categories = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Dessert"]
 
@@ -46,9 +46,8 @@ class ItemTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //self.tableView.register(SightsCell.self, forCellReuseIdentifier: "SightCell")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! MenuItemCell
         
         return cell
     }
-
 }

@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ItemCell: UITableViewCell {
+class MenuItemCell: UITableViewCell {
     
     @IBOutlet var collectionView: UICollectionView!
     
     let itemsArray = [
-        Item(name: "Burger", price: 8.99, image: "burger", type: "Entree"),
-        Item(name: "Hotdog", price: 5.99, image: "hotdog", type: "Entree"),
-        Item(name: "Bean Burrito", price: 8.99, image: "bean_burrito", type: "Entree")
+        MenuItem(name: "Burger", price: 8.99, image: "burger", type: "Entree"),
+        MenuItem(name: "Hotdog", price: 5.99, image: "hotdog", type: "Entree"),
+        MenuItem(name: "Bean Burrito", price: 8.99, image: "bean_burrito", type: "Entree")
     ]
     
 //    
@@ -47,7 +47,7 @@ class ItemCell: UITableViewCell {
 }
 
 
-extension ItemCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MenuItemCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -71,11 +71,22 @@ extension ItemCell: UICollectionViewDelegate, UICollectionViewDataSource {
         
         
         let clickedIndex = itemsArray[indexPath.row].name
-        
+//        let cell = collectionView.cellForItem(at: indexPath)
+//        if let split = MenuItemTableViewController.splitViewController as! UINavigationController {
+//            let controllers = split.viewControllers
+//            let masterViewController = controllers[controllers.count-1]
+//                as? MenuItemTableViewController
+//        }
         print(clickedIndex)
         
         
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let orderView = segue.destination as! YourOrderViewController
+//        let indexPath = collectionView.indexPath(for: <#T##UICollectionViewCell#>)
+//        orderView.orderItemsArray.append(itemsArray[indexPath.row])
+//    }
     
 
 }
