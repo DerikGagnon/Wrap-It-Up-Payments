@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MenuItemCellDelegate {
+    
+}
+
 class MenuItemCell: UITableViewCell {
     
     @IBOutlet var collectionView: UICollectionView!
@@ -71,12 +75,7 @@ extension MenuItemCell: UICollectionViewDelegate, UICollectionViewDataSource {
         
         
         let clickedIndex = itemsArray[indexPath.row].name
-//        let cell = collectionView.cellForItem(at: indexPath)
-//        if let split = MenuItemTableViewController.splitViewController as! UINavigationController {
-//            let controllers = split.viewControllers
-//            let masterViewController = controllers[controllers.count-1]
-//                as? MenuItemTableViewController
-//        }
+        
         print(clickedIndex)
         
         
