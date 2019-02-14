@@ -11,6 +11,12 @@ import UIKit
 class MenuItemTableViewController: UITableViewController {
     
     let categories = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Dessert"]
+    
+    let itemsArray = [
+        MenuItem(name: "Burger", price: 8.99, image: "burger", type: "Entree"),
+        MenuItem(name: "Hotdog", price: 5.99, image: "hotdog", type: "Entree"),
+        MenuItem(name: "Bean Burrito", price: 8.99, image: "bean_burrito", type: "Entree")
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +47,16 @@ class MenuItemTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return itemsArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //self.tableView.register(SightsCell.self, forCellReuseIdentifier: "SightCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! MenuItemCell
+        
+        cell.menuImageView?.image = UIImage(named: itemsArray[indexPath].image)
+        cell.menuNameLabel?.text = itemsArray[indexPath].name
+        cell.menuPriceLabel?.text = String(itemsArray[indexPath].price)
         
         return cell
     }
