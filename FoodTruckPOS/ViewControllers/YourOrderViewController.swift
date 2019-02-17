@@ -19,23 +19,19 @@ class YourOrderViewController: UIViewController {
     var tax: Float32 = 0
     var total: Float32 = 0
     
-    var itemToAdd: MenuItem? {
-        didSet {
-            print("We made it")
-            orderItemsArray.append(itemToAdd!)
-            refreshUI()
-        }
-    }
-    
     func refreshUI() {
         print("In refresh UI")
         loadViewIfNeeded()
+        //let formatted = String(format: "Angle: %.2f", angle)
         subtotal = orderItemsArray.map({$0.price}).reduce(0, +)
-        subtotalLabel.text = String(subtotal)
+        let formattedSubtotal = String(format: "$%.2f", subtotal)
+        subtotalLabel.text = formattedSubtotal
         tax = subtotal * 0.06
-        taxLabel.text = String(tax)
+        let formattedTax = String(format: "$%.2f", tax)
+        taxLabel.text = formattedTax
         total = subtotal + tax
-        totalLabel.text = String(total)
+        let formattedTotal = String(format: "$%.2f", total)
+        totalLabel.text = formattedTotal
 
     }
     
@@ -53,7 +49,13 @@ class YourOrderViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func printHello() {
+        print("We made it!!")
+    }
     
+    func printItemName(item: MenuItem) {
+        print(item.name)
+    }
     
     
 }
@@ -89,10 +91,4 @@ extension YourOrderViewController : UITableViewDelegate, UITableViewDataSource {
 //
 //    }
     
-}
-
-extension YourOrderViewController: ItemAddedDelegate {
-    func ItemAdded(_ newItem: MenuItem) {
-        itemToAdd = newItem
-    }
 }

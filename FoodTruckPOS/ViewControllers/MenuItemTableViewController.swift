@@ -22,12 +22,25 @@ class MenuItemTableViewController: UITableViewController {
         MenuItem(name: "Bean Burrito", price: 8.99, image: "bean_burrito", type: "Entree")
     ]
     
+    var orderViewController: YourOrderViewController? = nil
+    
     weak var delegate: ItemAddedDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         //tableView.rowHeight = 250
         
+        if let split = splitViewController {
+            let controllers = split.viewControllers
+            orderViewController =
+                controllers[controllers.count-1].presentingViewController
+                as? YourOrderViewController
+        }
+        
+        if let splitVC = self.splitViewController {
+            orderViewController = splitVC.viewControllers[0] as? YourOrderViewController
+            orderViewController?.printHello()
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -67,12 +80,10 @@ class MenuItemTableViewController: UITableViewController {
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let selectedItem = itemsArray[indexPath.row]
-//        delegate?.ItemAdded(selectedItem)
-//        if let orderViewController = delegate as? YourOrderViewController,
-//            let orderNavigationController = orderViewController.splitViewController {
-//            splitViewController?.(orderNavigationController, sender: nil)
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedItem = itemsArray[indexPath.row]
+        orderViewController?.printItemName(item: selectedItem)
+        orderViewController?.orderItemsArray.append(selectedItem)
+        orderViewController?.refreshUI()
+    }
 }
