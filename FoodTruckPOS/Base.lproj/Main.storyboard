@@ -63,6 +63,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="kKY-1T-61z" id="2Pk-rx-RVS"/>
+                                    <outlet property="delegate" destination="kKY-1T-61z" id="3TS-fL-7P1"/>
+                                </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="104" translatesAutoresizingMaskIntoConstraints="NO" id="xC2-Xh-e6F" userLabel="PriceBreakdownStackView">
                                 <rect key="frame" x="30" y="609" width="260" height="86"/>
@@ -144,6 +148,7 @@
                     </view>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="orderTable" destination="5st-rz-J2o" id="FJy-mG-kEU"/>
                         <outlet property="subtotalLabel" destination="hdF-bO-n20" id="WGT-Hd-Xhk"/>
                         <outlet property="taxLabel" destination="1FM-Hy-AQS" id="WVx-i8-brX"/>
                         <outlet property="totalLabel" destination="mao-Rs-Xmc" id="5ZL-i2-Kxd"/>

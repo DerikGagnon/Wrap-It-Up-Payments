@@ -8,7 +8,7 @@
 
 import UIKit
 
-class YourOrderViewController: UIViewController {
+class YourOrderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var subtotalLabel: UILabel!
     @IBOutlet var taxLabel: UILabel!
@@ -19,8 +19,11 @@ class YourOrderViewController: UIViewController {
     var tax: Float32 = 0
     var total: Float32 = 0
     
+    @IBOutlet var orderTable: UITableView!
+    
     func refreshUI() {
         print("In refresh UI")
+        self.orderTable.reloadData()
         loadViewIfNeeded()
         //let formatted = String(format: "Angle: %.2f", angle)
         subtotal = orderItemsArray.map({$0.price}).reduce(0, +)
@@ -40,7 +43,7 @@ class YourOrderViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         //
         
-        
+        ////self.orderTable.register(UITableViewCell.self, forCellReuseIdentifier: "orderCell")
         
     }
     
@@ -57,19 +60,13 @@ class YourOrderViewController: UIViewController {
         print(item.name)
     }
     
-    
-}
-
-
-extension YourOrderViewController : UITableViewDelegate, UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        print(String(orderItemsArray.count))
         return orderItemsArray.count
     }
     
@@ -82,10 +79,10 @@ extension YourOrderViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 160
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//        return 160
+//    }
     
 //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //
