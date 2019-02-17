@@ -15,6 +15,29 @@ class YourOrderViewController: UIViewController {
     @IBOutlet var totalLabel: UILabel!
     
     var orderItemsArray: [MenuItem] = []
+    var subtotal: Float32 = 0
+    var tax: Float32 = 0
+    var total: Float32 = 0
+    
+    var itemToAdd: MenuItem? {
+        didSet {
+            print("We made it")
+            orderItemsArray.append(itemToAdd!)
+            refreshUI()
+        }
+    }
+    
+    func refreshUI() {
+        print("In refresh UI")
+        loadViewIfNeeded()
+        subtotal = orderItemsArray.map({$0.price}).reduce(0, +)
+        subtotalLabel.text = String(subtotal)
+        tax = subtotal * 0.06
+        taxLabel.text = String(tax)
+        total = subtotal + tax
+        totalLabel.text = String(total)
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +73,8 @@ extension YourOrderViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! YourOrderTableCell
-        
+        cell.nameLabel?.text = orderItemsArray[indexPath.row].name
+        cell.priceLabel?.text = String(orderItemsArray[indexPath.row].price)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -65,4 +89,10 @@ extension YourOrderViewController : UITableViewDelegate, UITableViewDataSource {
 //
 //    }
     
+}
+
+extension YourOrderViewController: ItemAddedDelegate {
+    func ItemAdded(_ newItem: MenuItem) {
+        itemToAdd = newItem
+    }
 }

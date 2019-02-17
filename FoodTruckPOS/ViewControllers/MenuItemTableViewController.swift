@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ItemAddedDelegate: class {
+    func ItemAdded(_ newItem: MenuItem)
+}
+
 class MenuItemTableViewController: UITableViewController {
     
     let categories = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Dessert"]
@@ -17,10 +21,12 @@ class MenuItemTableViewController: UITableViewController {
         MenuItem(name: "Hotdog", price: 5.99, image: "hotdog", type: "Entree"),
         MenuItem(name: "Bean Burrito", price: 8.99, image: "bean_burrito", type: "Entree")
     ]
+    
+    weak var delegate: ItemAddedDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 250
+        //tableView.rowHeight = 250
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -54,10 +60,19 @@ class MenuItemTableViewController: UITableViewController {
         //self.tableView.register(SightsCell.self, forCellReuseIdentifier: "SightCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! MenuItemCell
         
-        cell.menuImageView?.image = UIImage(named: itemsArray[indexPath].image)
-        cell.menuNameLabel?.text = itemsArray[indexPath].name
-        cell.menuPriceLabel?.text = String(itemsArray[indexPath].price)
+        cell.menuImageView?.image = UIImage(named: itemsArray[indexPath.row].image)
+        cell.menuNameLabel?.text = itemsArray[indexPath.row].name
+        cell.menuPriceLabel?.text = String(itemsArray[indexPath.row].price)
         
         return cell
     }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let selectedItem = itemsArray[indexPath.row]
+//        delegate?.ItemAdded(selectedItem)
+//        if let orderViewController = delegate as? YourOrderViewController,
+//            let orderNavigationController = orderViewController.splitViewController {
+//            splitViewController?.(orderNavigationController, sender: nil)
+//        }
+//    }
 }
