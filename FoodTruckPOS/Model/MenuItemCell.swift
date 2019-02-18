@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuItemCell: UITableViewCell {
+class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet var menuImageView: UIImageView?
     @IBOutlet var menuNameLabel: UILabel?
@@ -25,6 +25,14 @@ class MenuItemCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
     }
 
 }

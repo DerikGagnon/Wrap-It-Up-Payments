@@ -8,23 +8,19 @@
 
 import UIKit
 
-protocol ItemAddedDelegate: class {
-    func ItemAdded(_ newItem: MenuItem)
-}
+
 
 class MenuItemTableViewController: UITableViewController {
     
     let categories = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Dessert"]
     
     let itemsArray = [
-        MenuItem(name: "Burger", price: 8.99, image: "burger", type: "Entree"),
-        MenuItem(name: "Hotdog", price: 5.99, image: "hotdog", type: "Entree"),
-        MenuItem(name: "Bean Burrito", price: 8.99, image: "bean_burrito", type: "Entree")
+        MenuItem(name: "Burger", price: 8.99, image: "burger", type: "Entrees"),
+        MenuItem(name: "Hotdog", price: 5.99, image: "hotdog", type: "Entrees"),
+        MenuItem(name: "Bean Burrito", price: 8.99, image: "bean_burrito", type: "Entrees")
     ]
     
     var orderViewController: YourOrderViewController? = nil
-    
-    weak var delegate: ItemAddedDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
