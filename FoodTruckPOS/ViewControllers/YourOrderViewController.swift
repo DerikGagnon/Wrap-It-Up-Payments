@@ -8,20 +8,42 @@
 
 import UIKit
 
-class YourOrderViewController: UIViewController {
+class YourOrderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var subtotalLabel: UILabel!
     @IBOutlet var taxLabel: UILabel!
     @IBOutlet var totalLabel: UILabel!
     
     var orderItemsArray: [MenuItem] = []
+    var subtotal: Float32 = 0
+    var tax: Float32 = 0
+    var total: Float32 = 0
+    
+    @IBOutlet var orderTable: UITableView!
+    
+    func refreshUI() {
+        print("In refresh UI")
+        self.orderTable.reloadData()
+        loadViewIfNeeded()
+        //let formatted = String(format: "Angle: %.2f", angle)
+        subtotal = orderItemsArray.map({$0.price}).reduce(0, +)
+        let formattedSubtotal = String(format: "$%.2f", subtotal)
+        subtotalLabel.text = formattedSubtotal
+        tax = subtotal * 0.06
+        let formattedTax = String(format: "$%.2f", tax)
+        taxLabel.text = formattedTax
+        total = subtotal + tax
+        let formattedTotal = String(format: "$%.2f", total)
+        totalLabel.text = formattedTotal
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //
         
-        
+        ////self.orderTable.register(UITableViewCell.self, forCellReuseIdentifier: "orderCell")
         
     }
     
@@ -30,13 +52,13 @@ class YourOrderViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func printHello() {
+        print("We made it!!")
+    }
     
-    
-    
-}
-
-
-extension YourOrderViewController : UITableViewDelegate, UITableViewDataSource {
+    func printItemName(item: MenuItem) {
+        print(item.name)
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -44,22 +66,23 @@ extension YourOrderViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        print(String(orderItemsArray.count))
         return orderItemsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! YourOrderTableCell
-        
+        cell.nameLabel?.text = orderItemsArray[indexPath.row].name
+        cell.priceLabel?.text = String(orderItemsArray[indexPath.row].price)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 160
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//        return 160
+//    }
     
 //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //

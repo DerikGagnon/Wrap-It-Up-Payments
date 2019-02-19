@@ -11,11 +11,24 @@ import UIKit
 class MenuItemTableViewController: UITableViewController {
     
     let categories = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Dessert"]
+    
+    var orderViewController: YourOrderViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 250
         
+        if let split = splitViewController {
+            let controllers = split.viewControllers
+            orderViewController =
+                controllers[controllers.count-1].presentingViewController
+                as? YourOrderViewController
+        }
+        
+        if let splitVC = self.splitViewController {
+            orderViewController = splitVC.viewControllers[0] as? YourOrderViewController
+            orderViewController?.printHello()
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -47,7 +60,27 @@ class MenuItemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //self.tableView.register(SightsCell.self, forCellReuseIdentifier: "SightCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! MenuItemCell
+        cell.cellDelegate = self
+//        cell.menuImageView?.image = UIImage(named: itemsArray[indexPath.row].image)
+//        cell.menuNameLabel?.text = itemsArray[indexPath.row].name
+//        cell.menuPriceLabel?.text = String(itemsArray[indexPath.row].price)
         
         return cell
+    }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let selectedItem = itemsArray[indexPath.row]
+//        orderViewController?.printItemName(item: selectedItem)
+//        orderViewController?.orderItemsArray.append(selectedItem)
+//        orderViewController?.refreshUI()
+//    }
+}
+
+extension MenuItemTableViewController: MenuRowDelegate {
+    func didTapCell(_ item: MenuItem) {
+        //print("We tapped")
+        //orderViewController?.printItemName(item: item)
+        orderViewController?.orderItemsArray.append(item)
+        orderViewController?.refreshUI()
     }
 }

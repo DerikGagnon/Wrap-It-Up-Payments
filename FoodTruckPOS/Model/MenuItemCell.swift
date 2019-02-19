@@ -8,34 +8,26 @@
 
 import UIKit
 
-class MenuItemCell: UITableViewCell {
-    
-    @IBOutlet var collectionView: UICollectionView!
+protocol MenuRowDelegate: class {
+    func didTapCell(_ item: MenuItem)
+}
+
+class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     let itemsArray = [
-        MenuItem(name: "Burger", price: 8.99, image: "burger", type: "Entree"),
-        MenuItem(name: "Hotdog", price: 5.99, image: "hotdog", type: "Entree"),
-        MenuItem(name: "Bean Burrito", price: 8.99, image: "bean_burrito", type: "Entree")
+        MenuItem(name: "Burger", price: 8.99, image: "burger", type: "Entrees"),
+        MenuItem(name: "Hotdog", price: 5.99, image: "hotdog", type: "Entrees"),
+        MenuItem(name: "Bean Burrito", price: 8.99, image: "bean_burrito", type: "Entrees")
     ]
     
-//    
-//    var cell: Item? {
-//        didSet {
-//            guard let cell = cell else {
-//                return
-//            }
-//            self.name?.text = cell.name
-//            self.price?.text = cell.price.description
-//            self.cellImage?.image = UIImage(named: cell.image)
-//        }
-//    } 
-//    
+    weak var cellDelegate: MenuRowDelegate!
+    @IBOutlet var collectionView: UICollectionView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -44,49 +36,27 @@ class MenuItemCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-}
-
-
-extension MenuItemCell: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! MenuCollectionCell
         
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! CustomCollectionCell
-        
-        cell.collectionImageView.image = UIImage(named: itemsArray[indexPath.row].image)
-        cell.collectionName.text = itemsArray[indexPath.row].name
-        cell.collectionPrice.text = String(itemsArray[indexPath.row].price)
+        cell.itemImage?.image = UIImage(named: itemsArray[indexPath.item].image)
+        cell.itemName?.text = itemsArray[indexPath.item].name
+        cell.itemPrice?.text = String(itemsArray[indexPath.item].price)
         
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        
-        let clickedIndex = itemsArray[indexPath.row].name
-//        let cell = collectionView.cellForItem(at: indexPath)
-//        if let split = MenuItemTableViewController.splitViewController as! UINavigationController {
-//            let controllers = split.viewControllers
-//            let masterViewController = controllers[controllers.count-1]
-//                as? MenuItemTableViewController
-//        }
-        print(clickedIndex)
+        let clickedIndex = itemsArray[indexPath.item]
+        self.cellDelegate!.didTapCell(clickedIndex)
+        //print(clickedIndex.name)
         
         
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let orderView = segue.destination as! YourOrderViewController
-//        let indexPath = collectionView.indexPath(for: <#T##UICollectionViewCell#>)
-//        orderView.orderItemsArray.append(itemsArray[indexPath.row])
-//    }
-    
 
 }
