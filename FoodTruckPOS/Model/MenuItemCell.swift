@@ -8,11 +8,11 @@
 
 import UIKit
 
+protocol MenuRowDelegate: class {
+    func didTapCell(_ item: MenuItem)
+}
+
 class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    @IBOutlet var menuImageView: UIImageView?
-    @IBOutlet var menuNameLabel: UILabel?
-    @IBOutlet var menuPriceLabel: UILabel?
     
     let itemsArray = [
         MenuItem(name: "Burger", price: 8.99, image: "burger", type: "Entrees"),
@@ -20,11 +20,13 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         MenuItem(name: "Bean Burrito", price: 8.99, image: "bean_burrito", type: "Entrees")
     ]
     
-    weak var cellDelegate: MenuCollectionDelegate?
+    weak var cellDelegate: MenuRowDelegate!
+    @IBOutlet var collectionView: UICollectionView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
 
     }
 
@@ -41,21 +43,20 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! MenuCollectionCell
         
-        cell.collectionImageView.image = UIImage(named: itemsArray[indexPath.row].image)
-        cell.collectionName.text = itemsArray[indexPath.row].name
-        cell.collectionPrice.text = String(itemsArray[indexPath.row].price)
+        cell.itemImage?.image = UIImage(named: itemsArray[indexPath.item].image)
+        cell.itemName?.text = itemsArray[indexPath.item].name
+        cell.itemPrice?.text = String(itemsArray[indexPath.item].price)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let clickedIndex = itemsArray[indexPath.row]
-        self.cellDelegate?.didTapCell(clickedIndex)
-        print(clickedIndex.name)
+        let clickedIndex = itemsArray[indexPath.item]
+        self.cellDelegate!.didTapCell(clickedIndex)
+        //print(clickedIndex.name)
         
         
     }
 
 }
-

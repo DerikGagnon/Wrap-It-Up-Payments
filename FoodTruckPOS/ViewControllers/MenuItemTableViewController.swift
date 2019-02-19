@@ -8,17 +8,11 @@
 
 import UIKit
 
-protocol MenuCollectionDelegate: class {
-    func didTapCell(_ item: MenuItem)
-}
-
 class MenuItemTableViewController: UITableViewController {
     
     let categories = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Dessert"]
     
-    var orderViewController: YourOrderViewController? = nil
-    
-    weak var delegate: MenuCollectionDelegate?
+    var orderViewController: YourOrderViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +60,7 @@ class MenuItemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //self.tableView.register(SightsCell.self, forCellReuseIdentifier: "SightCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! MenuItemCell
-        
+        cell.cellDelegate = self
 //        cell.menuImageView?.image = UIImage(named: itemsArray[indexPath.row].image)
 //        cell.menuNameLabel?.text = itemsArray[indexPath.row].name
 //        cell.menuPriceLabel?.text = String(itemsArray[indexPath.row].price)
@@ -82,9 +76,10 @@ class MenuItemTableViewController: UITableViewController {
 //    }
 }
 
-extension MenuItemTableViewController: MenuCollectionDelegate {
+extension MenuItemTableViewController: MenuRowDelegate {
     func didTapCell(_ item: MenuItem) {
-        orderViewController?.printItemName(item: item)
+        //print("We tapped")
+        //orderViewController?.printItemName(item: item)
         orderViewController?.orderItemsArray.append(item)
         orderViewController?.refreshUI()
     }
