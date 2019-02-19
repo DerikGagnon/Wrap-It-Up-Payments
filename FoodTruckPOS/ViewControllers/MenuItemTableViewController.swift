@@ -8,23 +8,21 @@
 
 import UIKit
 
-
+protocol MenuCollectionDelegate: class {
+    func didTapCell(_ item: MenuItem)
+}
 
 class MenuItemTableViewController: UITableViewController {
     
     let categories = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Dessert"]
     
-    let itemsArray = [
-        MenuItem(name: "Burger", price: 8.99, image: "burger", type: "Entrees"),
-        MenuItem(name: "Hotdog", price: 5.99, image: "hotdog", type: "Entrees"),
-        MenuItem(name: "Bean Burrito", price: 8.99, image: "bean_burrito", type: "Entrees")
-    ]
-    
     var orderViewController: YourOrderViewController? = nil
+    
+    weak var delegate: MenuCollectionDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableView.rowHeight = 250
+        tableView.rowHeight = 250
         
         if let split = splitViewController {
             let controllers = split.viewControllers
@@ -62,24 +60,32 @@ class MenuItemTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemsArray.count
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //self.tableView.register(SightsCell.self, forCellReuseIdentifier: "SightCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! MenuItemCell
         
-        cell.menuImageView?.image = UIImage(named: itemsArray[indexPath.row].image)
-        cell.menuNameLabel?.text = itemsArray[indexPath.row].name
-        cell.menuPriceLabel?.text = String(itemsArray[indexPath.row].price)
+//        cell.menuImageView?.image = UIImage(named: itemsArray[indexPath.row].image)
+//        cell.menuNameLabel?.text = itemsArray[indexPath.row].name
+//        cell.menuPriceLabel?.text = String(itemsArray[indexPath.row].price)
         
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedItem = itemsArray[indexPath.row]
-        orderViewController?.printItemName(item: selectedItem)
-        orderViewController?.orderItemsArray.append(selectedItem)
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let selectedItem = itemsArray[indexPath.row]
+//        orderViewController?.printItemName(item: selectedItem)
+//        orderViewController?.orderItemsArray.append(selectedItem)
+//        orderViewController?.refreshUI()
+//    }
+}
+
+extension MenuItemTableViewController: MenuCollectionDelegate {
+    func didTapCell(_ item: MenuItem) {
+        orderViewController?.printItemName(item: item)
+        orderViewController?.orderItemsArray.append(item)
         orderViewController?.refreshUI()
     }
 }

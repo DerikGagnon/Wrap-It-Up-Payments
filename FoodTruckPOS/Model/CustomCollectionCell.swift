@@ -2,15 +2,15 @@
 //  CustomCollectionCell.swift
 //  FoodTruckPOS
 //
-//  Created by Derik Gagnon on 2/4/19.
+//  Created by Derik Gagnon on 2/19/19.
 //  Copyright © 2019 Derik Gagnon. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import Foundation
 
-class CustomCollectionCell: UICollectionViewCell {
-    @IBOutlet var collectionImageView: UIImageView!
-    @IBOutlet var collectionName: UILabel!
-    @IBOutlet var collectionPrice: UILabel!
+class MenuCollectionCell: UICollectionViewCell {
+    @IBOutlet var itemImage: UIImageView?
+    @IBOutlet var itemName: UILabel?
+    @IBOutlet var itemPrice: UILabel?
 }
