@@ -184,7 +184,7 @@
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </collectionViewFlowLayout>
                                             <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="4IR-98-56b">
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="4IR-98-56b" customClass="MenuCollectionCell" customModule="FoodTruckPOS" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="280" height="229"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -221,6 +221,11 @@
                                                         <constraint firstItem="cFa-kd-KsY" firstAttribute="top" secondItem="AC3-fn-nIq" secondAttribute="bottom" constant="15" id="pe4-x5-LEY"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="AC3-fn-nIq" secondAttribute="trailing" constant="2" id="tD6-Nf-3WL"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outlet property="itemImage" destination="DRs-o4-qgR" id="vh5-h7-OrM"/>
+                                                        <outlet property="itemName" destination="AC3-fn-nIq" id="nwt-bz-ZL3"/>
+                                                        <outlet property="itemPrice" destination="cFa-kd-KsY" id="c2F-aq-NSz"/>
+                                                    </connections>
                                                 </collectionViewCell>
                                             </cells>
                                             <connections>
