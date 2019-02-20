@@ -16,8 +16,8 @@
 		63CE57F221ADB14C00962B65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63CE57F021ADB14C00962B65 /* Main.storyboard */; };
 		63CE57F421ADB14F00962B65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63CE57F321ADB14F00962B65 /* Assets.xcassets */; };
 		63CE57F721ADB14F00962B65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63CE57F521ADB14F00962B65 /* LaunchScreen.storyboard */; };
-		63CE580221ADB14F00962B65 /* FoodTruckPOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CE580121ADB14F00962B65 /* FoodTruckPOSTests.swift */; };
-		63CE580D21ADB14F00962B65 /* FoodTruckPOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CE580C21ADB14F00962B65 /* FoodTruckPOSUITests.swift */; };
+		63CE580221ADB14F00962B65 /* WrapItUpPaymentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CE580121ADB14F00962B65 /* WrapItUpPaymentsTests.swift */; };
+		63CE580D21ADB14F00962B65 /* WrapItUpPaymentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CE580C21ADB14F00962B65 /* WrapItUpPaymentsUITests.swift */; };
 		63F2BBD92218DF960035368C /* YourOrderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F2BBD82218DF960035368C /* YourOrderTableCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,17 +44,17 @@
 		6376CA0221B6056E000F9952 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		6376CA0521B6089F000F9952 /* MenuItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewController.swift; sourceTree = "<group>"; };
 		63BCC616221C721500CFEE8D /* MenuCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
-		63CE57E921ADB14C00962B65 /* FoodTruckPOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTruckPOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63CE57E921ADB14C00962B65 /* WrapItUpPayments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WrapItUpPayments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63CE57EC21ADB14C00962B65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63CE57F121ADB14C00962B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63CE57F321ADB14F00962B65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63CE57F621ADB14F00962B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63CE57F821ADB14F00962B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63CE57FD21ADB14F00962B65 /* FoodTruckPOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTruckPOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		63CE580121ADB14F00962B65 /* FoodTruckPOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckPOSTests.swift; sourceTree = "<group>"; };
+		63CE57FD21ADB14F00962B65 /* WrapItUpPaymentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WrapItUpPaymentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		63CE580121ADB14F00962B65 /* WrapItUpPaymentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapItUpPaymentsTests.swift; sourceTree = "<group>"; };
 		63CE580321ADB14F00962B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63CE580821ADB14F00962B65 /* FoodTruckPOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTruckPOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		63CE580C21ADB14F00962B65 /* FoodTruckPOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckPOSUITests.swift; sourceTree = "<group>"; };
+		63CE580821ADB14F00962B65 /* WrapItUpPaymentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WrapItUpPaymentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		63CE580C21ADB14F00962B65 /* WrapItUpPaymentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapItUpPaymentsUITests.swift; sourceTree = "<group>"; };
 		63CE580E21ADB14F00962B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63F2BBD82218DF960035368C /* YourOrderTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourOrderTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,9 +107,9 @@
 		63CE57E021ADB14C00962B65 = {
 			isa = PBXGroup;
 			children = (
-				63CE57EB21ADB14C00962B65 /* FoodTruckPOS */,
-				63CE580021ADB14F00962B65 /* FoodTruckPOSTests */,
-				63CE580B21ADB14F00962B65 /* FoodTruckPOSUITests */,
+				63CE57EB21ADB14C00962B65 /* WrapItUpPayments */,
+				63CE580021ADB14F00962B65 /* WrapItUpPaymentsTests */,
+				63CE580B21ADB14F00962B65 /* WrapItUpPaymentsUITests */,
 				63CE57EA21ADB14C00962B65 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,14 +117,14 @@
 		63CE57EA21ADB14C00962B65 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63CE57E921ADB14C00962B65 /* FoodTruckPOS.app */,
-				63CE57FD21ADB14F00962B65 /* FoodTruckPOSTests.xctest */,
-				63CE580821ADB14F00962B65 /* FoodTruckPOSUITests.xctest */,
+				63CE57E921ADB14C00962B65 /* WrapItUpPayments.app */,
+				63CE57FD21ADB14F00962B65 /* WrapItUpPaymentsTests.xctest */,
+				63CE580821ADB14F00962B65 /* WrapItUpPaymentsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		63CE57EB21ADB14C00962B65 /* FoodTruckPOS */ = {
+		63CE57EB21ADB14C00962B65 /* WrapItUpPayments */ = {
 			isa = PBXGroup;
 			children = (
 				632650162208B9CC00138B8B /* ViewControllers */,
@@ -135,33 +135,33 @@
 				63CE57F521ADB14F00962B65 /* LaunchScreen.storyboard */,
 				63CE57F821ADB14F00962B65 /* Info.plist */,
 			);
-			path = FoodTruckPOS;
+			path = WrapItUpPayments;
 			sourceTree = "<group>";
 		};
-		63CE580021ADB14F00962B65 /* FoodTruckPOSTests */ = {
+		63CE580021ADB14F00962B65 /* WrapItUpPaymentsTests */ = {
 			isa = PBXGroup;
 			children = (
-				63CE580121ADB14F00962B65 /* FoodTruckPOSTests.swift */,
+				63CE580121ADB14F00962B65 /* WrapItUpPaymentsTests.swift */,
 				63CE580321ADB14F00962B65 /* Info.plist */,
 			);
-			path = FoodTruckPOSTests;
+			path = WrapItUpPaymentsTests;
 			sourceTree = "<group>";
 		};
-		63CE580B21ADB14F00962B65 /* FoodTruckPOSUITests */ = {
+		63CE580B21ADB14F00962B65 /* WrapItUpPaymentsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				63CE580C21ADB14F00962B65 /* FoodTruckPOSUITests.swift */,
+				63CE580C21ADB14F00962B65 /* WrapItUpPaymentsUITests.swift */,
 				63CE580E21ADB14F00962B65 /* Info.plist */,
 			);
-			path = FoodTruckPOSUITests;
+			path = WrapItUpPaymentsUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		63CE57E821ADB14C00962B65 /* FoodTruckPOS */ = {
+		63CE57E821ADB14C00962B65 /* WrapItUpPayments */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63CE581121ADB14F00962B65 /* Build configuration list for PBXNativeTarget "FoodTruckPOS" */;
+			buildConfigurationList = 63CE581121ADB14F00962B65 /* Build configuration list for PBXNativeTarget "WrapItUpPayments" */;
 			buildPhases = (
 				63CE57E521ADB14C00962B65 /* Sources */,
 				63CE57E621ADB14C00962B65 /* Frameworks */,
@@ -171,14 +171,14 @@
 			);
 			dependencies = (
 			);
-			name = FoodTruckPOS;
+			name = WrapItUpPayments;
 			productName = FoodTruckPOS;
-			productReference = 63CE57E921ADB14C00962B65 /* FoodTruckPOS.app */;
+			productReference = 63CE57E921ADB14C00962B65 /* WrapItUpPayments.app */;
 			productType = "com.apple.product-type.application";
 		};
-		63CE57FC21ADB14F00962B65 /* FoodTruckPOSTests */ = {
+		63CE57FC21ADB14F00962B65 /* WrapItUpPaymentsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63CE581421ADB14F00962B65 /* Build configuration list for PBXNativeTarget "FoodTruckPOSTests" */;
+			buildConfigurationList = 63CE581421ADB14F00962B65 /* Build configuration list for PBXNativeTarget "WrapItUpPaymentsTests" */;
 			buildPhases = (
 				63CE57F921ADB14F00962B65 /* Sources */,
 				63CE57FA21ADB14F00962B65 /* Frameworks */,
@@ -189,14 +189,14 @@
 			dependencies = (
 				63CE57FF21ADB14F00962B65 /* PBXTargetDependency */,
 			);
-			name = FoodTruckPOSTests;
+			name = WrapItUpPaymentsTests;
 			productName = FoodTruckPOSTests;
-			productReference = 63CE57FD21ADB14F00962B65 /* FoodTruckPOSTests.xctest */;
+			productReference = 63CE57FD21ADB14F00962B65 /* WrapItUpPaymentsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		63CE580721ADB14F00962B65 /* FoodTruckPOSUITests */ = {
+		63CE580721ADB14F00962B65 /* WrapItUpPaymentsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63CE581721ADB14F00962B65 /* Build configuration list for PBXNativeTarget "FoodTruckPOSUITests" */;
+			buildConfigurationList = 63CE581721ADB14F00962B65 /* Build configuration list for PBXNativeTarget "WrapItUpPaymentsUITests" */;
 			buildPhases = (
 				63CE580421ADB14F00962B65 /* Sources */,
 				63CE580521ADB14F00962B65 /* Frameworks */,
@@ -207,9 +207,9 @@
 			dependencies = (
 				63CE580A21ADB14F00962B65 /* PBXTargetDependency */,
 			);
-			name = FoodTruckPOSUITests;
+			name = WrapItUpPaymentsUITests;
 			productName = FoodTruckPOSUITests;
-			productReference = 63CE580821ADB14F00962B65 /* FoodTruckPOSUITests.xctest */;
+			productReference = 63CE580821ADB14F00962B65 /* WrapItUpPaymentsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -235,7 +235,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 63CE57E421ADB14C00962B65 /* Build configuration list for PBXProject "FoodTruckPOS" */;
+			buildConfigurationList = 63CE57E421ADB14C00962B65 /* Build configuration list for PBXProject "WrapItUpPayments" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -248,9 +248,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				63CE57E821ADB14C00962B65 /* FoodTruckPOS */,
-				63CE57FC21ADB14F00962B65 /* FoodTruckPOSTests */,
-				63CE580721ADB14F00962B65 /* FoodTruckPOSUITests */,
+				63CE57E821ADB14C00962B65 /* WrapItUpPayments */,
+				63CE57FC21ADB14F00962B65 /* WrapItUpPaymentsTests */,
+				63CE580721ADB14F00962B65 /* WrapItUpPaymentsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -301,7 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63CE580221ADB14F00962B65 /* FoodTruckPOSTests.swift in Sources */,
+				63CE580221ADB14F00962B65 /* WrapItUpPaymentsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63CE580D21ADB14F00962B65 /* FoodTruckPOSUITests.swift in Sources */,
+				63CE580D21ADB14F00962B65 /* WrapItUpPaymentsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,12 +318,12 @@
 /* Begin PBXTargetDependency section */
 		63CE57FF21ADB14F00962B65 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 63CE57E821ADB14C00962B65 /* FoodTruckPOS */;
+			target = 63CE57E821ADB14C00962B65 /* WrapItUpPayments */;
 			targetProxy = 63CE57FE21ADB14F00962B65 /* PBXContainerItemProxy */;
 		};
 		63CE580A21ADB14F00962B65 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 63CE57E821ADB14C00962B65 /* FoodTruckPOS */;
+			target = 63CE57E821ADB14C00962B65 /* WrapItUpPayments */;
 			targetProxy = 63CE580921ADB14F00962B65 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -469,12 +469,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FoodTruckPOS/Info.plist;
+				INFOPLIST_FILE = WrapItUpPayments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = undergrad.FoodTruckPOS;
+				PRODUCT_BUNDLE_IDENTIFIER = undergrad.WrapItUpPayments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -486,12 +486,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FoodTruckPOS/Info.plist;
+				INFOPLIST_FILE = WrapItUpPayments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = undergrad.FoodTruckPOS;
+				PRODUCT_BUNDLE_IDENTIFIER = undergrad.WrapItUpPayments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -514,7 +514,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodTruckPOS.app/FoodTruckPOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WrapItUpPayments.app/WrapItUpPayments";
 			};
 			name = Debug;
 		};
@@ -534,7 +534,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodTruckPOS.app/FoodTruckPOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WrapItUpPayments.app/WrapItUpPayments";
 			};
 			name = Release;
 		};
@@ -579,7 +579,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		63CE57E421ADB14C00962B65 /* Build configuration list for PBXProject "FoodTruckPOS" */ = {
+		63CE57E421ADB14C00962B65 /* Build configuration list for PBXProject "WrapItUpPayments" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63CE580F21ADB14F00962B65 /* Debug */,
@@ -588,7 +588,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63CE581121ADB14F00962B65 /* Build configuration list for PBXNativeTarget "FoodTruckPOS" */ = {
+		63CE581121ADB14F00962B65 /* Build configuration list for PBXNativeTarget "WrapItUpPayments" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63CE581221ADB14F00962B65 /* Debug */,
@@ -597,7 +597,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63CE581421ADB14F00962B65 /* Build configuration list for PBXNativeTarget "FoodTruckPOSTests" */ = {
+		63CE581421ADB14F00962B65 /* Build configuration list for PBXNativeTarget "WrapItUpPaymentsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63CE581521ADB14F00962B65 /* Debug */,
@@ -606,7 +606,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63CE581721ADB14F00962B65 /* Build configuration list for PBXNativeTarget "FoodTruckPOSUITests" */ = {
+		63CE581721ADB14F00962B65 /* Build configuration list for PBXNativeTarget "WrapItUpPaymentsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63CE581821ADB14F00962B65 /* Debug */,
