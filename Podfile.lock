@@ -1,0 +1,16 @@
+PODS:
+  - SquarePointOfSaleSDK (3.3.1)
+
+DEPENDENCIES:
+  - SquarePointOfSaleSDK
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SquarePointOfSaleSDK
+
+SPEC CHECKSUMS:
+  SquarePointOfSaleSDK: f1640fd16fe44083cd715157a5031efebc693454
+
+PODFILE CHECKSUM: b4f2b36c01d291824eeb93d75a59520e3959f021
+
+COCOAPODS: 1.6.0

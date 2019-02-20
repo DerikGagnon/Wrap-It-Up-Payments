@@ -1,0 +1,1041 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		092215A95CC624FD440B794B41740259 /* NSError+SCCAPIAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A7FB17A5F8561A95CAD1AE53C865CE44 /* NSError+SCCAPIAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		146BEDEA33E7E99B520EDEF12A059D6E /* NSURL+SCCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B841B65D08F455AFEE1CDE1010805D /* NSURL+SCCAdditions.m */; };
+		1ED0AAF28454A9E431A699B8B8F6B370 /* SCCAPIConnection_Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = 608CF8A8D3B07709BEB0CA6B236E0775 /* SCCAPIConnection_Testing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		28765B6572ACB2E70B0859513BBF0263 /* Pods-WrapItUpPaymentsTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F27C39BC7DCB403D0443BAD2A3897B99 /* Pods-WrapItUpPaymentsTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38A184FFF4D3D785B6C7E592D0C309E0 /* NSError+SCCAPIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BAD4732D570C6D4865660B50BF6AD55 /* NSError+SCCAPIAdditions.m */; };
+		3B441443DF7E1E6BEA58853C83A52607 /* NSError+SCCAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D17DF02606578EEFEEF9C6D18F719EFF /* NSError+SCCAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		452C556C3A72A9E1B9098BC2100DED3A /* NSError+SCCAPISerializationAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 32391D08508C86C27CC583051C360E05 /* NSError+SCCAPISerializationAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50B26A5FA91D8EFEE28B97F09EEE97B4 /* NSURL+SCCAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF69995A8552DC5905841C86DBA8EDD /* NSURL+SCCAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		58C455801A56C68EEA6F3B354F3358BC /* SCCAPIConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C8DB926CCD0576701D82A5B065E89B8 /* SCCAPIConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B9D3C86321FF57770FCCD7956E52CA5 /* SCCAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 781EAFADA219D1738DF2E5A4C97AEC41 /* SCCAPIResponse.m */; };
+		611E765C82478278120D84C21471CCE4 /* NSDictionary+SCCAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 491AE9C963811E3AE1529821FB22AE94 /* NSDictionary+SCCAdditions.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		6610CC82E43BD3E20CE1F059D7621190 /* NSDictionary+SCCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDE3AE9FAD259EDE74DA41F27A6116C /* NSDictionary+SCCAdditions.m */; };
+		66455F5190FB120CD93583C3E2F374E7 /* SCCMoney.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A90479FAF3CE4C14C2F7364B5C5B1A /* SCCMoney.m */; };
+		6F6115120F1EB4799F1E2198F9A730B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		72A434767787837F1419D8554557DE28 /* Pods-WrapItUpPayments-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 02DA05346A26B41AF730817E00B2516A /* Pods-WrapItUpPayments-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75D15020EE7ADB3B2910FC1CC1784B15 /* SCCMoney+Serialization.h in Headers */ = {isa = PBXBuildFile; fileRef = F2EF65D26CE47DE5DACD441C6FBDEF8A /* SCCMoney+Serialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		76A1A8A6746D8972ECC59BCB0BDA4C0F /* SquarePointOfSaleSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 70283CD2C8C5CA52B1F2A7BECCC79592 /* SquarePointOfSaleSDK-dummy.m */; };
+		7769FF6A66CD07260092877F8828D23A /* SCCMoney.h in Headers */ = {isa = PBXBuildFile; fileRef = 46D7B326E0CCCEFFDF28AC2CDAF69B18 /* SCCMoney.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		798D1F42FBD2A783A59BCFA81F1224DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		94A36FF4ACD93C944AA54E6B4EA679F0 /* Pods-WrapItUpPaymentsUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 70C5F1658261A36C10976DB6E86A096B /* Pods-WrapItUpPaymentsUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99DD5D3842AA478C30D55C79D354E7A5 /* Pods-WrapItUpPayments-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 119FB8A8B60C8EEC474909D4EC360025 /* Pods-WrapItUpPayments-dummy.m */; };
+		A5A07B95EC5BCF94F871A46ACB1471F5 /* SCCAPIResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = AB55B964FC0F11DDF42EFAB082F71BAA /* SCCAPIResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1EFE0C0113C1BA27C066BB14D0D3691 /* SCCAPIRequest+Serialization.h in Headers */ = {isa = PBXBuildFile; fileRef = F83380F1F95CDFEF262DC8AE3CD3CFFF /* SCCAPIRequest+Serialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B5F06E5E9538659B64D2F8F8EC427680 /* NSError+SCCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9F6815A2797DB76AE68DCD972CAA6D /* NSError+SCCAdditions.m */; };
+		C174C461BEBCB5045C997626157A6060 /* SCCAPIRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B732C339E9C82988909381582E2FD754 /* SCCAPIRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C1BB139DAA78EB1A589EBABB4600DF81 /* SCCAPIResponse+Serialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 0221BC2B8FF1DC74047CE33E34351753 /* SCCAPIResponse+Serialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C6D690D42BF61DAE67748BA4985FB6A3 /* SCCAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFC1EE1AC073343AEEE84E28011C8EC /* SCCAPIRequest.m */; };
+		CEF05B8E6F2DC08D3E0CDD19EE61FF20 /* Pods-WrapItUpPaymentsTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C95ECC6462B6223BF56D0F8DC2C9D551 /* Pods-WrapItUpPaymentsTests-dummy.m */; };
+		D8FD47320462977D20E2ADE62020C681 /* Pods-WrapItUpPaymentsUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 12877FF3C53C422CCCDAE13B5090EDE4 /* Pods-WrapItUpPaymentsUITests-dummy.m */; };
+		E62BE9F0E05654EABF850E419E9B67F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		E660AF2B9D19349E29CA2D248F7DF597 /* SquarePointOfSaleSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7B038E8450362C749D1B42F94A8141 /* SquarePointOfSaleSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E868E9B304B7CDB40BFB9DDC1217EAA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		EBAB88710F75BAF9F7B94F1EC502C38B /* SCCAPIConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A33102E28850AE57E82FF0B6D2BD4 /* SCCAPIConnection.m */; };
+		FC9C7C1ACD1CC989F090B79BD6118B65 /* SquarePointOfSaleSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = F50C7B078189CB10D72B23A9D94FA5CD /* SquarePointOfSaleSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		954BD73EEED1A3CC306AD7927FBB29AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F46447FAAB00BE600AE4413156EAFF1;
+			remoteInfo = "Pods-WrapItUpPayments";
+		};
+		A9E7FBF3BFA79FDDD3B990F1B1D4FC18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1216D959C89895BD59923186C0051429;
+			remoteInfo = SquarePointOfSaleSDK;
+		};
+		E4E5190154CB623CCC16DCA21B4827D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F46447FAAB00BE600AE4413156EAFF1;
+			remoteInfo = "Pods-WrapItUpPayments";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0221BC2B8FF1DC74047CE33E34351753 /* SCCAPIResponse+Serialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SCCAPIResponse+Serialization.h"; path = "Sources/Categories/SCCAPIResponse+Serialization.h"; sourceTree = "<group>"; };
+		02DA05346A26B41AF730817E00B2516A /* Pods-WrapItUpPayments-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WrapItUpPayments-umbrella.h"; sourceTree = "<group>"; };
+		0BAD4732D570C6D4865660B50BF6AD55 /* NSError+SCCAPIAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSError+SCCAPIAdditions.m"; path = "Sources/Categories/NSError+SCCAPIAdditions.m"; sourceTree = "<group>"; };
+		0E94497561AE0FB2D703289AF2C63376 /* Pods-WrapItUpPayments-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WrapItUpPayments-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0EFE357C58F21FDCAD024AB36F3BECC7 /* Pods-WrapItUpPaymentsUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WrapItUpPaymentsUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0F9F6815A2797DB76AE68DCD972CAA6D /* NSError+SCCAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSError+SCCAdditions.m"; path = "Sources/Categories/NSError+SCCAdditions.m"; sourceTree = "<group>"; };
+		119FB8A8B60C8EEC474909D4EC360025 /* Pods-WrapItUpPayments-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WrapItUpPayments-dummy.m"; sourceTree = "<group>"; };
+		1216B1F4B7CF3C3F84BCE185DFE57EF9 /* Pods-WrapItUpPaymentsUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WrapItUpPaymentsUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		12877FF3C53C422CCCDAE13B5090EDE4 /* Pods-WrapItUpPaymentsUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WrapItUpPaymentsUITests-dummy.m"; sourceTree = "<group>"; };
+		138B1D8B6585FCEDECA0EB4054A37F32 /* SquarePointOfSaleSDK-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SquarePointOfSaleSDK-Info.plist"; sourceTree = "<group>"; };
+		194CCD7982F1C3E12F73EA180D8D72B5 /* Pods-WrapItUpPaymentsUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WrapItUpPaymentsUITests-Info.plist"; sourceTree = "<group>"; };
+		1AC76706DB1DA6D17A2B72417C64A2FA /* Pods-WrapItUpPayments-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WrapItUpPayments-acknowledgements.plist"; sourceTree = "<group>"; };
+		1C8DB926CCD0576701D82A5B065E89B8 /* SCCAPIConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCCAPIConnection.h; path = Sources/SCCAPIConnection.h; sourceTree = "<group>"; };
+		1FF69995A8552DC5905841C86DBA8EDD /* NSURL+SCCAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURL+SCCAdditions.h"; path = "Sources/Categories/NSURL+SCCAdditions.h"; sourceTree = "<group>"; };
+		2A9865AD8A0C69BAAE178FDB7DA8118B /* Pods-WrapItUpPaymentsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WrapItUpPaymentsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2C7B038E8450362C749D1B42F94A8141 /* SquarePointOfSaleSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SquarePointOfSaleSDK-umbrella.h"; sourceTree = "<group>"; };
+		32391D08508C86C27CC583051C360E05 /* NSError+SCCAPISerializationAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+SCCAPISerializationAdditions.h"; path = "Sources/Categories/NSError+SCCAPISerializationAdditions.h"; sourceTree = "<group>"; };
+		33ADEFC9DACC7B19CC6152FFB2D2C630 /* Pods-WrapItUpPayments.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WrapItUpPayments.modulemap"; sourceTree = "<group>"; };
+		3A0A33102E28850AE57E82FF0B6D2BD4 /* SCCAPIConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCCAPIConnection.m; path = Sources/SCCAPIConnection.m; sourceTree = "<group>"; };
+		3DEC6BD4C8830FE07896293D002C36C8 /* SquarePointOfSaleSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SquarePointOfSaleSDK.xcconfig; sourceTree = "<group>"; };
+		42A90479FAF3CE4C14C2F7364B5C5B1A /* SCCMoney.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCCMoney.m; path = Sources/SCCMoney.m; sourceTree = "<group>"; };
+		46D7B326E0CCCEFFDF28AC2CDAF69B18 /* SCCMoney.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCCMoney.h; path = Sources/SCCMoney.h; sourceTree = "<group>"; };
+		491AE9C963811E3AE1529821FB22AE94 /* NSDictionary+SCCAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+SCCAdditions.h"; path = "Sources/Categories/NSDictionary+SCCAdditions.h"; sourceTree = "<group>"; };
+		4F1EA05379787B1A6C8BE26951BFB780 /* Pods-WrapItUpPaymentsTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WrapItUpPaymentsTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		508C6D3A41D675EFE2109DD19A0E978A /* Pods-WrapItUpPaymentsTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WrapItUpPaymentsTests-Info.plist"; sourceTree = "<group>"; };
+		592AEF0E2F315B543966D78CCFB5A5A9 /* Pods_WrapItUpPaymentsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WrapItUpPaymentsUITests.framework; path = "Pods-WrapItUpPaymentsUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		608CF8A8D3B07709BEB0CA6B236E0775 /* SCCAPIConnection_Testing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCCAPIConnection_Testing.h; path = Sources/SCCAPIConnection_Testing.h; sourceTree = "<group>"; };
+		613C534596A4697FC134A7D971A81785 /* Pods-WrapItUpPaymentsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WrapItUpPaymentsTests.release.xcconfig"; sourceTree = "<group>"; };
+		65992CBF440B3FE4ABFB20FFA89C01A0 /* SquarePointOfSaleSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SquarePointOfSaleSDK-prefix.pch"; sourceTree = "<group>"; };
+		66C78508717A42FC69879F5136CCB96D /* Pods-WrapItUpPaymentsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WrapItUpPaymentsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		70283CD2C8C5CA52B1F2A7BECCC79592 /* SquarePointOfSaleSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SquarePointOfSaleSDK-dummy.m"; sourceTree = "<group>"; };
+		70C5F1658261A36C10976DB6E86A096B /* Pods-WrapItUpPaymentsUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WrapItUpPaymentsUITests-umbrella.h"; sourceTree = "<group>"; };
+		72B0BC3312FDE7D1A2F1647B3579B95F /* Pods-WrapItUpPaymentsUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WrapItUpPaymentsUITests.modulemap"; sourceTree = "<group>"; };
+		781EAFADA219D1738DF2E5A4C97AEC41 /* SCCAPIResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCCAPIResponse.m; path = Sources/SCCAPIResponse.m; sourceTree = "<group>"; };
+		88B841B65D08F455AFEE1CDE1010805D /* NSURL+SCCAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURL+SCCAdditions.m"; path = "Sources/Categories/NSURL+SCCAdditions.m"; sourceTree = "<group>"; };
+		8F000A141308FCCD306412F91C3E76D3 /* Pods-WrapItUpPayments-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WrapItUpPayments-frameworks.sh"; sourceTree = "<group>"; };
+		9907F60C0C1708ACAAC700EA0A639402 /* Pods-WrapItUpPayments-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WrapItUpPayments-Info.plist"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A7FB17A5F8561A95CAD1AE53C865CE44 /* NSError+SCCAPIAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+SCCAPIAdditions.h"; path = "Sources/Categories/NSError+SCCAPIAdditions.h"; sourceTree = "<group>"; };
+		AB55B964FC0F11DDF42EFAB082F71BAA /* SCCAPIResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCCAPIResponse.h; path = Sources/SCCAPIResponse.h; sourceTree = "<group>"; };
+		B55E0786689F24DA14620D15AA01BC73 /* Pods-WrapItUpPaymentsTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WrapItUpPaymentsTests.modulemap"; sourceTree = "<group>"; };
+		B732C339E9C82988909381582E2FD754 /* SCCAPIRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCCAPIRequest.h; path = Sources/SCCAPIRequest.h; sourceTree = "<group>"; };
+		BBFC1EE1AC073343AEEE84E28011C8EC /* SCCAPIRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCCAPIRequest.m; path = Sources/SCCAPIRequest.m; sourceTree = "<group>"; };
+		C95ECC6462B6223BF56D0F8DC2C9D551 /* Pods-WrapItUpPaymentsTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WrapItUpPaymentsTests-dummy.m"; sourceTree = "<group>"; };
+		CA154423B7011F896CFA8082E49B273F /* Pods_WrapItUpPaymentsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WrapItUpPaymentsTests.framework; path = "Pods-WrapItUpPaymentsTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		CE08ABEB027C511DE6E27C04C384ABD3 /* Pods_WrapItUpPayments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WrapItUpPayments.framework; path = "Pods-WrapItUpPayments.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE310F54847BF6841052119AFABA10F4 /* Pods-WrapItUpPaymentsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WrapItUpPaymentsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D17DF02606578EEFEEF9C6D18F719EFF /* NSError+SCCAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+SCCAdditions.h"; path = "Sources/Categories/NSError+SCCAdditions.h"; sourceTree = "<group>"; };
+		D3405EB88F92C91E1DEEEFB9DF333155 /* Pods-WrapItUpPaymentsTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WrapItUpPaymentsTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		DF5A13EFDA739AB6E22C0C9C0796DF73 /* Pods-WrapItUpPayments.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WrapItUpPayments.debug.xcconfig"; sourceTree = "<group>"; };
+		DFDE3AE9FAD259EDE74DA41F27A6116C /* NSDictionary+SCCAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+SCCAdditions.m"; path = "Sources/Categories/NSDictionary+SCCAdditions.m"; sourceTree = "<group>"; };
+		F27C39BC7DCB403D0443BAD2A3897B99 /* Pods-WrapItUpPaymentsTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WrapItUpPaymentsTests-umbrella.h"; sourceTree = "<group>"; };
+		F2EF65D26CE47DE5DACD441C6FBDEF8A /* SCCMoney+Serialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SCCMoney+Serialization.h"; path = "Sources/Categories/SCCMoney+Serialization.h"; sourceTree = "<group>"; };
+		F50C7B078189CB10D72B23A9D94FA5CD /* SquarePointOfSaleSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SquarePointOfSaleSDK.h; path = Sources/SquarePointOfSaleSDK.h; sourceTree = "<group>"; };
+		F59FA465BF4B6B21B02CE739357A611C /* Pods-WrapItUpPayments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WrapItUpPayments.release.xcconfig"; sourceTree = "<group>"; };
+		F681FE6492D1CADED9B0F197D55CEF89 /* SquarePointOfSaleSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SquarePointOfSaleSDK.modulemap; sourceTree = "<group>"; };
+		F83380F1F95CDFEF262DC8AE3CD3CFFF /* SCCAPIRequest+Serialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SCCAPIRequest+Serialization.h"; path = "Sources/Categories/SCCAPIRequest+Serialization.h"; sourceTree = "<group>"; };
+		FAB574A724C578DC8C359E9CD8F346A9 /* SquarePointOfSaleSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SquarePointOfSaleSDK.framework; path = SquarePointOfSaleSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2CEC8FEC8364284851C4351E9A26D679 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E868E9B304B7CDB40BFB9DDC1217EAA9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B6FB0F6E16D7C3FB5A37313640AC54D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F6115120F1EB4799F1E2198F9A730B6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6DF47BC4C8D95280A841DB64A898DE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				798D1F42FBD2A783A59BCFA81F1224DD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8F5E756EFB87B95714CCF70FEF6AB40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E62BE9F0E05654EABF850E419E9B67F7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0667879BB870772DE2AC33EC3D7D5323 /* Pods-WrapItUpPaymentsTests */ = {
+			isa = PBXGroup;
+			children = (
+				B55E0786689F24DA14620D15AA01BC73 /* Pods-WrapItUpPaymentsTests.modulemap */,
+				4F1EA05379787B1A6C8BE26951BFB780 /* Pods-WrapItUpPaymentsTests-acknowledgements.markdown */,
+				D3405EB88F92C91E1DEEEFB9DF333155 /* Pods-WrapItUpPaymentsTests-acknowledgements.plist */,
+				C95ECC6462B6223BF56D0F8DC2C9D551 /* Pods-WrapItUpPaymentsTests-dummy.m */,
+				508C6D3A41D675EFE2109DD19A0E978A /* Pods-WrapItUpPaymentsTests-Info.plist */,
+				F27C39BC7DCB403D0443BAD2A3897B99 /* Pods-WrapItUpPaymentsTests-umbrella.h */,
+				66C78508717A42FC69879F5136CCB96D /* Pods-WrapItUpPaymentsTests.debug.xcconfig */,
+				613C534596A4697FC134A7D971A81785 /* Pods-WrapItUpPaymentsTests.release.xcconfig */,
+			);
+			name = "Pods-WrapItUpPaymentsTests";
+			path = "Target Support Files/Pods-WrapItUpPaymentsTests";
+			sourceTree = "<group>";
+		};
+		0CA20A852EB54BA475F53863C63C5315 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1D293D136B2B93A85D9CCAF605C5B06 /* Pods-WrapItUpPayments */,
+				0667879BB870772DE2AC33EC3D7D5323 /* Pods-WrapItUpPaymentsTests */,
+				65AFCB3D1C00386A2ACE516A70A83C47 /* Pods-WrapItUpPaymentsUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		1A10654ED7CC3681EE4D015493FEEC14 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				884C6FBCFF172230A05125C93ED448EB /* SquarePointOfSaleSDK */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		220341C5760B91F82154E34B7F347760 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE08ABEB027C511DE6E27C04C384ABD3 /* Pods_WrapItUpPayments.framework */,
+				CA154423B7011F896CFA8082E49B273F /* Pods_WrapItUpPaymentsTests.framework */,
+				592AEF0E2F315B543966D78CCFB5A5A9 /* Pods_WrapItUpPaymentsUITests.framework */,
+				FAB574A724C578DC8C359E9CD8F346A9 /* SquarePointOfSaleSDK.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		43772A1FFF031CDCA86C329094992783 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F681FE6492D1CADED9B0F197D55CEF89 /* SquarePointOfSaleSDK.modulemap */,
+				3DEC6BD4C8830FE07896293D002C36C8 /* SquarePointOfSaleSDK.xcconfig */,
+				70283CD2C8C5CA52B1F2A7BECCC79592 /* SquarePointOfSaleSDK-dummy.m */,
+				138B1D8B6585FCEDECA0EB4054A37F32 /* SquarePointOfSaleSDK-Info.plist */,
+				65992CBF440B3FE4ABFB20FFA89C01A0 /* SquarePointOfSaleSDK-prefix.pch */,
+				2C7B038E8450362C749D1B42F94A8141 /* SquarePointOfSaleSDK-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SquarePointOfSaleSDK";
+			sourceTree = "<group>";
+		};
+		65AFCB3D1C00386A2ACE516A70A83C47 /* Pods-WrapItUpPaymentsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				72B0BC3312FDE7D1A2F1647B3579B95F /* Pods-WrapItUpPaymentsUITests.modulemap */,
+				0EFE357C58F21FDCAD024AB36F3BECC7 /* Pods-WrapItUpPaymentsUITests-acknowledgements.markdown */,
+				1216B1F4B7CF3C3F84BCE185DFE57EF9 /* Pods-WrapItUpPaymentsUITests-acknowledgements.plist */,
+				12877FF3C53C422CCCDAE13B5090EDE4 /* Pods-WrapItUpPaymentsUITests-dummy.m */,
+				194CCD7982F1C3E12F73EA180D8D72B5 /* Pods-WrapItUpPaymentsUITests-Info.plist */,
+				70C5F1658261A36C10976DB6E86A096B /* Pods-WrapItUpPaymentsUITests-umbrella.h */,
+				2A9865AD8A0C69BAAE178FDB7DA8118B /* Pods-WrapItUpPaymentsUITests.debug.xcconfig */,
+				CE310F54847BF6841052119AFABA10F4 /* Pods-WrapItUpPaymentsUITests.release.xcconfig */,
+			);
+			name = "Pods-WrapItUpPaymentsUITests";
+			path = "Target Support Files/Pods-WrapItUpPaymentsUITests";
+			sourceTree = "<group>";
+		};
+		884C6FBCFF172230A05125C93ED448EB /* SquarePointOfSaleSDK */ = {
+			isa = PBXGroup;
+			children = (
+				491AE9C963811E3AE1529821FB22AE94 /* NSDictionary+SCCAdditions.h */,
+				DFDE3AE9FAD259EDE74DA41F27A6116C /* NSDictionary+SCCAdditions.m */,
+				D17DF02606578EEFEEF9C6D18F719EFF /* NSError+SCCAdditions.h */,
+				0F9F6815A2797DB76AE68DCD972CAA6D /* NSError+SCCAdditions.m */,
+				A7FB17A5F8561A95CAD1AE53C865CE44 /* NSError+SCCAPIAdditions.h */,
+				0BAD4732D570C6D4865660B50BF6AD55 /* NSError+SCCAPIAdditions.m */,
+				32391D08508C86C27CC583051C360E05 /* NSError+SCCAPISerializationAdditions.h */,
+				1FF69995A8552DC5905841C86DBA8EDD /* NSURL+SCCAdditions.h */,
+				88B841B65D08F455AFEE1CDE1010805D /* NSURL+SCCAdditions.m */,
+				1C8DB926CCD0576701D82A5B065E89B8 /* SCCAPIConnection.h */,
+				3A0A33102E28850AE57E82FF0B6D2BD4 /* SCCAPIConnection.m */,
+				608CF8A8D3B07709BEB0CA6B236E0775 /* SCCAPIConnection_Testing.h */,
+				B732C339E9C82988909381582E2FD754 /* SCCAPIRequest.h */,
+				BBFC1EE1AC073343AEEE84E28011C8EC /* SCCAPIRequest.m */,
+				F83380F1F95CDFEF262DC8AE3CD3CFFF /* SCCAPIRequest+Serialization.h */,
+				AB55B964FC0F11DDF42EFAB082F71BAA /* SCCAPIResponse.h */,
+				781EAFADA219D1738DF2E5A4C97AEC41 /* SCCAPIResponse.m */,
+				0221BC2B8FF1DC74047CE33E34351753 /* SCCAPIResponse+Serialization.h */,
+				46D7B326E0CCCEFFDF28AC2CDAF69B18 /* SCCMoney.h */,
+				42A90479FAF3CE4C14C2F7364B5C5B1A /* SCCMoney.m */,
+				F2EF65D26CE47DE5DACD441C6FBDEF8A /* SCCMoney+Serialization.h */,
+				F50C7B078189CB10D72B23A9D94FA5CD /* SquarePointOfSaleSDK.h */,
+				43772A1FFF031CDCA86C329094992783 /* Support Files */,
+			);
+			name = SquarePointOfSaleSDK;
+			path = SquarePointOfSaleSDK;
+			sourceTree = "<group>";
+		};
+		9B055D0CFEA43187E72B03DED11F5662 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				1A10654ED7CC3681EE4D015493FEEC14 /* Pods */,
+				220341C5760B91F82154E34B7F347760 /* Products */,
+				0CA20A852EB54BA475F53863C63C5315 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B055D0CFEA43187E72B03DED11F5662 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1D293D136B2B93A85D9CCAF605C5B06 /* Pods-WrapItUpPayments */ = {
+			isa = PBXGroup;
+			children = (
+				33ADEFC9DACC7B19CC6152FFB2D2C630 /* Pods-WrapItUpPayments.modulemap */,
+				0E94497561AE0FB2D703289AF2C63376 /* Pods-WrapItUpPayments-acknowledgements.markdown */,
+				1AC76706DB1DA6D17A2B72417C64A2FA /* Pods-WrapItUpPayments-acknowledgements.plist */,
+				119FB8A8B60C8EEC474909D4EC360025 /* Pods-WrapItUpPayments-dummy.m */,
+				8F000A141308FCCD306412F91C3E76D3 /* Pods-WrapItUpPayments-frameworks.sh */,
+				9907F60C0C1708ACAAC700EA0A639402 /* Pods-WrapItUpPayments-Info.plist */,
+				02DA05346A26B41AF730817E00B2516A /* Pods-WrapItUpPayments-umbrella.h */,
+				DF5A13EFDA739AB6E22C0C9C0796DF73 /* Pods-WrapItUpPayments.debug.xcconfig */,
+				F59FA465BF4B6B21B02CE739357A611C /* Pods-WrapItUpPayments.release.xcconfig */,
+			);
+			name = "Pods-WrapItUpPayments";
+			path = "Target Support Files/Pods-WrapItUpPayments";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1CEC506B4F6E2CF7B4430CD98275B381 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72A434767787837F1419D8554557DE28 /* Pods-WrapItUpPayments-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49D619B42A626D3A324B720BFA74AB89 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				611E765C82478278120D84C21471CCE4 /* NSDictionary+SCCAdditions.h in Headers */,
+				3B441443DF7E1E6BEA58853C83A52607 /* NSError+SCCAdditions.h in Headers */,
+				092215A95CC624FD440B794B41740259 /* NSError+SCCAPIAdditions.h in Headers */,
+				452C556C3A72A9E1B9098BC2100DED3A /* NSError+SCCAPISerializationAdditions.h in Headers */,
+				50B26A5FA91D8EFEE28B97F09EEE97B4 /* NSURL+SCCAdditions.h in Headers */,
+				58C455801A56C68EEA6F3B354F3358BC /* SCCAPIConnection.h in Headers */,
+				1ED0AAF28454A9E431A699B8B8F6B370 /* SCCAPIConnection_Testing.h in Headers */,
+				B1EFE0C0113C1BA27C066BB14D0D3691 /* SCCAPIRequest+Serialization.h in Headers */,
+				C174C461BEBCB5045C997626157A6060 /* SCCAPIRequest.h in Headers */,
+				C1BB139DAA78EB1A589EBABB4600DF81 /* SCCAPIResponse+Serialization.h in Headers */,
+				A5A07B95EC5BCF94F871A46ACB1471F5 /* SCCAPIResponse.h in Headers */,
+				75D15020EE7ADB3B2910FC1CC1784B15 /* SCCMoney+Serialization.h in Headers */,
+				7769FF6A66CD07260092877F8828D23A /* SCCMoney.h in Headers */,
+				E660AF2B9D19349E29CA2D248F7DF597 /* SquarePointOfSaleSDK-umbrella.h in Headers */,
+				FC9C7C1ACD1CC989F090B79BD6118B65 /* SquarePointOfSaleSDK.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CA2BFB62F389EA972FDB330208398A7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A36FF4ACD93C944AA54E6B4EA679F0 /* Pods-WrapItUpPaymentsUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		999BA860B4DC2C17AC1614BD91544D92 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28765B6572ACB2E70B0859513BBF0263 /* Pods-WrapItUpPaymentsTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1216D959C89895BD59923186C0051429 /* SquarePointOfSaleSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4EE0A6CFC2A5EBC129FE5B4B6EEC2459 /* Build configuration list for PBXNativeTarget "SquarePointOfSaleSDK" */;
+			buildPhases = (
+				49D619B42A626D3A324B720BFA74AB89 /* Headers */,
+				95A1FF5875B809E354C650916E9C23C7 /* Sources */,
+				D6DF47BC4C8D95280A841DB64A898DE4 /* Frameworks */,
+				622F4E92711A1D110AECA368571CCAB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SquarePointOfSaleSDK;
+			productName = SquarePointOfSaleSDK;
+			productReference = FAB574A724C578DC8C359E9CD8F346A9 /* SquarePointOfSaleSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5B30AC445E11BDD76A3200A939C6D35E /* Pods-WrapItUpPaymentsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1904006A22ACAC523D3FE7E9C7809A6B /* Build configuration list for PBXNativeTarget "Pods-WrapItUpPaymentsTests" */;
+			buildPhases = (
+				999BA860B4DC2C17AC1614BD91544D92 /* Headers */,
+				425273C4A4BF973CE86A57ED3FCAD5F5 /* Sources */,
+				D8F5E756EFB87B95714CCF70FEF6AB40 /* Frameworks */,
+				948F2A9AF49E4D051D11D3AD4C6BA949 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				794F4D8AECEF8BFE9671F46BCDA41645 /* PBXTargetDependency */,
+			);
+			name = "Pods-WrapItUpPaymentsTests";
+			productName = "Pods-WrapItUpPaymentsTests";
+			productReference = CA154423B7011F896CFA8082E49B273F /* Pods_WrapItUpPaymentsTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9F46447FAAB00BE600AE4413156EAFF1 /* Pods-WrapItUpPayments */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09D8317A208EB7DCA5F54B16AAF13926 /* Build configuration list for PBXNativeTarget "Pods-WrapItUpPayments" */;
+			buildPhases = (
+				1CEC506B4F6E2CF7B4430CD98275B381 /* Headers */,
+				CF59EE8E3CC384E717DB0D8F52EAE7AC /* Sources */,
+				2CEC8FEC8364284851C4351E9A26D679 /* Frameworks */,
+				2FD7498B35641C86BC55C6621329CC84 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1F50B905012DCD426B6ECB826146B2F /* PBXTargetDependency */,
+			);
+			name = "Pods-WrapItUpPayments";
+			productName = "Pods-WrapItUpPayments";
+			productReference = CE08ABEB027C511DE6E27C04C384ABD3 /* Pods_WrapItUpPayments.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D4646ABFED2C3980A332238FCCFEF0B8 /* Pods-WrapItUpPaymentsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBD65D5577EE3328AD140E514C05B06C /* Build configuration list for PBXNativeTarget "Pods-WrapItUpPaymentsUITests" */;
+			buildPhases = (
+				6CA2BFB62F389EA972FDB330208398A7 /* Headers */,
+				8FCCB10039148D7A413E716C69EB6E8C /* Sources */,
+				5B6FB0F6E16D7C3FB5A37313640AC54D /* Frameworks */,
+				B144329556354D088A28D735A3F32A6A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F62998415C5EC326C0341ABD91B18915 /* PBXTargetDependency */,
+			);
+			name = "Pods-WrapItUpPaymentsUITests";
+			productName = "Pods-WrapItUpPaymentsUITests";
+			productReference = 592AEF0E2F315B543966D78CCFB5A5A9 /* Pods_WrapItUpPaymentsUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 220341C5760B91F82154E34B7F347760 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9F46447FAAB00BE600AE4413156EAFF1 /* Pods-WrapItUpPayments */,
+				5B30AC445E11BDD76A3200A939C6D35E /* Pods-WrapItUpPaymentsTests */,
+				D4646ABFED2C3980A332238FCCFEF0B8 /* Pods-WrapItUpPaymentsUITests */,
+				1216D959C89895BD59923186C0051429 /* SquarePointOfSaleSDK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2FD7498B35641C86BC55C6621329CC84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		622F4E92711A1D110AECA368571CCAB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		948F2A9AF49E4D051D11D3AD4C6BA949 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B144329556354D088A28D735A3F32A6A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		425273C4A4BF973CE86A57ED3FCAD5F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEF05B8E6F2DC08D3E0CDD19EE61FF20 /* Pods-WrapItUpPaymentsTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FCCB10039148D7A413E716C69EB6E8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8FD47320462977D20E2ADE62020C681 /* Pods-WrapItUpPaymentsUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95A1FF5875B809E354C650916E9C23C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6610CC82E43BD3E20CE1F059D7621190 /* NSDictionary+SCCAdditions.m in Sources */,
+				B5F06E5E9538659B64D2F8F8EC427680 /* NSError+SCCAdditions.m in Sources */,
+				38A184FFF4D3D785B6C7E592D0C309E0 /* NSError+SCCAPIAdditions.m in Sources */,
+				146BEDEA33E7E99B520EDEF12A059D6E /* NSURL+SCCAdditions.m in Sources */,
+				EBAB88710F75BAF9F7B94F1EC502C38B /* SCCAPIConnection.m in Sources */,
+				C6D690D42BF61DAE67748BA4985FB6A3 /* SCCAPIRequest.m in Sources */,
+				5B9D3C86321FF57770FCCD7956E52CA5 /* SCCAPIResponse.m in Sources */,
+				66455F5190FB120CD93583C3E2F374E7 /* SCCMoney.m in Sources */,
+				76A1A8A6746D8972ECC59BCB0BDA4C0F /* SquarePointOfSaleSDK-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF59EE8E3CC384E717DB0D8F52EAE7AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99DD5D3842AA478C30D55C79D354E7A5 /* Pods-WrapItUpPayments-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		794F4D8AECEF8BFE9671F46BCDA41645 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-WrapItUpPayments";
+			target = 9F46447FAAB00BE600AE4413156EAFF1 /* Pods-WrapItUpPayments */;
+			targetProxy = E4E5190154CB623CCC16DCA21B4827D2 /* PBXContainerItemProxy */;
+		};
+		E1F50B905012DCD426B6ECB826146B2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SquarePointOfSaleSDK;
+			target = 1216D959C89895BD59923186C0051429 /* SquarePointOfSaleSDK */;
+			targetProxy = A9E7FBF3BFA79FDDD3B990F1B1D4FC18 /* PBXContainerItemProxy */;
+		};
+		F62998415C5EC326C0341ABD91B18915 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-WrapItUpPayments";
+			target = 9F46447FAAB00BE600AE4413156EAFF1 /* Pods-WrapItUpPayments */;
+			targetProxy = 954BD73EEED1A3CC306AD7927FBB29AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		07488D4657FB0A78086563621D425F8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		2AEF45631CAC6F3BD7D2AE80CEFD3077 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66C78508717A42FC69879F5136CCB96D /* Pods-WrapItUpPaymentsTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WrapItUpPaymentsTests/Pods-WrapItUpPaymentsTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WrapItUpPaymentsTests/Pods-WrapItUpPaymentsTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		571748CE8B37B0AFB933468D4F106929 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE310F54847BF6841052119AFABA10F4 /* Pods-WrapItUpPaymentsUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WrapItUpPaymentsUITests/Pods-WrapItUpPaymentsUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WrapItUpPaymentsUITests/Pods-WrapItUpPaymentsUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		69000FF9300585895A6C67D862FE3F72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F59FA465BF4B6B21B02CE739357A611C /* Pods-WrapItUpPayments.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WrapItUpPayments/Pods-WrapItUpPayments-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WrapItUpPayments/Pods-WrapItUpPayments.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7A67861F2FBB21678A80E1E7D6E2C67B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A9865AD8A0C69BAAE178FDB7DA8118B /* Pods-WrapItUpPaymentsUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WrapItUpPaymentsUITests/Pods-WrapItUpPaymentsUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WrapItUpPaymentsUITests/Pods-WrapItUpPaymentsUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A1962E6FF39BBAC201A2E5DDF99557DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		A4E0A4AB9D1D0F5F608416E882A4BA9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF5A13EFDA739AB6E22C0C9C0796DF73 /* Pods-WrapItUpPayments.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WrapItUpPayments/Pods-WrapItUpPayments-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WrapItUpPayments/Pods-WrapItUpPayments.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CF0C323546353EC01A6578113FA2859F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DEC6BD4C8830FE07896293D002C36C8 /* SquarePointOfSaleSDK.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SquarePointOfSaleSDK/SquarePointOfSaleSDK-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SquarePointOfSaleSDK/SquarePointOfSaleSDK-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SquarePointOfSaleSDK/SquarePointOfSaleSDK.modulemap";
+				PRODUCT_MODULE_NAME = SquarePointOfSaleSDK;
+				PRODUCT_NAME = SquarePointOfSaleSDK;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DB33A7A534B70EDF0C7FAB40A994AFD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DEC6BD4C8830FE07896293D002C36C8 /* SquarePointOfSaleSDK.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SquarePointOfSaleSDK/SquarePointOfSaleSDK-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SquarePointOfSaleSDK/SquarePointOfSaleSDK-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SquarePointOfSaleSDK/SquarePointOfSaleSDK.modulemap";
+				PRODUCT_MODULE_NAME = SquarePointOfSaleSDK;
+				PRODUCT_NAME = SquarePointOfSaleSDK;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DF6F8FE684B90F8CF90FDAE32E9B66A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 613C534596A4697FC134A7D971A81785 /* Pods-WrapItUpPaymentsTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WrapItUpPaymentsTests/Pods-WrapItUpPaymentsTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WrapItUpPaymentsTests/Pods-WrapItUpPaymentsTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09D8317A208EB7DCA5F54B16AAF13926 /* Build configuration list for PBXNativeTarget "Pods-WrapItUpPayments" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4E0A4AB9D1D0F5F608416E882A4BA9C /* Debug */,
+				69000FF9300585895A6C67D862FE3F72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1904006A22ACAC523D3FE7E9C7809A6B /* Build configuration list for PBXNativeTarget "Pods-WrapItUpPaymentsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AEF45631CAC6F3BD7D2AE80CEFD3077 /* Debug */,
+				DF6F8FE684B90F8CF90FDAE32E9B66A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07488D4657FB0A78086563621D425F8A /* Debug */,
+				A1962E6FF39BBAC201A2E5DDF99557DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4EE0A6CFC2A5EBC129FE5B4B6EEC2459 /* Build configuration list for PBXNativeTarget "SquarePointOfSaleSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF0C323546353EC01A6578113FA2859F /* Debug */,
+				DB33A7A534B70EDF0C7FAB40A994AFD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBD65D5577EE3328AD140E514C05B06C /* Build configuration list for PBXNativeTarget "Pods-WrapItUpPaymentsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A67861F2FBB21678A80E1E7D6E2C67B /* Debug */,
+				571748CE8B37B0AFB933468D4F106929 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
