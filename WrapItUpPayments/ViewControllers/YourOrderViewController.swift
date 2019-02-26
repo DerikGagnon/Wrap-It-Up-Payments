@@ -14,6 +14,11 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var taxLabel: UILabel!
     @IBOutlet var totalLabel: UILabel!
     
+    
+    @IBAction func OrderButtonPressed(_ sender: UIButton) {
+        //Implement Square API HERE
+    }
+    
     var orderItemsArray: [MenuItem] = []
     var subtotal: Float32 = 0
     var tax: Float32 = 0
@@ -40,10 +45,7 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //
         
-        ////self.orderTable.register(UITableViewCell.self, forCellReuseIdentifier: "orderCell")
         
     }
     
@@ -52,13 +54,13 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-    func printHello() {
-        print("We made it!!")
-    }
-    
-    func printItemName(item: MenuItem) {
-        print(item.name)
-    }
+//    func printHello() {
+//        print("We made it!!")
+//    }
+//    
+//    func printItemName(item: MenuItem) {
+//        print(item.name)
+//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -79,13 +81,5 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        
-//        return 160
-//    }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//
-//    }
     
 }
