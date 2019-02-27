@@ -18,16 +18,25 @@ class MenuItemTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.rowHeight = 250
         
-        if let split = splitViewController {
-            let controllers = split.viewControllers
-            orderViewController =
-                controllers[controllers.count-1].presentingViewController
-                as? YourOrderViewController
-        }
+        
+        
+//        if let split = splitViewController {
+//            print("test1")
+//            let controllers = split.viewControllers
+//            orderViewController =
+//                controllers[controllers.count-1].presentingViewController
+//                as? YourOrderViewController
+//        }
         
         if let splitVC = self.splitViewController {
-            orderViewController = splitVC.viewControllers[0] as? YourOrderViewController
-            orderViewController?.printHello()
+            print("test2")
+            print(splitVC.viewControllers.count)
+            //Set the navController to the master splitViewController
+            let navController = splitVC.viewControllers[0] as! UINavigationController
+            navController.topViewController!.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem
+            print(navController.viewControllers.count)
+            orderViewController = navController.viewControllers[0] as? YourOrderViewController
+            //orderViewController?.printHello()
         }
 
         // Uncomment the following line to preserve selection between presentations
@@ -61,24 +70,15 @@ class MenuItemTableViewController: UITableViewController {
         //self.tableView.register(SightsCell.self, forCellReuseIdentifier: "SightCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! MenuItemCell
         cell.cellDelegate = self
-//        cell.menuImageView?.image = UIImage(named: itemsArray[indexPath.row].image)
-//        cell.menuNameLabel?.text = itemsArray[indexPath.row].name
-//        cell.menuPriceLabel?.text = String(itemsArray[indexPath.row].price)
         
         return cell
     }
-    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let selectedItem = itemsArray[indexPath.row]
-//        orderViewController?.printItemName(item: selectedItem)
-//        orderViewController?.orderItemsArray.append(selectedItem)
-//        orderViewController?.refreshUI()
-//    }
+
 }
 
 extension MenuItemTableViewController: MenuRowDelegate {
     func didTapCell(_ item: MenuItem) {
-        //print("We tapped")
+        print("We tapped")
         //orderViewController?.printItemName(item: item)
         orderViewController?.orderItemsArray.append(item)
         orderViewController?.refreshUI()

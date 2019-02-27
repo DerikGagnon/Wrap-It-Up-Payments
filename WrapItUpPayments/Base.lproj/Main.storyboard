@@ -13,19 +13,19 @@
         <!--Your Order View Controller-->
         <scene sceneID="zqw-mR-ldc">
             <objects>
-                <viewController id="kKY-1T-61z" customClass="YourOrderViewController" customModule="WrapItUpPayments" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="101" id="kKY-1T-61z" customClass="YourOrderViewController" customModule="WrapItUpPayments" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bP3-Za-Qsd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Order" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnc-oS-7ES">
-                                <rect key="frame" x="0.0" y="27" width="320" height="33.5"/>
+                                <rect key="frame" x="0.0" y="77" width="320" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5st-rz-J2o">
-                                <rect key="frame" x="16" y="69" width="288" height="533"/>
+                                <rect key="frame" x="16" y="119" width="288" height="483"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderCell" rowHeight="45" id="okm-1a-2sk" customClass="YourOrderTableCell" customModule="WrapItUpPayments" customModuleProvider="target">
@@ -60,6 +60,7 @@
                                         <connections>
                                             <outlet property="nameLabel" destination="Usf-cd-96t" id="l5T-Op-57L"/>
                                             <outlet property="priceLabel" destination="Ypl-1F-IIH" id="VGS-mU-5HJ"/>
+                                            <segue destination="7Zp-6p-GXG" kind="show" id="LdL-tE-iZA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -153,6 +154,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XHF-Ne-cLl"/>
                     </view>
+                    <navigationItem key="navigationItem" id="i8g-hH-i0f"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="orderTable" destination="5st-rz-J2o" id="FJy-mG-kEU"/>
@@ -163,7 +165,77 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xj8-32-ceC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6.4453125" y="-489.0625"/>
+            <point key="canvasLocation" x="-6" y="-1230"/>
+        </scene>
+        <!--Edit Item View Controller-->
+        <scene sceneID="PXG-HU-7yt">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="7Zp-6p-GXG" customClass="EditItemViewController" customModule="WrapItUpPayments" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9f9-z2-5hT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRP-PD-n7n">
+                                <rect key="frame" x="76" y="638" width="168" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Save Changes"/>
+                                <connections>
+                                    <action selector="SaveButtonPressed:" destination="7Zp-6p-GXG" eventType="touchUpInside" id="iT9-8r-SND"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtx-rX-zas">
+                                <rect key="frame" x="94" y="693" width="132" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Delete Item"/>
+                                <connections>
+                                    <action selector="DeleteButtonPressed:" destination="7Zp-6p-GXG" eventType="touchUpInside" id="sO1-Nb-zRt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdm-tZ-3Tu">
+                                <rect key="frame" x="20" y="100" width="280" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="lhx-30-xtE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ld7-EP-VyB" firstAttribute="bottom" secondItem="rtx-rX-zas" secondAttribute="bottom" constant="30" id="3XM-6D-1gX"/>
+                            <constraint firstItem="rtx-rX-zas" firstAttribute="centerX" secondItem="Ld7-EP-VyB" secondAttribute="centerX" id="EVn-8L-Mfi"/>
+                            <constraint firstItem="mdm-tZ-3Tu" firstAttribute="leading" secondItem="Ld7-EP-VyB" secondAttribute="leading" constant="20" id="M07-Na-ZDr"/>
+                            <constraint firstItem="rtx-rX-zas" firstAttribute="top" secondItem="mRP-PD-n7n" secondAttribute="bottom" constant="10" id="dTK-HU-3gc"/>
+                            <constraint firstItem="mRP-PD-n7n" firstAttribute="centerX" secondItem="Ld7-EP-VyB" secondAttribute="centerX" id="nQS-hJ-SHf"/>
+                            <constraint firstItem="mdm-tZ-3Tu" firstAttribute="top" secondItem="Ld7-EP-VyB" secondAttribute="top" constant="30" id="rug-GR-3qq"/>
+                            <constraint firstItem="Ld7-EP-VyB" firstAttribute="trailing" secondItem="mdm-tZ-3Tu" secondAttribute="trailing" constant="20" id="vkP-dS-72J"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ld7-EP-VyB"/>
+                    </view>
+                    <connections>
+                        <outlet property="NameLabel" destination="mdm-tZ-3Tu" id="K0u-u6-LLy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qL8-ve-nR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="652" y="-1230"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hdh-In-eiu">
+            <objects>
+                <navigationController id="bnQ-0N-ouD" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lto-fI-JHd">
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="kKY-1T-61z" kind="relationship" relationship="rootViewController" id="bIn-Zp-cec"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="153-h2-n3p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6" y="-506"/>
         </scene>
         <!--Our Menu-->
         <scene sceneID="g9S-ON-kFA">
@@ -334,7 +406,7 @@
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <segue destination="tA6-7x-h3z" kind="relationship" relationship="detailViewController" id="UxG-ps-Ii8"/>
-                        <segue destination="kKY-1T-61z" kind="relationship" relationship="masterViewController" id="yTS-gi-g9z"/>
+                        <segue destination="bnQ-0N-ouD" kind="relationship" relationship="masterViewController" id="hRF-7I-b60"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2PO-u3-6Jn" userLabel="First Responder" sceneMemberID="firstResponder"/>

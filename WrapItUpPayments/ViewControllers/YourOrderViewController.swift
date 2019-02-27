@@ -46,7 +46,8 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,10 +55,10 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-//    func printHello() {
-//        print("We made it!!")
-//    }
-//    
+    func printHello() {
+        print("We made it!!")
+    }
+//
 //    func printItemName(item: MenuItem) {
 //        print(item.name)
 //    }
@@ -78,8 +79,16 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.priceLabel?.text = String(orderItemsArray[indexPath.row].price)
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+//        let EditVC = storyboard?.instantiateViewController(withIdentifier: "EditItemViewController") as! EditItemViewController
+//        present(EditVC, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let editVC = segue.destination as! EditItemViewController
+        let indexPath = orderTable.indexPathForSelectedRow!
+        editVC.NameLabel?.text = orderItemsArray[indexPath.row].name
     }
     
 }
