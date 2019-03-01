@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SquarePointOfSaleSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        guard let sourceApplication = options[.sourceApplication] as? String,
+            sourceApplication.hasPrefix("com.squareup.square") else {
+                return false
+        }
+        
+        do {
+            let response = try SCCAPIResponse(responseURL: url)
+            
+            if let error = response.error {
+                // Handle a failed request.
+                print(error.localizedDescription)
+            } else {
+                // Handle a successful request.
+            }
+            
+        } catch let error as NSError {
+            // Handle unexpected errors.
+            print(error.localizedDescription)
+        }
+        
         return true
     }
 

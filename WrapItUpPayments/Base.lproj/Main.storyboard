@@ -60,7 +60,7 @@
                                         <connections>
                                             <outlet property="nameLabel" destination="Usf-cd-96t" id="l5T-Op-57L"/>
                                             <outlet property="priceLabel" destination="Ypl-1F-IIH" id="VGS-mU-5HJ"/>
-                                            <segue destination="7Zp-6p-GXG" kind="show" id="LdL-tE-iZA"/>
+                                            <segue destination="7Zp-6p-GXG" kind="show" identifier="EditSegue" id="LdL-tE-iZA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -237,10 +237,10 @@
             </objects>
             <point key="canvasLocation" x="-6" y="-506"/>
         </scene>
-        <!--Our Menu-->
+        <!--Menu-->
         <scene sceneID="g9S-ON-kFA">
             <objects>
-                <tableViewController autoresizesArchivedViewToFullSize="NO" clearsSelectionOnViewWillAppear="NO" id="KLz-zk-6bP" customClass="MenuItemTableViewController" customModule="WrapItUpPayments" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController autoresizesArchivedViewToFullSize="NO" clearsSelectionOnViewWillAppear="NO" id="KLz-zk-6bP" customClass="MenuTableViewController" customModule="WrapItUpPayments" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="99l-np-SUH">
                         <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -308,6 +308,7 @@
                                                         <outlet property="itemImage" destination="DRs-o4-qgR" id="vh5-h7-OrM"/>
                                                         <outlet property="itemName" destination="AC3-fn-nIq" id="nwt-bz-ZL3"/>
                                                         <outlet property="itemPrice" destination="cFa-kd-KsY" id="c2F-aq-NSz"/>
+                                                        <segue destination="CKb-rc-HQi" kind="show" id="h7y-uL-UaP"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -334,12 +335,27 @@
                             <outlet property="delegate" destination="KLz-zk-6bP" id="nx8-ut-4cx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Our Menu" id="Jm4-Ez-gFL"/>
+                    <navigationItem key="navigationItem" title="Menu" id="Jm4-Ez-gFL"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEy-oB-4mW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-6.4453125" y="1078.90625"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="r1H-V4-9lS">
+            <objects>
+                <viewController id="CKb-rc-HQi" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7mZ-fy-4bU">
+                        <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fXO-AJ-gSZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EeM-Lc-FyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="652" y="1079"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2kZ-N4-HYK">

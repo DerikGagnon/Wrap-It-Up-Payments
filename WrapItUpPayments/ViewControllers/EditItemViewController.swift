@@ -44,3 +44,11 @@ class EditItemViewController: UIViewController {
     */
 
 }
+
+extension EditItemViewController: EditRowDelegate {
+    func didTapCell(_ item: MenuItem) {
+        print("In Edit")
+        //orderViewController?.printItemName(item: item)
+        self.NameLabel?.text = item.name
+    }
+}
