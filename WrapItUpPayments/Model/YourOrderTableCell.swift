@@ -16,6 +16,9 @@ class YourOrderTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        // https://stackoverflow.com/questions/3931838/how-to-write-multiple-lines-in-a-label
+        nameLabel.lineBreakMode = .byWordWrapping
+        nameLabel.numberOfLines = 0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -114,7 +114,8 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! YourOrderTableCell
         cell.nameLabel?.text = orderItemsArray[indexPath.row].name
-        cell.priceLabel?.text = String(orderItemsArray[indexPath.row].price)
+        let formattedPrice = String(format: "$%.2f", orderItemsArray[indexPath.row].price)
+        cell.priceLabel?.text = formattedPrice
         return cell
     }
     

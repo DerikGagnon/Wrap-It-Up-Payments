@@ -15,8 +15,8 @@ protocol MenuRowDelegate: class {
 class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     let itemsArray = [
-        MenuItem(name: "Burger", price: 8.99, image: "burger", type: "Entrees"),
-        MenuItem(name: "Hotdog", price: 5.99, image: "hotdog", type: "Entrees"),
+        MenuItem(name: "Bacon Cheddar Grilled Chicken Sandwich", price: 8.99, image: "burger", type: "Entrees"),
+        MenuItem(name: "Breadsticks with Alfredo Sauce", price: 5.99, image: "hotdog", type: "Entrees"),
         MenuItem(name: "Bean Burrito", price: 8.99, image: "bean_burrito", type: "Entrees")
     ]
     
@@ -45,7 +45,12 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         
         cell.itemImage?.image = UIImage(named: itemsArray[indexPath.item].image)
         cell.itemName?.text = itemsArray[indexPath.item].name
-        cell.itemPrice?.text = String(itemsArray[indexPath.item].price)
+        let formattedPrice = String(format: "$%.2f", itemsArray[indexPath.item].price)
+        cell.itemPrice?.text = formattedPrice
+        
+        // https://stackoverflow.com/questions/3931838/how-to-write-multiple-lines-in-a-label
+        cell.itemName?.lineBreakMode = .byWordWrapping
+        cell.itemName?.numberOfLines = 0
         
         return cell
     }
