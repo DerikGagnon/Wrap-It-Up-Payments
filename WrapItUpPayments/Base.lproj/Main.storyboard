@@ -174,6 +174,7 @@
         <!--Edit Item View Controller-->
         <scene sceneID="PXG-HU-7yt">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qL8-ve-nR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController modalPresentationStyle="overCurrentContext" id="7Zp-6p-GXG" customClass="EditItemViewController" customModule="WrapItUpPayments" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9f9-z2-5hT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
@@ -221,7 +222,6 @@
                         <outlet property="NameLabel" destination="mdm-tZ-3Tu" id="K0u-u6-LLy"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qL8-ve-nR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="652" y="-1230"/>
         </scene>
@@ -312,7 +312,6 @@
                                                         <outlet property="itemImage" destination="DRs-o4-qgR" id="vh5-h7-OrM"/>
                                                         <outlet property="itemName" destination="AC3-fn-nIq" id="nwt-bz-ZL3"/>
                                                         <outlet property="itemPrice" destination="cFa-kd-KsY" id="c2F-aq-NSz"/>
-                                                        <segue destination="CKb-rc-HQi" kind="show" id="h7y-uL-UaP"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -349,15 +348,15 @@
         <!--View Controller-->
         <scene sceneID="r1H-V4-9lS">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EeM-Lc-FyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="CKb-rc-HQi" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7mZ-fy-4bU">
-                        <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="fXO-AJ-gSZ"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EeM-Lc-FyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="652" y="1079"/>
         </scene>

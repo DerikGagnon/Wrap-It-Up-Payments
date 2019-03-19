@@ -31,7 +31,8 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 
         do {
             // Specify the amount of money to charge.
-            let money = try SCCMoney(amountCents: 100, currencyCode: "USD")
+            let roundedMoney = String(format: "%.2f", total)
+            let money = try SCCMoney(amountCents: Int(Double(roundedMoney)!*100), currencyCode: "USD")
             
             // Create the request.
             let apiRequest =
