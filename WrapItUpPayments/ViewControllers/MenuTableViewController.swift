@@ -13,6 +13,10 @@ class MenuTableViewController: UITableViewController {
     let categories = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Desserts"]
     
     var orderViewController: YourOrderViewController!
+    
+//    enum Categories: Int {
+//        case Beverages = 0, Appetizers = 1, SoupsSalads = 2, Entrees = 3, Kids = 4, Desserts = 5
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +33,7 @@ class MenuTableViewController: UITableViewController {
 //        }
         
         if let splitVC = self.splitViewController {
-            print("test2")
+            //print("test2")
             print(splitVC.viewControllers.count)
             //Set the navController to the master splitViewController
             let navController = splitVC.viewControllers[0] as! UINavigationController
@@ -70,6 +74,8 @@ class MenuTableViewController: UITableViewController {
         //self.tableView.register(SightsCell.self, forCellReuseIdentifier: "SightCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! MenuItemCell
         cell.cellDelegate = self
+        cell.rowIndex = indexPath.section
+        print(indexPath.section)
         
         return cell
     }
