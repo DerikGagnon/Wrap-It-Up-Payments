@@ -45,7 +45,7 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
                     customerID: nil,
                     supportedTenderTypes: .card,
                     clearsDefaultFees: false,
-                    returnAutomaticallyAfterPayment: false
+                    returnAutomaticallyAfterPayment: true
             )
             
             // Open Point of Sale to complete the payment.
@@ -54,6 +54,7 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         } catch let error as NSError {
             print(error.localizedDescription)
         }
+        self.dismiss(animated: true, completion: nil)
     }
     
     weak var cellDelegate: EditRowDelegate! = nil
@@ -66,7 +67,7 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var orderTable: UITableView!
     
     func refreshUI() {
-        print("In refresh UI")
+        //print("In refresh UI")
         self.orderTable.reloadData()
         loadViewIfNeeded()
         //let formatted = String(format: "Angle: %.2f", angle)
