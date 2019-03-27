@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -93,7 +93,7 @@
 		491AE9C963811E3AE1529821FB22AE94 /* NSDictionary+SCCAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+SCCAdditions.h"; path = "Sources/Categories/NSDictionary+SCCAdditions.h"; sourceTree = "<group>"; };
 		4F1EA05379787B1A6C8BE26951BFB780 /* Pods-WrapItUpPaymentsTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WrapItUpPaymentsTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		508C6D3A41D675EFE2109DD19A0E978A /* Pods-WrapItUpPaymentsTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WrapItUpPaymentsTests-Info.plist"; sourceTree = "<group>"; };
-		592AEF0E2F315B543966D78CCFB5A5A9 /* Pods_WrapItUpPaymentsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WrapItUpPaymentsUITests.framework; path = "Pods-WrapItUpPaymentsUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		592AEF0E2F315B543966D78CCFB5A5A9 /* Pods_WrapItUpPaymentsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrapItUpPaymentsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		608CF8A8D3B07709BEB0CA6B236E0775 /* SCCAPIConnection_Testing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCCAPIConnection_Testing.h; path = Sources/SCCAPIConnection_Testing.h; sourceTree = "<group>"; };
 		613C534596A4697FC134A7D971A81785 /* Pods-WrapItUpPaymentsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WrapItUpPaymentsTests.release.xcconfig"; sourceTree = "<group>"; };
 		65992CBF440B3FE4ABFB20FFA89C01A0 /* SquarePointOfSaleSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SquarePointOfSaleSDK-prefix.pch"; sourceTree = "<group>"; };
@@ -105,16 +105,16 @@
 		88B841B65D08F455AFEE1CDE1010805D /* NSURL+SCCAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURL+SCCAdditions.m"; path = "Sources/Categories/NSURL+SCCAdditions.m"; sourceTree = "<group>"; };
 		8F000A141308FCCD306412F91C3E76D3 /* Pods-WrapItUpPayments-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WrapItUpPayments-frameworks.sh"; sourceTree = "<group>"; };
 		9907F60C0C1708ACAAC700EA0A639402 /* Pods-WrapItUpPayments-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WrapItUpPayments-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A7FB17A5F8561A95CAD1AE53C865CE44 /* NSError+SCCAPIAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+SCCAPIAdditions.h"; path = "Sources/Categories/NSError+SCCAPIAdditions.h"; sourceTree = "<group>"; };
 		AB55B964FC0F11DDF42EFAB082F71BAA /* SCCAPIResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCCAPIResponse.h; path = Sources/SCCAPIResponse.h; sourceTree = "<group>"; };
 		B55E0786689F24DA14620D15AA01BC73 /* Pods-WrapItUpPaymentsTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WrapItUpPaymentsTests.modulemap"; sourceTree = "<group>"; };
 		B732C339E9C82988909381582E2FD754 /* SCCAPIRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCCAPIRequest.h; path = Sources/SCCAPIRequest.h; sourceTree = "<group>"; };
 		BBFC1EE1AC073343AEEE84E28011C8EC /* SCCAPIRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCCAPIRequest.m; path = Sources/SCCAPIRequest.m; sourceTree = "<group>"; };
 		C95ECC6462B6223BF56D0F8DC2C9D551 /* Pods-WrapItUpPaymentsTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WrapItUpPaymentsTests-dummy.m"; sourceTree = "<group>"; };
-		CA154423B7011F896CFA8082E49B273F /* Pods_WrapItUpPaymentsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WrapItUpPaymentsTests.framework; path = "Pods-WrapItUpPaymentsTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA154423B7011F896CFA8082E49B273F /* Pods_WrapItUpPaymentsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrapItUpPaymentsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CE08ABEB027C511DE6E27C04C384ABD3 /* Pods_WrapItUpPayments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WrapItUpPayments.framework; path = "Pods-WrapItUpPayments.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE08ABEB027C511DE6E27C04C384ABD3 /* Pods_WrapItUpPayments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrapItUpPayments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE310F54847BF6841052119AFABA10F4 /* Pods-WrapItUpPaymentsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WrapItUpPaymentsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D17DF02606578EEFEEF9C6D18F719EFF /* NSError+SCCAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+SCCAdditions.h"; path = "Sources/Categories/NSError+SCCAdditions.h"; sourceTree = "<group>"; };
 		D3405EB88F92C91E1DEEEFB9DF333155 /* Pods-WrapItUpPaymentsTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WrapItUpPaymentsTests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		F59FA465BF4B6B21B02CE739357A611C /* Pods-WrapItUpPayments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WrapItUpPayments.release.xcconfig"; sourceTree = "<group>"; };
 		F681FE6492D1CADED9B0F197D55CEF89 /* SquarePointOfSaleSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SquarePointOfSaleSDK.modulemap; sourceTree = "<group>"; };
 		F83380F1F95CDFEF262DC8AE3CD3CFFF /* SCCAPIRequest+Serialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SCCAPIRequest+Serialization.h"; path = "Sources/Categories/SCCAPIRequest+Serialization.h"; sourceTree = "<group>"; };
-		FAB574A724C578DC8C359E9CD8F346A9 /* SquarePointOfSaleSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SquarePointOfSaleSDK.framework; path = SquarePointOfSaleSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB574A724C578DC8C359E9CD8F346A9 /* SquarePointOfSaleSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SquarePointOfSaleSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,7 +267,6 @@
 				F50C7B078189CB10D72B23A9D94FA5CD /* SquarePointOfSaleSDK.h */,
 				43772A1FFF031CDCA86C329094992783 /* Support Files */,
 			);
-			name = SquarePointOfSaleSDK;
 			path = SquarePointOfSaleSDK;
 			sourceTree = "<group>";
 		};
@@ -449,14 +448,15 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 220341C5760B91F82154E34B7F347760 /* Products */;
@@ -571,6 +571,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -648,11 +649,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-WrapItUpPaymentsTests/Pods-WrapItUpPaymentsTests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-WrapItUpPaymentsTests/Pods-WrapItUpPaymentsTests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -685,11 +682,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-WrapItUpPaymentsUITests/Pods-WrapItUpPaymentsUITests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-WrapItUpPaymentsUITests/Pods-WrapItUpPaymentsUITests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -723,11 +716,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-WrapItUpPayments/Pods-WrapItUpPayments-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-WrapItUpPayments/Pods-WrapItUpPayments.modulemap";
 				OTHER_LDFLAGS = "";
@@ -761,11 +750,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-WrapItUpPaymentsUITests/Pods-WrapItUpPaymentsUITests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-WrapItUpPaymentsUITests/Pods-WrapItUpPaymentsUITests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -785,6 +770,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -834,8 +820,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -858,11 +843,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-WrapItUpPayments/Pods-WrapItUpPayments-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-WrapItUpPayments/Pods-WrapItUpPayments.modulemap";
 				OTHER_LDFLAGS = "";
@@ -895,11 +876,7 @@
 				INFOPLIST_FILE = "Target Support Files/SquarePointOfSaleSDK/SquarePointOfSaleSDK-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SquarePointOfSaleSDK/SquarePointOfSaleSDK.modulemap";
 				PRODUCT_MODULE_NAME = SquarePointOfSaleSDK;
 				PRODUCT_NAME = SquarePointOfSaleSDK;
@@ -930,11 +907,7 @@
 				INFOPLIST_FILE = "Target Support Files/SquarePointOfSaleSDK/SquarePointOfSaleSDK-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SquarePointOfSaleSDK/SquarePointOfSaleSDK.modulemap";
 				PRODUCT_MODULE_NAME = SquarePointOfSaleSDK;
 				PRODUCT_NAME = SquarePointOfSaleSDK;
@@ -966,11 +939,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-WrapItUpPaymentsTests/Pods-WrapItUpPaymentsTests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-WrapItUpPaymentsTests/Pods-WrapItUpPaymentsTests.modulemap";
 				OTHER_LDFLAGS = "";

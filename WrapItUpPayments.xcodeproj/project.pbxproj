@@ -271,6 +271,7 @@
 				TargetAttributes = {
 					63CE57E821ADB14C00962B65 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					63CE57FC21ADB14F00962B65 = {
 						CreatedOnToolsVersion = 10.1;
@@ -617,7 +618,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.derikGagnon.WrapItUpPayments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -636,7 +637,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.derikGagnon.WrapItUpPayments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
