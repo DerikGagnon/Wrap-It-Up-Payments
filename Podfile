@@ -7,6 +7,7 @@ target 'WrapItUpPayments' do
 
   # Pods for WrapItUpPayments
   pod 'SquarePointOfSaleSDK'
+  pod 'Firebase/Core'
 
   target 'WrapItUpPaymentsTests' do
     inherit! :search_paths

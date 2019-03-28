@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>144215120641-ksm3um0vn8dstkg82g8n14718hagm2qv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.144215120641-ksm3um0vn8dstkg82g8n14718hagm2qv</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCkg9XZybCGNCKXTezyDRh8PWePpDmqTMo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>144215120641</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.derikGagnon.WrapItUpPayments</string>
+	<key>PROJECT_ID</key>
+	<string>wrap-it-up-payments</string>
+	<key>STORAGE_BUCKET</key>
+	<string>wrap-it-up-payments.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:144215120641:ios:49e2af2d76c889f9</string>
+	<key>DATABASE_URL</key>
+	<string>https://wrap-it-up-payments.firebaseio.com</string>
+</dict>
+</plist>

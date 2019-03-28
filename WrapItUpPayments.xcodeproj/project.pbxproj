@@ -10,6 +10,7 @@
 		177E99D2118FA62446637EF3 /* Pods_WrapItUpPaymentsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4025E769CE5168B41A2323A1 /* Pods_WrapItUpPaymentsUITests.framework */; };
 		631E9E642225CCBC0087A343 /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E9E632225CCBC0087A343 /* EditItemViewController.swift */; };
 		63265018220A0E9F00138B8B /* YourOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63265017220A0E9F00138B8B /* YourOrderViewController.swift */; };
+		63533AC0224C33E900A7B46F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63533ABF224C33E900A7B46F /* GoogleService-Info.plist */; };
 		6376CA0121B60536000F9952 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376CA0021B60536000F9952 /* MenuItemCell.swift */; };
 		6376CA0321B6056E000F9952 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376CA0221B6056E000F9952 /* MenuItem.swift */; };
 		6376CA0621B6089F000F9952 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376CA0521B6089F000F9952 /* MenuTableViewController.swift */; };
@@ -50,6 +51,7 @@
 		4E446203C7EE3344B8B1FC41 /* Pods_WrapItUpPaymentsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrapItUpPaymentsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		631E9E632225CCBC0087A343 /* EditItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemViewController.swift; sourceTree = "<group>"; };
 		63265017220A0E9F00138B8B /* YourOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourOrderViewController.swift; sourceTree = "<group>"; };
+		63533ABF224C33E900A7B46F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6376CA0021B60536000F9952 /* MenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
 		6376CA0221B6056E000F9952 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		6376CA0521B6089F000F9952 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				63CE57F321ADB14F00962B65 /* Assets.xcassets */,
 				63CE57F521ADB14F00962B65 /* LaunchScreen.storyboard */,
 				63CE57F821ADB14F00962B65 /* Info.plist */,
+				63533ABF224C33E900A7B46F /* GoogleService-Info.plist */,
 			);
 			path = WrapItUpPayments;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63CE57F721ADB14F00962B65 /* LaunchScreen.storyboard in Resources */,
+				63533AC0224C33E900A7B46F /* GoogleService-Info.plist in Resources */,
 				63CE57F421ADB14F00962B65 /* Assets.xcassets in Resources */,
 				63CE57F221ADB14C00962B65 /* Main.storyboard in Resources */,
 			);
@@ -406,13 +410,17 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-WrapItUpPayments/Pods-WrapItUpPayments-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SquarePointOfSaleSDK/SquarePointOfSaleSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SquarePointOfSaleSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -1,8 +1,8 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/SquarePointOfSaleSDK"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore" "${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstanceID" "${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities" "${PODS_CONFIGURATION_BUILD_DIR}/SquarePointOfSaleSDK" "${PODS_CONFIGURATION_BUILD_DIR}/nanopb" "${PODS_ROOT}/FirebaseAnalytics/Frameworks" "${PODS_ROOT}/GoogleAppMeasurement/Frameworks"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/SquarePointOfSaleSDK/SquarePointOfSaleSDK.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore/FirebaseCore.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstanceID/FirebaseInstanceID.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities/GoogleUtilities.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SquarePointOfSaleSDK/SquarePointOfSaleSDK.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb.framework/Headers" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Firebase"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "SquarePointOfSaleSDK"
+OTHER_LDFLAGS = $(inherited) -l"c++" -l"sqlite3" -l"z" -framework "Foundation" -framework "GoogleUtilities" -framework "Security" -framework "SquarePointOfSaleSDK" -framework "StoreKit" -framework "SystemConfiguration" -framework "nanopb"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
