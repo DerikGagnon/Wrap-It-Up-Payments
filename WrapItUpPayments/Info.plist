@@ -25,6 +25,7 @@
 			<string>Square</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>com.googleusercontent.apps.144215120641-ksm3um0vn8dstkg82g8n14718hagm2qv</string>
 				<string>wrapitup</string>
 			</array>
 		</dict>
