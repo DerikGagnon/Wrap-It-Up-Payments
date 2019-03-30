@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GCz-X2-uyt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GCz-X2-uyt">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -350,7 +350,7 @@
         <!--LoginViewController-->
         <scene sceneID="2gz-pb-Wo5">
             <objects>
-                <viewController title="LoginViewController" id="GCz-X2-uyt" sceneMemberID="viewController">
+                <viewController title="LoginViewController" id="GCz-X2-uyt" customClass="UserLoginViewController" customModule="WrapItUpPayments" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O9d-cB-zdm">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -361,53 +361,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meq-UQ-zI6">
-                                <rect key="frame" x="453" y="426" width="118" height="72"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <segue destination="vcy-pZ-flU" kind="show" id="xjL-hv-bhg"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vFJ-1M-2Uf">
-                                <rect key="frame" x="347" y="316" width="330" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="7GZ-vZ-Pyc"/>
-                                    <constraint firstAttribute="width" constant="330" id="qJu-nu-Fef"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qN1-Ei-xNV">
-                                <rect key="frame" x="347" y="361" width="330" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="9YN-L9-15R"/>
-                                    <constraint firstAttribute="width" constant="330" id="PEc-oC-mbW"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Login to get Database Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhD-Kf-vW0">
                                 <rect key="frame" x="197" y="209" width="630" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meq-UQ-zI6">
+                                <rect key="frame" x="453" y="426" width="118" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginActionWithSender:" destination="GCz-X2-uyt" eventType="touchUpInside" id="rQi-Xe-30Q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="meq-UQ-zI6" firstAttribute="top" secondItem="qN1-Ei-xNV" secondAttribute="bottom" constant="30" id="5HP-xI-znJ"/>
                             <constraint firstItem="WhD-Kf-vW0" firstAttribute="centerX" secondItem="njI-94-mkv" secondAttribute="centerX" id="7CK-ku-Vpo"/>
                             <constraint firstItem="njI-94-mkv" firstAttribute="bottom" secondItem="meq-UQ-zI6" secondAttribute="bottom" constant="270" id="BfQ-Bx-BFG"/>
                             <constraint firstItem="AGl-y5-nGD" firstAttribute="centerX" secondItem="njI-94-mkv" secondAttribute="centerX" id="G7Z-u0-VKG"/>
                             <constraint firstItem="meq-UQ-zI6" firstAttribute="centerX" secondItem="njI-94-mkv" secondAttribute="centerX" id="X1O-o3-HUj"/>
                             <constraint firstItem="WhD-Kf-vW0" firstAttribute="top" secondItem="AGl-y5-nGD" secondAttribute="bottom" constant="30" id="gTl-SJ-Dz2"/>
                             <constraint firstItem="AGl-y5-nGD" firstAttribute="top" secondItem="njI-94-mkv" secondAttribute="top" constant="100" id="nMB-9N-qsq"/>
-                            <constraint firstItem="qN1-Ei-xNV" firstAttribute="centerX" secondItem="njI-94-mkv" secondAttribute="centerX" id="ny6-Az-eFa"/>
-                            <constraint firstItem="qN1-Ei-xNV" firstAttribute="top" secondItem="vFJ-1M-2Uf" secondAttribute="bottom" constant="10" id="p3v-7c-Yd8"/>
-                            <constraint firstItem="vFJ-1M-2Uf" firstAttribute="centerX" secondItem="njI-94-mkv" secondAttribute="centerX" id="vIc-f0-VE7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="njI-94-mkv"/>
                     </view>
