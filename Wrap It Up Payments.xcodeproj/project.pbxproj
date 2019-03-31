@@ -12,7 +12,6 @@
 		63265018220A0E9F00138B8B /* YourOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63265017220A0E9F00138B8B /* YourOrderViewController.swift */; };
 		63533AC0224C33E900A7B46F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63533ABF224C33E900A7B46F /* GoogleService-Info.plist */; };
 		63533AC2224EAE3C00A7B46F /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63533AC1224EAE3C00A7B46F /* UserLoginViewController.swift */; };
-		63533AC5225121C700A7B46F /* LoginSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63533AC4225121C700A7B46F /* LoginSegue.swift */; };
 		6376CA0121B60536000F9952 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376CA0021B60536000F9952 /* MenuItemCell.swift */; };
 		6376CA0321B6056E000F9952 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376CA0221B6056E000F9952 /* MenuItem.swift */; };
 		6376CA0621B6089F000F9952 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376CA0521B6089F000F9952 /* MenuTableViewController.swift */; };
@@ -46,7 +45,6 @@
 		63265017220A0E9F00138B8B /* YourOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourOrderViewController.swift; sourceTree = "<group>"; };
 		63533ABF224C33E900A7B46F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		63533AC1224EAE3C00A7B46F /* UserLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
-		63533AC4225121C700A7B46F /* LoginSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSegue.swift; sourceTree = "<group>"; };
 		6376CA0021B60536000F9952 /* MenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
 		6376CA0221B6056E000F9952 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		6376CA0521B6089F000F9952 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
@@ -121,14 +119,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		63533AC32251219A00A7B46F /* Control */ = {
-			isa = PBXGroup;
-			children = (
-				63533AC4225121C700A7B46F /* LoginSegue.swift */,
-			);
-			path = Control;
-			sourceTree = "<group>";
-		};
 		63CE57E021ADB14C00962B65 = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +143,6 @@
 		63CE57EB21ADB14C00962B65 /* WrapItUpPayments */ = {
 			isa = PBXGroup;
 			children = (
-				63533AC32251219A00A7B46F /* Control */,
 				632650162208B9CC00138B8B /* ViewControllers */,
 				632650132208B98200138B8B /* Model */,
 				63CE57EC21ADB14C00962B65 /* AppDelegate.swift */,
@@ -448,7 +437,6 @@
 				6376CA0121B60536000F9952 /* MenuItemCell.swift in Sources */,
 				63BCC617221C721500CFEE8D /* MenuCollectionCell.swift in Sources */,
 				63533AC2224EAE3C00A7B46F /* UserLoginViewController.swift in Sources */,
-				63533AC5225121C700A7B46F /* LoginSegue.swift in Sources */,
 				63265018220A0E9F00138B8B /* YourOrderViewController.swift in Sources */,
 				63CE57ED21ADB14C00962B65 /* AppDelegate.swift in Sources */,
 			);
