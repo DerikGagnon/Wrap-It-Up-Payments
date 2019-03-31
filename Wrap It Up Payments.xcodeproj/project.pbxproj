@@ -21,21 +21,12 @@
 		63CE57F221ADB14C00962B65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63CE57F021ADB14C00962B65 /* Main.storyboard */; };
 		63CE57F421ADB14F00962B65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63CE57F321ADB14F00962B65 /* Assets.xcassets */; };
 		63CE57F721ADB14F00962B65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63CE57F521ADB14F00962B65 /* LaunchScreen.storyboard */; };
-		63CE580221ADB14F00962B65 /* WrapItUpPaymentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CE580121ADB14F00962B65 /* WrapItUpPaymentsTests.swift */; };
 		63CE580D21ADB14F00962B65 /* WrapItUpPaymentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CE580C21ADB14F00962B65 /* WrapItUpPaymentsUITests.swift */; };
 		63F2BBD92218DF960035368C /* YourOrderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F2BBD82218DF960035368C /* YourOrderTableCell.swift */; };
 		DB65B272E3C5E0C68634EB8C /* Pods_WrapItUpPayments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B48ACFBB4787F8DCB42073 /* Pods_WrapItUpPayments.framework */; };
-		F752D4CDAD2D3B683491670D /* Pods_WrapItUpPaymentsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E446203C7EE3344B8B1FC41 /* Pods_WrapItUpPaymentsTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		63CE57FE21ADB14F00962B65 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 63CE57E121ADB14C00962B65 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 63CE57E821ADB14C00962B65;
-			remoteInfo = FoodTruckPOS;
-		};
 		63CE580921ADB14F00962B65 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 63CE57E121ADB14C00962B65 /* Project object */;
@@ -60,13 +51,12 @@
 		6376CA0221B6056E000F9952 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		6376CA0521B6089F000F9952 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		63BCC616221C721500CFEE8D /* MenuCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
-		63CE57E921ADB14C00962B65 /* WrapItUpPayments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WrapItUpPayments.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63CE57E921ADB14C00962B65 /* Wrap It Up Payments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wrap It Up Payments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63CE57EC21ADB14C00962B65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63CE57F121ADB14C00962B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63CE57F321ADB14F00962B65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63CE57F621ADB14F00962B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63CE57F821ADB14F00962B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63CE57FD21ADB14F00962B65 /* WrapItUpPaymentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WrapItUpPaymentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63CE580121ADB14F00962B65 /* WrapItUpPaymentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapItUpPaymentsTests.swift; sourceTree = "<group>"; };
 		63CE580321ADB14F00962B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63CE580821ADB14F00962B65 /* WrapItUpPaymentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WrapItUpPaymentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,14 +75,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB65B272E3C5E0C68634EB8C /* Pods_WrapItUpPayments.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		63CE57FA21ADB14F00962B65 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F752D4CDAD2D3B683491670D /* Pods_WrapItUpPaymentsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,8 +144,7 @@
 		63CE57EA21ADB14C00962B65 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63CE57E921ADB14C00962B65 /* WrapItUpPayments.app */,
-				63CE57FD21ADB14F00962B65 /* WrapItUpPaymentsTests.xctest */,
+				63CE57E921ADB14C00962B65 /* Wrap It Up Payments.app */,
 				63CE580821ADB14F00962B65 /* WrapItUpPaymentsUITests.xctest */,
 			);
 			name = Products;
@@ -219,9 +200,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		63CE57E821ADB14C00962B65 /* WrapItUpPayments */ = {
+		63CE57E821ADB14C00962B65 /* Wrap It Up Payments */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63CE581121ADB14F00962B65 /* Build configuration list for PBXNativeTarget "WrapItUpPayments" */;
+			buildConfigurationList = 63CE581121ADB14F00962B65 /* Build configuration list for PBXNativeTarget "Wrap It Up Payments" */;
 			buildPhases = (
 				628C6AF536AC2555BF72FE4A /* [CP] Check Pods Manifest.lock */,
 				63CE57E521ADB14C00962B65 /* Sources */,
@@ -234,29 +215,10 @@
 			);
 			dependencies = (
 			);
-			name = WrapItUpPayments;
+			name = "Wrap It Up Payments";
 			productName = FoodTruckPOS;
-			productReference = 63CE57E921ADB14C00962B65 /* WrapItUpPayments.app */;
+			productReference = 63CE57E921ADB14C00962B65 /* Wrap It Up Payments.app */;
 			productType = "com.apple.product-type.application";
-		};
-		63CE57FC21ADB14F00962B65 /* WrapItUpPaymentsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 63CE581421ADB14F00962B65 /* Build configuration list for PBXNativeTarget "WrapItUpPaymentsTests" */;
-			buildPhases = (
-				71B4EF96BC29D677CE9EE81B /* [CP] Check Pods Manifest.lock */,
-				63CE57F921ADB14F00962B65 /* Sources */,
-				63CE57FA21ADB14F00962B65 /* Frameworks */,
-				63CE57FB21ADB14F00962B65 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				63CE57FF21ADB14F00962B65 /* PBXTargetDependency */,
-			);
-			name = WrapItUpPaymentsTests;
-			productName = FoodTruckPOSTests;
-			productReference = 63CE57FD21ADB14F00962B65 /* WrapItUpPaymentsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		63CE580721ADB14F00962B65 /* WrapItUpPaymentsUITests */ = {
 			isa = PBXNativeTarget;
@@ -291,10 +253,6 @@
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
 					};
-					63CE57FC21ADB14F00962B65 = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = 63CE57E821ADB14C00962B65;
-					};
 					63CE580721ADB14F00962B65 = {
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = 63CE57E821ADB14C00962B65;
@@ -314,8 +272,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				63CE57E821ADB14C00962B65 /* WrapItUpPayments */,
-				63CE57FC21ADB14F00962B65 /* WrapItUpPaymentsTests */,
+				63CE57E821ADB14C00962B65 /* Wrap It Up Payments */,
 				63CE580721ADB14F00962B65 /* WrapItUpPaymentsUITests */,
 			);
 		};
@@ -330,13 +287,6 @@
 				63533AC0224C33E900A7B46F /* GoogleService-Info.plist in Resources */,
 				63CE57F421ADB14F00962B65 /* Assets.xcassets in Resources */,
 				63CE57F221ADB14C00962B65 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		63CE57FB21ADB14F00962B65 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,28 +354,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-WrapItUpPayments-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		71B4EF96BC29D677CE9EE81B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WrapItUpPaymentsTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -526,14 +454,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		63CE57F921ADB14F00962B65 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				63CE580221ADB14F00962B65 /* WrapItUpPaymentsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		63CE580421ADB14F00962B65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -545,14 +465,9 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		63CE57FF21ADB14F00962B65 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 63CE57E821ADB14C00962B65 /* WrapItUpPayments */;
-			targetProxy = 63CE57FE21ADB14F00962B65 /* PBXContainerItemProxy */;
-		};
 		63CE580A21ADB14F00962B65 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 63CE57E821ADB14C00962B65 /* WrapItUpPayments */;
+			target = 63CE57E821ADB14C00962B65 /* Wrap It Up Payments */;
 			targetProxy = 63CE580921ADB14F00962B65 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -731,48 +646,6 @@
 			};
 			name = Release;
 		};
-		63CE581521ADB14F00962B65 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD5E129FF61A48EF8515732F /* Pods-WrapItUpPaymentsTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FoodTruckPOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = undergrad.FoodTruckPOSTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WrapItUpPayments.app/WrapItUpPayments";
-			};
-			name = Debug;
-		};
-		63CE581621ADB14F00962B65 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F17B7F16FEF261470CC3E441 /* Pods-WrapItUpPaymentsTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FoodTruckPOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = undergrad.FoodTruckPOSTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WrapItUpPayments.app/WrapItUpPayments";
-			};
-			name = Release;
-		};
 		63CE581821ADB14F00962B65 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1ACA94559B53C7BD4A284077 /* Pods-WrapItUpPaymentsUITests.debug.xcconfig */;
@@ -825,20 +698,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63CE581121ADB14F00962B65 /* Build configuration list for PBXNativeTarget "WrapItUpPayments" */ = {
+		63CE581121ADB14F00962B65 /* Build configuration list for PBXNativeTarget "Wrap It Up Payments" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63CE581221ADB14F00962B65 /* Debug */,
 				63CE581321ADB14F00962B65 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		63CE581421ADB14F00962B65 /* Build configuration list for PBXNativeTarget "WrapItUpPaymentsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				63CE581521ADB14F00962B65 /* Debug */,
-				63CE581621ADB14F00962B65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
