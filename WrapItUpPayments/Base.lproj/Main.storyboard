@@ -373,6 +373,7 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginActionWithSender:" destination="GCz-X2-uyt" eventType="touchUpInside" id="rQi-Xe-30Q"/>
+                                    <segue destination="vcy-pZ-flU" kind="show" identifier="LoginSegue" id="gKE-Tg-NMa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -390,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qN-KI-xdW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1567.3828125" y="-73.4375"/>
+            <point key="canvasLocation" x="-1546" y="-73"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Hd4-LX-jrx">
