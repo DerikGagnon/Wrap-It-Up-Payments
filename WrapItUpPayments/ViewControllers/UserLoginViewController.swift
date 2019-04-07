@@ -51,7 +51,7 @@ class UserLoginViewController: UIViewController, FUIAuthDelegate {
         
         self.authStateListenerHandle = self.auth?.addStateDidChangeListener { (auth, user) in
             guard user != nil else {
-                self.loginAction(sender: self)
+                //self.loginAction(sender: self)
                 return
             }
         }

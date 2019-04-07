@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class MenuTableViewController: UITableViewController {
     
     let categories = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Desserts"]
     
     var orderViewController: YourOrderViewController!
+    var ref: DatabaseReference!
     
 //    enum Categories: Int {
 //        case Beverages = 0, Appetizers = 1, SoupsSalads = 2, Entrees = 3, Kids = 4, Desserts = 5
@@ -21,16 +23,20 @@ class MenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 250
+        ref = Database.database().reference()
         
+        let userID = Auth.auth().currentUser?.uid
+        ref.child("user-items").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            print(value)
+            //let username = value?["username"] as? String ?? ""
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         
-        
-//        if let split = splitViewController {
-//            print("test1")
-//            let controllers = split.viewControllers
-//            orderViewController =
-//                controllers[controllers.count-1].presentingViewController
-//                as? YourOrderViewController
-//        }
         
         if let splitVC = self.splitViewController {
             //print("test2")

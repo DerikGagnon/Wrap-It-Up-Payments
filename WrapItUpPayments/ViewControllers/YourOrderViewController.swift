@@ -130,9 +130,6 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         let clickedIndex = orderItemsArray[indexPath]
         let delegate = self.cellDelegate
         if segue.identifier == "EditSegue" {
-            let editVC = segue.destination as? EditItemViewController
-            
-            print(editVC)
             print("We in prepare")
             
             delegate?.didTapCell(clickedIndex)
