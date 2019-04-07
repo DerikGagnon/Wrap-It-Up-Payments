@@ -10,10 +10,11 @@ import Foundation
 
 class MenuItem {
     var name: String
-    //var desc: String
+    var desc: String
     var price: Float32
     var image: String
     var type: String
+    var allergies: String
     
     init(name: String,/*desc: String,*/ price: Float32, image: String, type: String) {
         self.name = name
@@ -21,5 +22,7 @@ class MenuItem {
         self.price = price
         self.image = image
         self.type = type
+        self.allergies = ""
+        self.desc = ""
     }
 }

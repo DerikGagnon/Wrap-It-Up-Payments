@@ -9,10 +9,6 @@
 import UIKit
 import SquarePointOfSaleSDK
 
-protocol EditRowDelegate: class {
-    func didTapCell(_ item: MenuItem)
-}
-
 class YourOrderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var subtotalLabel: UILabel!
@@ -57,8 +53,6 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         self.dismiss(animated: true, completion: nil)
     }
     
-    weak var cellDelegate: EditRowDelegate! = nil
-    
     var orderItemsArray: [MenuItem] = []
     var subtotal: Float32 = 0
     var tax: Float32 = 0
@@ -66,6 +60,7 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet var orderTable: UITableView!
     
+    //Refreshes the OrderViewController Prices
     func refreshUI() {
         //print("In refresh UI")
         self.orderTable.reloadData()
@@ -124,19 +119,5 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //
 //    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let indexPath = self.orderTable.indexPathForSelectedRow!.row
-        let clickedIndex = orderItemsArray[indexPath]
-        let delegate = self.cellDelegate
-        if segue.identifier == "EditSegue" {
-            print("We in prepare")
-            
-            delegate?.didTapCell(clickedIndex)
-            
-//            editVC?.NameLabel?.text = orderItemsArray[indexPath!].name
-//            print(editVC?.NameLabel?.text)
-        }
-    }
     
 }

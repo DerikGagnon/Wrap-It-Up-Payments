@@ -16,7 +16,7 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     
     let categories = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Desserts"]
     
-    let beverages = [
+    var beverages = [
         MenuItem(name: "Lemonade", price: 2.49, image: "lemonade", type: "Beverages"),
         MenuItem(name: "Pepsi", price: 1.99, image: "soda", type: "Beverages"),
         MenuItem(name: "Mountain Dew", price: 1.99, image: "soda", type: "Beverages"),
@@ -24,7 +24,7 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         MenuItem(name: "Water", price: 0.99, image: "water", type: "Beverages")
     ]
     
-    let appetizers = [
+    var appetizers = [
         MenuItem(name: "Breaksticks with Alfredo Sauce", price: 5.99, image: "breadsticks", type: "Appetizers"),
         MenuItem(name: "White Queso Dip & Chips", price: 4.99, image: "whitequeso", type: "Appetizers"),
         MenuItem(name: "Chicken Quesadilla", price: 8.99, image: "chickenquesadilla", type: "Appetizers"),
@@ -32,14 +32,14 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         MenuItem(name: "Buffalo Boneless Wings", price: 10.99, image: "bonelesswings", type: "Appetizers")
     ]
     
-    let soupsOrSalads = [
+    var soupsOrSalads = [
         MenuItem(name: "Southwestern Chicken Salad", price: 10.29, image: "southwesternsalad", type: "Soups Or Salads"),
         MenuItem(name: "Thai Shrimp Salad", price: 12.29, image: "thaisalad", type: "Soups Or Salads"),
         MenuItem(name: "Chicken Ceaser Salad", price: 10.79, image: "ceasersalad", type: "Soups Or Salads"),
         MenuItem(name: "Chicken Noodle Soup", price: 5.69, image: "chickensoup", type: "Soups Or Salads")
     ]
     
-    let entrees = [
+    var entrees = [
         MenuItem(name: "Riblet Basket", price: 10.29, image: "riblet", type: "Entrees"),
         MenuItem(name: "Bourbon Street Steak", price: 15.99, image: "bourbonsteak", type: "Entrees"),
         MenuItem(name: "Chicken Tenders Platter", price: 11.79, image: "chickenplatter", type: "Entrees"),
@@ -53,13 +53,13 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         MenuItem(name: "Classic Cheeseburger", price: 10.29, image: "burger", type: "Entrees")
     ]
     
-    let kidsEntrees = [
+    var kidsEntrees = [
         MenuItem(name: "Kid's Cheesy Pizza", price: 6.49, image: "kidpizza", type: "Kid's Entrees"),
         MenuItem(name: "Kid's Chicken Tenders", price: 6.49, image: "kidchicken", type: "Kid's Entrees"),
         MenuItem(name: "Kid's Corn Dog", price: 6.49, image: "kidcorndog", type: "Kid's Entrees")
     ]
     
-    let desserts = [
+    var desserts = [
         MenuItem(name: "Hot Fudge Sundae", price: 2.69, image: "hotfudgesundae", type: "Desserts"),
         MenuItem(name: "Blue Ribbon Brownie", price: 5.69, image: "blueribbonbrownie", type: "Desserts")
     ]
@@ -191,4 +191,39 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         
     }
 
+}
+
+extension MenuItemCell: MenuDatabaseDelegate {
+    func addItem(_ item: MenuItem) {
+        print("In add item delegate")
+        var choice = 0
+        for cat in categories {
+            if cat == item.type {
+                choice = categories.firstIndex(of: cat)!
+            }
+        }
+        switch choice {
+        case 0:
+            beverages.append(item)
+            break
+        case 1:
+            appetizers.append(item)
+            break
+        case 2:
+            soupsOrSalads.append(item)
+            break
+        case 3:
+            entrees.append(item)
+            break
+        case 4:
+            kidsEntrees.append(item)
+            break
+        case 5:
+            desserts.append(item)
+            break
+        default:
+            print("No match in addItem protocol")
+        }
+        self.collectionView.reloadData()
+    }
 }
