@@ -90,9 +90,9 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-    func printHello() {
-        print("We made it!!")
-    }
+//    func printHello() {
+//        print("We made it!!")
+//    }
 //
 //    func printItemName(item: MenuItem) {
 //        print(item.name)
@@ -104,7 +104,7 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(String(orderItemsArray.count))
+        //print(String(orderItemsArray.count))
         return orderItemsArray.count
     }
     

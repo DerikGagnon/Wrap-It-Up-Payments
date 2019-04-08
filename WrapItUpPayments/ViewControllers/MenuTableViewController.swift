@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 protocol MenuDatabaseDelegate: class {
     func addItem(_ item: MenuItem)
@@ -18,9 +17,15 @@ class MenuTableViewController: UITableViewController {
     let categories = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Desserts"]
     
     var orderViewController: YourOrderViewController!
-    var ref: DatabaseReference!
-    var itemKey = ""
+    var menuItemList: [MenuItem] = []
     weak var cellDatabaseDelegate: MenuDatabaseDelegate!
+    var beverages: [MenuItem] = []
+    var appetizers: [MenuItem] = []
+    var soupsOrSalads: [MenuItem] = []
+    var entrees: [MenuItem] = []
+    var kidsEntrees: [MenuItem] = []
+    var desserts: [MenuItem] = []
+//    var activityIndicator: UIActivityIndicatorView!
     
 //    enum Categories: Int {
 //        case Beverages = 0, Appetizers = 1, SoupsSalads = 2, Entrees = 3, Kids = 4, Desserts = 5
@@ -29,46 +34,39 @@ class MenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 250
-        ref = Database.database().reference()
         
-        let userID = Auth.auth().currentUser?.uid
-        ref.child("user-items").child(userID!).observeSingleEvent(of: .value, with: { snapshot in
-            //print(snapshot.value)
-            for child in snapshot.children.allObjects as! [DataSnapshot] {
-                let tempItem = MenuItem(name: "", price: 0.00, image: "", type: "")
-                guard let childDict = child.value as? [String: Any] else { continue }
-                let name = childDict["name"] as! String
-                print(name)
-                tempItem.name = name
-                let type = childDict["itemType"] as! String
-                print(type)
-                tempItem.type = type
-                let price = childDict["price"] as! String
-                print(price)
-                let numberFormatter = NumberFormatter()
-                let number = numberFormatter.number(from: price)
-                let numberFloatValue = number?.floatValue
-                tempItem.price = numberFloatValue!
-                let allergies = childDict["itemAllergies"] as! String
-                print(allergies)
-                tempItem.allergies = allergies
-                let description = childDict["description"] as! String
-                print(description)
-                tempItem.desc = description
-                tempItem.image = ""
-                self.tableView.beginUpdates()
-                self.cellDatabaseDelegate.addItem(tempItem)
-                self.tableView.endUpdates()
-                //self.tableView.reloadData()
-                //self.loadView()
+        for item in menuItemList {
+            print(item.name)
+            var choice = 0
+            for cat in categories {
+                if cat == item.type {
+                    choice = categories.firstIndex(of: cat)!
+                }
             }
-            
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
+            switch choice {
+            case 0:
+                self.beverages.append(item)
+                break
+            case 1:
+                self.appetizers.append(item)
+                break
+            case 2:
+                self.soupsOrSalads.append(item)
+                break
+            case 3:
+                self.entrees.append(item)
+                break
+            case 4:
+                self.kidsEntrees.append(item)
+                break
+            case 5:
+                self.desserts.append(item)
+                break
+            default:
+                print("No match in addItem protocol")
+            }
         }
-        
-        
+
         if let splitVC = self.splitViewController {
             //print("test2")
             print(splitVC.viewControllers.count)
@@ -89,13 +87,13 @@ class MenuTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     
-//    override func viewDidAppear(_ animated: Bool) {
-//
-//    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -112,11 +110,34 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //self.tableView.register(SightsCell.self, forCellReuseIdentifier: "SightCell")
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! MenuItemCell
         cell.cellDelegate = self
-        self.cellDatabaseDelegate = cell
+        //self.cellDatabaseDelegate = cell
         cell.rowIndex = indexPath.section
+        switch indexPath.section {
+        case 0:
+            cell.beverages = self.beverages
+            break
+        case 1:
+            cell.appetizers = self.appetizers
+            break
+        case 2:
+            cell.soupsOrSalads = self.soupsOrSalads
+            break
+        case 3:
+            cell.entrees = self.entrees
+            break
+        case 4:
+            cell.kidsEntrees = self.kidsEntrees
+            break
+        case 5:
+            cell.desserts = self.desserts
+            break
+        default:
+            print("No match in addItem protocol")
+        }
+        cell.collectionView.reloadData()
         print(indexPath.section)
         
         return cell

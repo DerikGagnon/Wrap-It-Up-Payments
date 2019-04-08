@@ -310,7 +310,7 @@
         <!--SplashScreen-->
         <scene sceneID="I6U-jz-86I">
             <objects>
-                <viewController title="SplashScreen" id="vcy-pZ-flU" sceneMemberID="viewController">
+                <viewController title="SplashScreen" id="vcy-pZ-flU" customClass="PlaceOrderViewController" customModule="Wrap_It_Up_Payments" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K0v-MM-KDr">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -335,7 +335,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <state key="normal" title="Place Order"/>
                                 <connections>
-                                    <segue destination="tCW-bY-PaG" kind="show" id="A0q-B9-cpO"/>
+                                    <action selector="OrderPlacedButtonPressed:" destination="vcy-pZ-flU" eventType="touchUpInside" id="cmj-4B-seE"/>
+                                    <segue destination="tCW-bY-PaG" kind="show" identifier="OrderToMenu" id="eZc-Jn-LuU"/>
                                 </connections>
                             </button>
                         </subviews>
