@@ -93,11 +93,12 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.orderTable.dataSource = self
+        self.orderTable.delegate = self
+        self.orderTable.setEditing(true, animated: true)
         
         // Prevent pressing button when there is nothing in the cart
         self.OrderButton.isEnabled = false
-        
-        // self.orderTable.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func didReceiveMemoryWarning() {
@@ -113,6 +114,17 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //print(String(orderItemsArray.count))
         return orderItemsArray.count
+    }
+    
+    // Allows for editing of the order table
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            orderItemsArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            
+            // refresh prices after deletion
+            self.refreshUI()
+        }
     }
     
     // Set the cells in the table with the item data.

@@ -18,14 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Order" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnc-oS-7ES">
-                                <rect key="frame" x="0.0" y="77" width="320" height="33.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5st-rz-J2o">
-                                <rect key="frame" x="16" y="119" width="288" height="483"/>
+                                <rect key="frame" x="16" y="95.5" width="288" height="506.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderCell" rowHeight="81" id="okm-1a-2sk" customClass="YourOrderTableCell" customModule="Wrap_It_Up_Payments" customModuleProvider="target">
@@ -136,24 +130,31 @@
                                     <constraint firstItem="PA0-YV-sit" firstAttribute="leading" secondItem="WWD-Fj-P89" secondAttribute="leading" id="yVX-aa-6X0"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Order" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKN-Pk-yPG">
+                                <rect key="frame" x="16" y="35" width="288" height="45.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="cnc-oS-7ES" firstAttribute="trailing" secondItem="XHF-Ne-cLl" secondAttribute="trailing" id="31j-2s-fAr"/>
                             <constraint firstItem="XHF-Ne-cLl" firstAttribute="trailing" secondItem="5st-rz-J2o" secondAttribute="trailing" constant="16" id="5Ke-9i-Xd5"/>
                             <constraint firstItem="XHF-Ne-cLl" firstAttribute="bottom" secondItem="9Ay-9e-Nm9" secondAttribute="bottom" constant="12" id="5lP-mJ-gix"/>
-                            <constraint firstItem="cnc-oS-7ES" firstAttribute="leading" secondItem="XHF-Ne-cLl" secondAttribute="leading" id="5q3-cM-u7D"/>
+                            <constraint firstItem="5st-rz-J2o" firstAttribute="top" secondItem="LKN-Pk-yPG" secondAttribute="bottom" constant="8" id="7Vz-dS-oKX"/>
+                            <constraint firstItem="XHF-Ne-cLl" firstAttribute="trailing" secondItem="LKN-Pk-yPG" secondAttribute="trailing" constant="16" id="8p6-hk-IwD"/>
                             <constraint firstItem="ekc-gM-gfc" firstAttribute="top" secondItem="5st-rz-J2o" secondAttribute="bottom" constant="10" id="EPZ-wy-KFr"/>
                             <constraint firstItem="5st-rz-J2o" firstAttribute="leading" secondItem="XHF-Ne-cLl" secondAttribute="leading" constant="16" id="FAO-af-HlH"/>
+                            <constraint firstItem="LKN-Pk-yPG" firstAttribute="leading" secondItem="XHF-Ne-cLl" secondAttribute="leading" constant="16" id="KaZ-JT-ZT5"/>
                             <constraint firstItem="WWD-Fj-P89" firstAttribute="top" secondItem="5st-rz-J2o" secondAttribute="bottom" constant="8" id="Kl3-VA-59u"/>
+                            <constraint firstItem="5st-rz-J2o" firstAttribute="top" secondItem="LKN-Pk-yPG" secondAttribute="bottom" constant="15" id="QOE-M7-VgF"/>
                             <constraint firstItem="9Ay-9e-Nm9" firstAttribute="top" secondItem="WWD-Fj-P89" secondAttribute="bottom" constant="2" id="RHV-4d-15h"/>
                             <constraint firstItem="XHF-Ne-cLl" firstAttribute="trailing" secondItem="ekc-gM-gfc" secondAttribute="trailing" constant="16" id="TT7-Y8-xOg"/>
                             <constraint firstItem="9Ay-9e-Nm9" firstAttribute="trailing" secondItem="XHF-Ne-cLl" secondAttribute="trailing" id="bdL-dx-od4"/>
                             <constraint firstItem="9Ay-9e-Nm9" firstAttribute="top" secondItem="ekc-gM-gfc" secondAttribute="bottom" constant="4" id="eDV-3I-Ad5"/>
+                            <constraint firstItem="LKN-Pk-yPG" firstAttribute="top" secondItem="XHF-Ne-cLl" secondAttribute="top" constant="15" id="eGv-wo-VoJ"/>
                             <constraint firstItem="WWD-Fj-P89" firstAttribute="leading" secondItem="XHF-Ne-cLl" secondAttribute="leading" constant="16" id="gyA-J5-EMV"/>
                             <constraint firstItem="9Ay-9e-Nm9" firstAttribute="leading" secondItem="XHF-Ne-cLl" secondAttribute="leading" id="h8Y-Yg-Uey"/>
-                            <constraint firstItem="5st-rz-J2o" firstAttribute="top" secondItem="cnc-oS-7ES" secondAttribute="bottom" constant="8.5" id="pKZ-Qc-6GS"/>
-                            <constraint firstItem="cnc-oS-7ES" firstAttribute="top" secondItem="XHF-Ne-cLl" secondAttribute="top" constant="7" id="vgO-XL-LWa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XHF-Ne-cLl"/>
                     </view>
@@ -169,23 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xj8-32-ceC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6.4453125" y="-1230.46875"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Hdh-In-eiu">
-            <objects>
-                <navigationController id="bnQ-0N-ouD" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lto-fI-JHd">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="kKY-1T-61z" kind="relationship" relationship="rootViewController" id="bIn-Zp-cec"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="153-h2-n3p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-6" y="-506"/>
+            <point key="canvasLocation" x="-6" y="-510"/>
         </scene>
         <!--Menu-->
         <scene sceneID="g9S-ON-kFA">
@@ -403,7 +388,7 @@
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <segue destination="tA6-7x-h3z" kind="relationship" relationship="detailViewController" id="UxG-ps-Ii8"/>
-                        <segue destination="bnQ-0N-ouD" kind="relationship" relationship="masterViewController" id="hRF-7I-b60"/>
+                        <segue destination="kKY-1T-61z" kind="relationship" relationship="masterViewController" id="0pT-pt-1Cx"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2PO-u3-6Jn" userLabel="First Responder" sceneMemberID="firstResponder"/>

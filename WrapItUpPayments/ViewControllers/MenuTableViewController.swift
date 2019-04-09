@@ -79,11 +79,11 @@ class MenuTableViewController: UITableViewController {
         }
 
         if let splitVC = self.splitViewController {
-            //Set the navController to the master splitViewController
-            let navController = splitVC.viewControllers[0] as! UINavigationController
-            navController.topViewController!.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem
-            // create a link the order view controller so we can access functions
-            orderViewController = navController.viewControllers[0] as? YourOrderViewController
+            //Set the link to the master splitViewController
+            orderViewController = splitVC.viewControllers[0] as! YourOrderViewController
+//            navController.topViewController!.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem
+//            // create a link the order view controller so we can access functions
+//            orderViewController = navController.viewControllers[0] as? YourOrderViewController
         }
     }
 
