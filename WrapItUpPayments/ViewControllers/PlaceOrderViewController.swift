@@ -18,13 +18,18 @@ class PlaceOrderViewController: UIViewController {
     
     func downloadData() {
         ref = Database.database().reference()
+        // Get a reference to the storage service using the default Firebase App
+        let storage = Storage.storage()
+        
+        // Create a storage reference from our storage service
+        let storageRef = storage.reference()
         //var tempItemList: [MenuItem] = []
         
         let userID = Auth.auth().currentUser?.uid
         ref.child("user-items").child(userID!).observeSingleEvent(of: .value, with: { snapshot in
-            print(snapshot.value)
+            //print(snapshot.value)
             for child in snapshot.children.allObjects as! [DataSnapshot] {
-                let tempItem = MenuItem(name: "", price: 0.00, image: "", type: "")
+                let tempItem = MenuItem(name: "", desc: "", price: 0.00, image: storageRef, type: "", allergies: "")
                 guard let childDict = child.value as? [String: Any] else {
                     continue
                 }
@@ -46,10 +51,11 @@ class PlaceOrderViewController: UIViewController {
                 let description = childDict["description"] as! String
 //                print(description)
                 tempItem.desc = description
-                tempItem.image = ""
-                //tempItemList.append(tempItem)
+                let imageRef = childDict["imageUrl"] as! String
+                let reference = storageRef.child(imageRef)
+                tempItem.image = reference
                 self.itemList.append(tempItem)
-                print(self.itemList.count)
+                //print(self.itemList.count)
             }
         }) { (error) in
             print(error.localizedDescription)

@@ -15,9 +15,10 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var taxLabel: UILabel!
     @IBOutlet var totalLabel: UILabel!
     
+    @IBOutlet weak var OrderButton: UIButton!
     
+    // Launch the square application when button is pressed
     @IBAction func OrderButtonPressed(_ sender: UIButton) {
-        //Implement Square API HERE
         // Replace with your app's URL scheme.
         let callbackURL = URL(string: "wrapitup://")!
         
@@ -62,10 +63,18 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //Refreshes the OrderViewController Prices
     func refreshUI() {
-        //print("In refresh UI")
+        // Refresh the table data
         self.orderTable.reloadData()
         loadViewIfNeeded()
-        //let formatted = String(format: "Angle: %.2f", angle)
+        
+        // Prevent button press when cart is empty
+        if self.orderTable.visibleCells.isEmpty {
+            self.OrderButton.isEnabled = false
+        } else {
+            self.OrderButton.isEnabled = true
+        }
+        
+        // Format subtotal, tax, and total to be strings
         subtotal = orderItemsArray.map({$0.price}).reduce(0, +)
         let formattedSubtotal = String(format: "$%.2f", subtotal)
         subtotalLabel.text = formattedSubtotal
@@ -81,6 +90,9 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Prevent pressing button when there is nothing in the cart
+        self.OrderButton.isEnabled = false
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
@@ -90,24 +102,17 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-//    func printHello() {
-//        print("We made it!!")
-//    }
-//
-//    func printItemName(item: MenuItem) {
-//        print(item.name)
-//    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 1
     }
     
+    // Dynamically change number of rows based on array
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //print(String(orderItemsArray.count))
         return orderItemsArray.count
     }
     
+    // Set the cells in the table with the item data.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! YourOrderTableCell
         cell.nameLabel?.text = orderItemsArray[indexPath.row].name
@@ -115,9 +120,5 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.priceLabel?.text = formattedPrice
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//    }
     
 }

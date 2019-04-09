@@ -160,6 +160,7 @@
                     <navigationItem key="navigationItem" id="i8g-hH-i0f"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="OrderButton" destination="9Ay-9e-Nm9" id="dcB-cs-ABb"/>
                         <outlet property="orderTable" destination="5st-rz-J2o" id="FJy-mG-kEU"/>
                         <outlet property="subtotalLabel" destination="hdF-bO-n20" id="WGT-Hd-Xhk"/>
                         <outlet property="taxLabel" destination="1FM-Hy-AQS" id="WVx-i8-brX"/>
