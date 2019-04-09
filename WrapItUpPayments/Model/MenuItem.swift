@@ -27,4 +27,14 @@ class MenuItem {
         self.type = type
         self.allergies = allergies
     }
+    
+    // Default Initializer
+    init() {
+        self.name = ""
+        self.desc = ""
+        self.price = 0.00
+        self.image = Storage.storage().reference()
+        self.type = ""
+        self.allergies = ""
+    }
 }

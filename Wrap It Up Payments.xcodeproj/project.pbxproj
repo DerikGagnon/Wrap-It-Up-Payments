@@ -21,6 +21,7 @@
 		63CE57F721ADB14F00962B65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63CE57F521ADB14F00962B65 /* LaunchScreen.storyboard */; };
 		63CE580D21ADB14F00962B65 /* WrapItUpPaymentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CE580C21ADB14F00962B65 /* WrapItUpPaymentsUITests.swift */; };
 		63D9B83D225BD7EE00C0FF5A /* PlaceOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D9B83C225BD7EE00C0FF5A /* PlaceOrderViewController.swift */; };
+		63D9B83F225D184500C0FF5A /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D9B83E225D184500C0FF5A /* ItemDetailViewController.swift */; };
 		63F2BBD92218DF960035368C /* YourOrderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F2BBD82218DF960035368C /* YourOrderTableCell.swift */; };
 		999F4737008EFCE19A0B8F17 /* Pods_Wrap_It_Up_Payments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB6B3B47FACD89D6BECAA6D /* Pods_Wrap_It_Up_Payments.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		63CE580C21ADB14F00962B65 /* WrapItUpPaymentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapItUpPaymentsUITests.swift; sourceTree = "<group>"; };
 		63CE580E21ADB14F00962B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63D9B83C225BD7EE00C0FF5A /* PlaceOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceOrderViewController.swift; sourceTree = "<group>"; };
+		63D9B83E225D184500C0FF5A /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		63F2BBD82218DF960035368C /* YourOrderTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourOrderTableCell.swift; sourceTree = "<group>"; };
 		7DB5E29E5FAB2A255AE56C4A /* Pods-Wrap It Up Payments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wrap It Up Payments.release.xcconfig"; path = "Target Support Files/Pods-Wrap It Up Payments/Pods-Wrap It Up Payments.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 				6376CA0521B6089F000F9952 /* MenuTableViewController.swift */,
 				63265017220A0E9F00138B8B /* YourOrderViewController.swift */,
 				63533AC1224EAE3C00A7B46F /* UserLoginViewController.swift */,
+				63D9B83E225D184500C0FF5A /* ItemDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D9B83F225D184500C0FF5A /* ItemDetailViewController.swift in Sources */,
 				6376CA0621B6089F000F9952 /* MenuTableViewController.swift in Sources */,
 				6376CA0321B6056E000F9952 /* MenuItem.swift in Sources */,
 				63D9B83D225BD7EE00C0FF5A /* PlaceOrderViewController.swift in Sources */,

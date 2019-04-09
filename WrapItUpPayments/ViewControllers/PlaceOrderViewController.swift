@@ -31,7 +31,7 @@ class PlaceOrderViewController: UIViewController {
             // loop through json from database
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 // temp MenuItem to store dictionary aspects to
-                let tempItem = MenuItem(name: "", desc: "", price: 0.00, image: storageRef, type: "", allergies: "")
+                let tempItem = MenuItem()
                 
                 // guard for if there is no item
                 guard let childDict = child.value as? [String: Any] else {
