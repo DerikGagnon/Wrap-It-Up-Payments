@@ -14,8 +14,10 @@ protocol MenuRowDelegate: class {
 
 class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    // categories for comparison
     let categories = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Desserts"]
     
+    // item lists that we can append to
     var beverages: [MenuItem] = []
     var appetizers: [MenuItem] = []
     var soupsOrSalads: [MenuItem] = []
@@ -29,16 +31,17 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         collectionView.reloadData()
 
     }
     
+    // Keeps cells in memory so they aren't overwritten
     override func prepareForReuse() {
         collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // allow for dynamic sizes based on category
         switch rowIndex {
         case 0:
             return beverages.count
@@ -60,6 +63,7 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! MenuCollectionCell
         
+        // add the correct cells to the collection view depending on the section
         switch rowIndex {
         case 0:
             //Beverages
@@ -108,6 +112,7 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
             return cell
         }
         
+        // Sets text wrapping for better visuals
         // https://stackoverflow.com/questions/3931838/how-to-write-multiple-lines-in-a-label
         cell.itemName?.lineBreakMode = .byWordWrapping
         cell.itemName?.numberOfLines = 0
@@ -115,6 +120,7 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // switch decides which item is clicked to send to the orderViewController
         var clickedIndex: MenuItem!
         switch rowIndex {
         case 0:
@@ -138,47 +144,10 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         default:
             clickedIndex = nil
         }
-        self.cellDelegate!.didTapCell(clickedIndex)
-        //print(clickedIndex.name)
         
+        // Sends correct item to the order table for payments
+        self.cellDelegate!.didTapCell(clickedIndex)
         
     }
 
 }
-
-//extension MenuItemCell: MenuDatabaseDelegate {
-//    func addItem(_ item: MenuItem) {
-//        //for item in itemList {
-//        print("In add item delegate")
-//        var choice = 0
-//        for cat in categories {
-//            if cat == item.type {
-//                choice = categories.firstIndex(of: cat)!
-//            }
-//        }
-//        switch choice {
-//        case 0:
-//            self.beverages.append(item)
-//            break
-//        case 1:
-//            self.appetizers.append(item)
-//            break
-//        case 2:
-//            self.soupsOrSalads.append(item)
-//            break
-//        case 3:
-//            self.entrees.append(item)
-//            break
-//        case 4:
-//            self.kidsEntrees.append(item)
-//            break
-//        case 5:
-//            self.desserts.append(item)
-//            break
-//        default:
-//            print("No match in addItem protocol")
-//        }
-//        //self.collectionView.reloadData()
-//        //}
-//    }
-//}

@@ -15,7 +15,8 @@ class YourOrderTableCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        // Word wrapping for the table view controller
         // https://stackoverflow.com/questions/3931838/how-to-write-multiple-lines-in-a-label
         nameLabel.lineBreakMode = .byWordWrapping
         nameLabel.numberOfLines = 0

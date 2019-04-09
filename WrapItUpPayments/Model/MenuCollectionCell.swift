@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 
+// Outlets for the collection cells
 class MenuCollectionCell: UICollectionViewCell {
     @IBOutlet var itemImage: UIImageView?
     @IBOutlet var itemName: UILabel?
