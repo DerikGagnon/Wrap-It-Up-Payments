@@ -35,6 +35,13 @@ class MenuTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.rowHeight = 250
         
+        self.beverages.removeAll()
+        self.appetizers.removeAll()
+        self.soupsOrSalads.removeAll()
+        self.entrees.removeAll()
+        self.kidsEntrees.removeAll()
+        self.desserts.removeAll()
+        
         for item in menuItemList {
             print(item.name)
             var choice = 0

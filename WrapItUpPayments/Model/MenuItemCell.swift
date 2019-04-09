@@ -164,12 +164,12 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         // https://stackoverflow.com/questions/3931838/how-to-write-multiple-lines-in-a-label
         cell.itemName?.lineBreakMode = .byWordWrapping
         cell.itemName?.numberOfLines = 0
-        print(self.beverages)
-        print(self.appetizers)
-        print(self.soupsOrSalads)
-        print(self.entrees)
-        print(self.kidsEntrees)
-        print(self.desserts)
+//        print(self.beverages)
+//        print(self.appetizers)
+//        print(self.soupsOrSalads)
+//        print(self.entrees)
+//        print(self.kidsEntrees)
+//        print(self.desserts)
         return cell
     }
     
