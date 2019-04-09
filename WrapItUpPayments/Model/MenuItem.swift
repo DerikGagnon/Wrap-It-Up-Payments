@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 class MenuItem {
+    // Item variables
     var name: String
     var desc: String
     var price: Float32
@@ -17,6 +18,7 @@ class MenuItem {
     var type: String
     var allergies: String
     
+    // Initializer
     init(name: String, desc: String, price: Float32, image: StorageReference, type: String, allergies: String) {
         self.name = name
         self.desc = desc

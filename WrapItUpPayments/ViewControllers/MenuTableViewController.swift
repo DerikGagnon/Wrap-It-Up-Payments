@@ -8,33 +8,34 @@
 
 import UIKit
 
+// Delegate to send items to the order table
 protocol MenuDatabaseDelegate: class {
     func addItem(_ item: MenuItem)
 }
 
 class MenuTableViewController: UITableViewController {
     
+    // categories for the types of items - used for comparisons
     let categories = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Desserts"]
     
     var orderViewController: YourOrderViewController!
     var menuItemList: [MenuItem] = []
     weak var cellDatabaseDelegate: MenuDatabaseDelegate!
+    
+    // arrays for each type of item
     var beverages: [MenuItem] = []
     var appetizers: [MenuItem] = []
     var soupsOrSalads: [MenuItem] = []
     var entrees: [MenuItem] = []
     var kidsEntrees: [MenuItem] = []
     var desserts: [MenuItem] = []
-//    var activityIndicator: UIActivityIndicatorView!
-    
-//    enum Categories: Int {
-//        case Beverages = 0, Appetizers = 1, SoupsSalads = 2, Entrees = 3, Kids = 4, Desserts = 5
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+         // 250 is a good height for visual appeal
         tableView.rowHeight = 250
         
+        // reset all of the lists to prevent double adds
         self.beverages.removeAll()
         self.appetizers.removeAll()
         self.soupsOrSalads.removeAll()
@@ -42,14 +43,17 @@ class MenuTableViewController: UITableViewController {
         self.kidsEntrees.removeAll()
         self.desserts.removeAll()
         
+        // checks types of each item
         for item in menuItemList {
-            print(item.name)
+            //print(item.name)
             var choice = 0
             for cat in categories {
                 if cat == item.type {
                     choice = categories.firstIndex(of: cat)!
                 }
             }
+            
+            // adds item to correct list
             switch choice {
             case 0:
                 self.beverages.append(item)
@@ -70,26 +74,17 @@ class MenuTableViewController: UITableViewController {
                 self.desserts.append(item)
                 break
             default:
-                print("No match in addItem protocol")
+                print("No match in load")
             }
         }
 
         if let splitVC = self.splitViewController {
-            //print("test2")
-            print(splitVC.viewControllers.count)
             //Set the navController to the master splitViewController
             let navController = splitVC.viewControllers[0] as! UINavigationController
             navController.topViewController!.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem
-            print(navController.viewControllers.count)
+            // create a link the order view controller so we can access functions
             orderViewController = navController.viewControllers[0] as? YourOrderViewController
-            //orderViewController?.printHello()
         }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -98,13 +93,9 @@ class MenuTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        // Have 6 categories so 6 sections
         return categories.count
     }
     
@@ -113,15 +104,19 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // one row per section for collectionview
         return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! MenuItemCell
+        
+        // set the delegate to the cell so we can use didTapCell
         cell.cellDelegate = self
-        //self.cellDatabaseDelegate = cell
         cell.rowIndex = indexPath.section
+        
+        // sets correct cell list to the correct category
         switch indexPath.section {
         case 0:
             cell.beverages = self.beverages
@@ -142,20 +137,17 @@ class MenuTableViewController: UITableViewController {
             cell.desserts = self.desserts
             break
         default:
-            print("No match in addItem protocol")
+            print("No match in cell dequeue")
         }
         cell.collectionView.reloadData()
-        print(indexPath.section)
-        
         return cell
     }
 
 }
 
+// adds item to order table and refresh the UI of the order view
 extension MenuTableViewController: MenuRowDelegate {
     func didTapCell(_ item: MenuItem) {
-        print("We tapped")
-        //orderViewController?.printItemName(item: item)
         orderViewController?.orderItemsArray.append(item)
         orderViewController?.refreshUI()
     }

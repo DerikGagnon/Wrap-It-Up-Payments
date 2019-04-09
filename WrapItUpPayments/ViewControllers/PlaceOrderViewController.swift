@@ -13,90 +13,93 @@ class PlaceOrderViewController: UIViewController {
     
     var ref: DatabaseReference!
     var itemKey = ""
-//    weak var databaseDelegate: DatabaseDelegate!
     var itemList: [MenuItem] = []
     
     func downloadData() {
+        // reference to database
         ref = Database.database().reference()
         // Get a reference to the storage service using the default Firebase App
         let storage = Storage.storage()
         
         // Create a storage reference from our storage service
         let storageRef = storage.reference()
-        //var tempItemList: [MenuItem] = []
-        
         let userID = Auth.auth().currentUser?.uid
+        
+        // Get the items from the database
         ref.child("user-items").child(userID!).observeSingleEvent(of: .value, with: { snapshot in
-            //print(snapshot.value)
+            
+            // loop through json from database
             for child in snapshot.children.allObjects as! [DataSnapshot] {
+                // temp MenuItem to store dictionary aspects to
                 let tempItem = MenuItem(name: "", desc: "", price: 0.00, image: storageRef, type: "", allergies: "")
+                
+                // guard for if there is no item
                 guard let childDict = child.value as? [String: Any] else {
                     continue
                 }
+                // get name
                 let name = childDict["name"] as! String
-                //print(name)
                 tempItem.name = name
+                
+                // get type
                 let type = childDict["itemType"] as! String
-              //  print(type)
                 tempItem.type = type
+                
+                // get price and format to float
                 let price = childDict["price"] as! String
-//                print(price)
                 let numberFormatter = NumberFormatter()
                 let number = numberFormatter.number(from: price)
                 let numberFloatValue = number?.floatValue
                 tempItem.price = numberFloatValue!
+                
+                // get allergies
                 let allergies = childDict["itemAllergies"] as! String
-//                print(allergies)
                 tempItem.allergies = allergies
+                
+                // get description
                 let description = childDict["description"] as! String
-//                print(description)
                 tempItem.desc = description
+                
+                // get image Reference
                 let imageRef = childDict["imageUrl"] as! String
                 let reference = storageRef.child(imageRef)
                 tempItem.image = reference
+                
+                // append to list to send later
                 self.itemList.append(tempItem)
-                //print(self.itemList.count)
             }
         }) { (error) in
             print(error.localizedDescription)
         }
-        //        self.cellDatabaseDelegate.addItem(tempItem)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(segue.destination)
+        // Destination is split view controller - must navigate through
         if let splitVC = segue.destination as? UISplitViewController {
+            // Detail view is the second part of nav controller - [1]
             let navController = splitVC.viewControllers[1] as! UINavigationController
             let menuTable = navController.viewControllers[0] as? MenuTableViewController
+            
+            // set menu list to current list
             menuTable?.menuItemList = self.itemList
-            print(self.itemList)
         }
     }
+    
     @IBAction func OrderPlacedButtonPressed(_ sender: UIButton) {
-        print("BETTER BE DOIN THAT PERFORM BITCH")
+        // Go to menu view controller
         performSegue(withIdentifier: "OrderToMenu", sender: sender)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        // reset the array
         self.itemList.removeAll()
+        
+        // Download in did appear so it can be reset after payment
         self.downloadData()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

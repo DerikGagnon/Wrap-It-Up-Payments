@@ -48,9 +48,13 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
             // Open Point of Sale to complete the payment.
             try SCCAPIConnection.perform(apiRequest)
             
+        // error from square about payments
         } catch let error as NSError {
             print(error.localizedDescription)
+            return
         }
+        
+        // go back to place order screen
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -93,8 +97,7 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         // Prevent pressing button when there is nothing in the cart
         self.OrderButton.isEnabled = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // self.orderTable.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func didReceiveMemoryWarning() {

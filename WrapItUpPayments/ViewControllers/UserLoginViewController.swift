@@ -16,6 +16,7 @@ class UserLoginViewController: UIViewController, FUIAuthDelegate {
     fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        // jump out once we have a valid user
         guard let authError = error else {
             print("Login Successful")
             return
@@ -23,11 +24,13 @@ class UserLoginViewController: UIViewController, FUIAuthDelegate {
         
         let errorCode = UInt((authError as NSError).code)
         
+        // if user cancels login, error here
         switch errorCode {
         case FUIAuthErrorCode.userCancelledSignIn.rawValue:
             print("User cancelled sign-in");
             break
             
+        // error if not logged in
         default:
             let detailedError = (authError as NSError).userInfo[NSUnderlyingErrorKey] ?? authError
             print("Login error: \((detailedError as! NSError).localizedDescription)");
@@ -38,11 +41,11 @@ class UserLoginViewController: UIViewController, FUIAuthDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        print(Auth.auth().currentUser?.displayName ?? "name")
+        // Force a signout so that a different user could potentially sign back in
+        // Useful if the users have different accounts for different time menus.
         try! Auth.auth().signOut()
-
-        // Do any additional setup after loading the view.
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Setting up authentication listener
         self.auth = Auth.auth()
         self.authUI = FUIAuth.defaultAuthUI()
         self.authUI?.delegate = self
@@ -50,8 +53,8 @@ class UserLoginViewController: UIViewController, FUIAuthDelegate {
         
         
         self.authStateListenerHandle = self.auth?.addStateDidChangeListener { (auth, user) in
+            // Jumps out when the state changes to valid user
             guard user != nil else {
-                //self.loginAction(sender: self)
                 return
             }
         }
@@ -59,10 +62,8 @@ class UserLoginViewController: UIViewController, FUIAuthDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //print(Auth.auth().currentUser?.displayName ?? "name")
+        // Once we have valid user, go to next view
         if Auth.auth().currentUser != nil {
-            print("Inside If")
-            print(Thread.isMainThread)
             self.performSegue(withIdentifier: "LoginSegue", sender: self)
         }
     }
@@ -70,20 +71,8 @@ class UserLoginViewController: UIViewController, FUIAuthDelegate {
     @IBAction func loginAction(sender: AnyObject) {
         // Present the default login view controller provided by authUI
         let authViewController = authUI?.authViewController();
-        print("authenticator")
         self.present(authViewController!, animated: true, completion: nil)
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
