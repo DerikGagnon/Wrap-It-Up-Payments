@@ -56,14 +56,34 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "63D9B849225E7F1300C0FF5A"
+               BuildableName = "Wrap It Up Payments Tests.xctest"
+               BlueprintName = "Wrap It Up Payments Tests"
+               ReferencedContainer = "container:WrapItUpPayments.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "63D9B857225E7F3000C0FF5A"
+               BuildableName = "Wrap It Up Payments UITests.xctest"
+               BlueprintName = "Wrap It Up Payments UITests"
+               ReferencedContainer = "container:WrapItUpPayments.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "63CE57E821ADB14C00962B65"
-            BuildableName = "Wrap It Up Payments.app"
-            BlueprintName = "Wrap It Up Payments"
-            ReferencedContainer = "container:Wrap It Up Payments.xcodeproj">
+            BuildableName = "WrapItUpPayments.app"
+            BlueprintName = "WrapItUpPayments"
+            ReferencedContainer = "container:WrapItUpPayments.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -84,9 +104,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "63CE57E821ADB14C00962B65"
-            BuildableName = "Wrap It Up Payments.app"
-            BlueprintName = "Wrap It Up Payments"
-            ReferencedContainer = "container:Wrap It Up Payments.xcodeproj">
+            BuildableName = "WrapItUpPayments.app"
+            BlueprintName = "WrapItUpPayments"
+            ReferencedContainer = "container:WrapItUpPayments.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

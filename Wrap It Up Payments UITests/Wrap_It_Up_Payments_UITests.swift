@@ -1,14 +1,14 @@
 //
-//  FoodTruckPOSUITests.swift
-//  FoodTruckPOSUITests
+//  Wrap_It_Up_Payments_UITests.swift
+//  Wrap It Up Payments UITests
 //
-//  Created by Derik Gagnon on 11/27/18.
-//  Copyright © 2018 Derik Gagnon. All rights reserved.
+//  Created by Derik Gagnon on 4/10/19.
+//  Copyright © 2019 Derik Gagnon. All rights reserved.
 //
 
 import XCTest
 
-class WrapItUpPaymentsUITests: XCTestCase {
+class Wrap_It_Up_Payments_UITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
