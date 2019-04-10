@@ -18,9 +18,11 @@ class ItemDetailViewController: UIViewController {
     
     
     @IBAction func AddOrderButton(_ sender: UIButton) {
+        // Send item to the order table
         orderViewController?.orderItemsArray.append(item)
         orderViewController?.refreshUI()
 
+        // remove reference to the nav controller so it doesn't dismiss everything
         navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
@@ -30,6 +32,8 @@ class ItemDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set all the labels and images to data from the menu item
         let formattedPrice = String(format: "$%.2f", item.price)
         PriceLabel.text = formattedPrice
         ItemImageView.sd_setImage(with: item.image)
@@ -45,12 +49,11 @@ class ItemDetailViewController: UIViewController {
         DescriptionLabel.lineBreakMode = .byWordWrapping
         DescriptionLabel.numberOfLines = 0
         
+        // Initialize the viewcontroller for the order
         if let splitVC = self.splitViewController {
             //Set the link to the master splitViewController
             orderViewController = splitVC.viewControllers[0] as? YourOrderViewController
         }
-
-        // Do any additional setup after loading the view.
     }
 
 }

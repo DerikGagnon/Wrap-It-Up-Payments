@@ -82,9 +82,6 @@ class MenuTableViewController: UITableViewController {
         if let splitVC = self.splitViewController {
             //Set the link to the master splitViewController
             orderViewController = splitVC.viewControllers[0] as? YourOrderViewController
-//            navController.topViewController!.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem
-//            // create a link the order view controller so we can access functions
-//            orderViewController = navController.viewControllers[0] as? YourOrderViewController
         }
     }
     
@@ -160,22 +157,12 @@ extension MenuTableViewController: MenuRowDelegate {
     func didTapCell(_ item: MenuItem) {
         self.detailItemTemp = item
         
+        // Get reference to the storyboard
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        //let detailVC = ItemDetailViewController() //your view controller
-        //print(self.detailItemTemp.name)
-        //detailVC.item = self.detailItemTemp
-        //print(detailVC.item.name)
-        //self.present(detailVC, animated: true, completion: nil)
-//        self.navigationController?.pushViewController(detailVC, animated: true)
-        //performSegue(withIdentifier: "ItemDetail", sender: self)
-        // Instantiate New Controller
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "menuScene") as! ItemDetailViewController
         
         // Pass Data to Controller
         newViewController.item = item
-        //newViewController.orderViewController = orderViewController
-        
-        
         
         // Present New View
         self.navigationController?.pushViewController(newViewController, animated: true)

@@ -92,6 +92,11 @@ class PlaceOrderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // reset the array
+        self.itemList.removeAll()
+        
+        // Download in did load so it can initialized at first run
+        self.downloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
