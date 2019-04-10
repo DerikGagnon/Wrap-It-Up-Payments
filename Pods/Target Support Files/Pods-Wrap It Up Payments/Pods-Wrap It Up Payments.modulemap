@@ -1,6 +1,0 @@
-framework module Pods_Wrap_It_Up_Payments {
-  umbrella header "Pods-Wrap It Up Payments-umbrella.h"
-
-  export *
-  module * { export * }
-}

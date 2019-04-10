@@ -1,6 +1,0 @@
-framework module Pods_WrapItUpPaymentsUITests {
-  umbrella header "Pods-WrapItUpPaymentsUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
