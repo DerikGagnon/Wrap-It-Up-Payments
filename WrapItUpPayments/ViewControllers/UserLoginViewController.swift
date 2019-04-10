@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseUI
+import SDWebImage
 
 class UserLoginViewController: UIViewController, FUIAuthDelegate {
     
@@ -40,6 +41,9 @@ class UserLoginViewController: UIViewController, FUIAuthDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        SDImageCache.shared().clearMemory()
+        SDImageCache.shared().clearDisk()
         
         // Force a signout so that a different user could potentially sign back in
         // Useful if the users have different accounts for different time menus.
