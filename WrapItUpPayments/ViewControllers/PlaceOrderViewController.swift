@@ -14,6 +14,7 @@ class PlaceOrderViewController: UIViewController {
     var ref: DatabaseReference!
     var itemKey = ""
     var itemList: [MenuItem] = []
+    var typeList: [String] = []
     
     func downloadData() {
         // reference to database
@@ -45,6 +46,23 @@ class PlaceOrderViewController: UIViewController {
                 let type = childDict["itemType"] as! String
                 tempItem.type = type
                 
+                var found = false
+                // Get categories ready for MenuTableViewController
+                if self.typeList.isEmpty {
+                    self.typeList.append(type)
+                    found = true
+                } else {
+                    for item in self.typeList {
+                        if type == item {
+                            found = true
+                            //print("another test")
+                        }
+                    }
+                }
+                if !found {
+                    self.typeList.append(type)
+                }
+                //print("test")
                 // get price and format to float
                 let price = childDict["price"] as! String
                 let numberFormatter = NumberFormatter()
@@ -80,8 +98,13 @@ class PlaceOrderViewController: UIViewController {
             let navController = splitVC.viewControllers[1] as! UINavigationController
             let menuTable = navController.viewControllers[0] as? MenuTableViewController
             
+            print(typeList)
+            
             // set menu list to current list
+            menuTable?.menuItemList.removeAll()
+            menuTable?.categoriesNames.removeAll()
             menuTable?.menuItemList = self.itemList
+            //menuTable?.categoriesNames = self.typeList
         }
     }
     
@@ -94,6 +117,7 @@ class PlaceOrderViewController: UIViewController {
         super.viewDidLoad()
         // reset the array
         self.itemList.removeAll()
+        self.typeList.removeAll()
         
         // Download in did load so it can initialized at first run
         self.downloadData()
@@ -102,9 +126,10 @@ class PlaceOrderViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         // reset the array
         self.itemList.removeAll()
+        self.typeList.removeAll()
         
         // Download in did appear so it can be reset after payment
         self.downloadData()
     }
-
+    
 }

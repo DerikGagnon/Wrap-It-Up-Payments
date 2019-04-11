@@ -16,7 +16,9 @@ protocol MenuDatabaseDelegate: class {
 class MenuTableViewController: UITableViewController {
     
     // categories for the types of items - used for comparisons
-    let categories = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Desserts"]
+    let categoriesAll = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Desserts"]
+    var categories: [[Any]] = [[]]
+    var categoriesNames: [String] = []
     
     var orderViewController: YourOrderViewController!
     var menuItemList: [MenuItem] = []
@@ -30,10 +32,10 @@ class MenuTableViewController: UITableViewController {
     var entrees: [MenuItem] = []
     var kidsEntrees: [MenuItem] = []
     var desserts: [MenuItem] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-         // 250 is a good height for visual appeal
+        // 250 is a good height for visual appeal
         tableView.rowHeight = 250
         
         // reset all of the lists to prevent double adds
@@ -43,18 +45,16 @@ class MenuTableViewController: UITableViewController {
         self.entrees.removeAll()
         self.kidsEntrees.removeAll()
         self.desserts.removeAll()
+        self.categories.removeAll()
         
-        // checks types of each item
         for item in menuItemList {
-            //print(item.name)
+            print(item)
             var choice = 0
-            for cat in categories {
+            for cat in categoriesAll {
                 if cat == item.type {
-                    choice = categories.firstIndex(of: cat)!
+                    choice = categoriesAll.firstIndex(of: cat)!
                 }
             }
-            
-            // adds item to correct list
             switch choice {
             case 0:
                 self.beverages.append(item)
@@ -78,7 +78,32 @@ class MenuTableViewController: UITableViewController {
                 print("No match in load")
             }
         }
-
+        
+        if !beverages.isEmpty {
+            categories.append(beverages)
+            categoriesNames.append(categoriesAll[0])
+        }
+        if !appetizers.isEmpty {
+            categories.append(appetizers)
+            categoriesNames.append(categoriesAll[1])
+        }
+        if !soupsOrSalads.isEmpty {
+            categories.append(soupsOrSalads)
+            categoriesNames.append(categoriesAll[2])
+        }
+        if !entrees.isEmpty {
+            categories.append(entrees)
+            categoriesNames.append(categoriesAll[3])
+        }
+        if !kidsEntrees.isEmpty {
+            categories.append(kidsEntrees)
+            categoriesNames.append(categoriesAll[4])
+        }
+        if !desserts.isEmpty {
+            categories.append(desserts)
+            categoriesNames.append(categoriesAll[5])
+        }
+        
         if let splitVC = self.splitViewController {
             //Set the link to the master splitViewController
             orderViewController = splitVC.viewControllers[0] as? YourOrderViewController
@@ -93,21 +118,21 @@ class MenuTableViewController: UITableViewController {
             detailVC?.item = self.detailItemTemp
         }
     }
-
+    
     // MARK: - Table view data source
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // Have 6 categories so 6 sections
-        return categories.count
+        return categoriesNames.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return categories[section]
+        return categoriesNames[section]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -116,40 +141,44 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! MenuItemCell
         
         // set the delegate to the cell so we can use didTapCell
         cell.cellDelegate = self
-        cell.rowIndex = indexPath.section
+        //cell.rowIndex = indexPath.section
         
         // sets correct cell list to the correct category
-        switch indexPath.section {
-        case 0:
-            cell.beverages = self.beverages
-            break
-        case 1:
-            cell.appetizers = self.appetizers
-            break
-        case 2:
-            cell.soupsOrSalads = self.soupsOrSalads
-            break
-        case 3:
-            cell.entrees = self.entrees
-            break
-        case 4:
-            cell.kidsEntrees = self.kidsEntrees
-            break
-        case 5:
-            cell.desserts = self.desserts
-            break
-        default:
-            print("No match in cell dequeue")
-        }
+        //        switch indexPath.section {
+        //        case 0:
+        //            cell.beverages = self.beverages
+        //            break
+        //        case 1:
+        //            cell.appetizers = self.appetizers
+        //            break
+        //        case 2:
+        //            cell.soupsOrSalads = self.soupsOrSalads
+        //            break
+        //        case 3:
+        //            cell.entrees = self.entrees
+        //            break
+        //        case 4:
+        //            cell.kidsEntrees = self.kidsEntrees
+        //            break
+        //        case 5:
+        //            cell.desserts = self.desserts
+        //            break
+        //        default:
+        //            print("No match in cell dequeue")
+        //        }
+        print(categoriesNames)
+        print(indexPath.section)
+        cell.menuItems.removeAll()
+        cell.menuItems = categories[indexPath.section] as! [MenuItem]
         cell.collectionView.reloadData()
         return cell
     }
-
+    
 }
 
 // adds item to order table and refresh the UI of the order view
