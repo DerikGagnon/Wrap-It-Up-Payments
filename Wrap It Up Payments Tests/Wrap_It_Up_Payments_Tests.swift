@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import Pods_Wrap_It_Up_Payments
 
 class Wrap_It_Up_Payments_Tests: XCTestCase {
 
@@ -19,11 +18,11 @@ class Wrap_It_Up_Payments_Tests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testLoginImageIsLogo() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let login = storyboard.instantiateInitialViewController() as! 
-        let _ = login.view
-    }
+//    func testLoginImageIsLogo() {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let login = storyboard.instantiateInitialViewController() as!
+//        let _ = login.view
+//    }
 
     func testExample() {
         // This is an example of a functional test case.
