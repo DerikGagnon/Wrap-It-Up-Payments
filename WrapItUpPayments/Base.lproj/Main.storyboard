@@ -443,6 +443,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="08L-mX-eYW"/>
                     </view>
+                    <connections>
+                        <outlet property="OrderPlacedButton" destination="q23-LH-76E" id="iYO-Fg-pNP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guY-Fm-p7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

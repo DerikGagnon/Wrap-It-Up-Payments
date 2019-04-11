@@ -47,22 +47,25 @@ class PlaceOrderViewController: UIViewController {
                 tempItem.type = type
                 
                 var found = false
+                
                 // Get categories ready for MenuTableViewController
                 if self.typeList.isEmpty {
                     self.typeList.append(type)
                     found = true
                 } else {
+                    // Check if we already have a type in our list
                     for item in self.typeList {
                         if type == item {
                             found = true
-                            //print("another test")
                         }
                     }
                 }
+                
+                // Adds new type if not in the list already
                 if !found {
                     self.typeList.append(type)
                 }
-                //print("test")
+                
                 // get price and format to float
                 let price = childDict["price"] as! String
                 let numberFormatter = NumberFormatter()
@@ -89,6 +92,8 @@ class PlaceOrderViewController: UIViewController {
         }) { (error) in
             print(error.localizedDescription)
         }
+        // Enable after items are downloaded
+        self.OrderPlacedButton.isEnabled = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -103,10 +108,17 @@ class PlaceOrderViewController: UIViewController {
             // set menu list to current list
             menuTable?.menuItemList.removeAll()
             menuTable?.categoriesNames.removeAll()
+            print(self.itemList.count)
             menuTable?.menuItemList = self.itemList
-            //menuTable?.categoriesNames = self.typeList
+            
+            // Uncomment these line to make the sections dependent on the database - currently not supported for more than 6 types
+//            menuTable?.categoriesAll.removeAll()
+//            menuTable?.categoriesAll = self.typeList.sorted()
         }
     }
+    
+    
+    @IBOutlet weak var OrderPlacedButton: UIButton!
     
     @IBAction func OrderPlacedButtonPressed(_ sender: UIButton) {
         // Go to menu view controller
@@ -115,12 +127,7 @@ class PlaceOrderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // reset the array
-        self.itemList.removeAll()
-        self.typeList.removeAll()
-        
-        // Download in did load so it can initialized at first run
-        self.downloadData()
+        self.OrderPlacedButton.isEnabled = false
     }
     
     override func viewDidAppear(_ animated: Bool) {

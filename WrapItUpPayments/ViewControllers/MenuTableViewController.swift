@@ -15,8 +15,8 @@ protocol MenuDatabaseDelegate: class {
 
 class MenuTableViewController: UITableViewController {
     
-    // categories for the types of items - used for comparisons
-    let categoriesAll = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Desserts"]
+    // categories for the types of items - used for comparisons - master list for sections that can be based off of whats in the database
+    var categoriesAll = ["Beverages", "Appetizers", "Soups Or Salads", "Entrees", "Kid's Entrees", "Desserts"]
     var categories: [[Any]] = [[]]
     var categoriesNames: [String] = []
     
@@ -37,6 +37,7 @@ class MenuTableViewController: UITableViewController {
         super.viewDidLoad()
         // 250 is a good height for visual appeal
         tableView.rowHeight = 250
+        print(self.menuItemList.count)
         
         // reset all of the lists to prevent double adds
         self.beverages.removeAll()
@@ -55,6 +56,8 @@ class MenuTableViewController: UITableViewController {
                     choice = categoriesAll.firstIndex(of: cat)!
                 }
             }
+            
+            // Add Items into arrays for holding for cells
             switch choice {
             case 0:
                 self.beverages.append(item)
@@ -79,6 +82,7 @@ class MenuTableViewController: UITableViewController {
             }
         }
         
+        // check which sections need to be loaded
         if !beverages.isEmpty {
             categories.append(beverages)
             categoriesNames.append(categoriesAll[0])
@@ -114,7 +118,6 @@ class MenuTableViewController: UITableViewController {
         if (segue.identifier == "ItemDetail") {
             // pass data to next view
             let detailVC = segue.destination as? ItemDetailViewController
-            //print(self.detailItemTemp.name)
             detailVC?.item = self.detailItemTemp
         }
     }
@@ -127,7 +130,7 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // Have 6 categories so 6 sections
+        // Dependent on which categories need to be loaded
         return categoriesNames.count
     }
     
@@ -146,33 +149,8 @@ class MenuTableViewController: UITableViewController {
         
         // set the delegate to the cell so we can use didTapCell
         cell.cellDelegate = self
-        //cell.rowIndex = indexPath.section
-        
-        // sets correct cell list to the correct category
-        //        switch indexPath.section {
-        //        case 0:
-        //            cell.beverages = self.beverages
-        //            break
-        //        case 1:
-        //            cell.appetizers = self.appetizers
-        //            break
-        //        case 2:
-        //            cell.soupsOrSalads = self.soupsOrSalads
-        //            break
-        //        case 3:
-        //            cell.entrees = self.entrees
-        //            break
-        //        case 4:
-        //            cell.kidsEntrees = self.kidsEntrees
-        //            break
-        //        case 5:
-        //            cell.desserts = self.desserts
-        //            break
-        //        default:
-        //            print("No match in cell dequeue")
-        //        }
-        print(categoriesNames)
-        print(indexPath.section)
+
+        // Load cell data based on the section it is in
         cell.menuItems.removeAll()
         cell.menuItems = categories[indexPath.section] as! [MenuItem]
         cell.collectionView.reloadData()
