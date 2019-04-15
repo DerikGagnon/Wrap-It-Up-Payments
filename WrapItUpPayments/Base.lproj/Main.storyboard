@@ -415,32 +415,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmX-TL-XZM">
-                                <rect key="frame" x="435" y="267" width="155" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wrap It Up Payments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3b1-sd-25l">
-                                <rect key="frame" x="294" y="156" width="437" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="49"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q23-LH-76E">
-                                <rect key="frame" x="388" y="442" width="249" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q23-LH-76E">
+                                <rect key="frame" x="334.5" y="580.5" width="355" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <state key="normal" title="Place Order"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Place Your Order">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="OrderPlacedButtonPressed:" destination="vcy-pZ-flU" eventType="touchUpInside" id="cmj-4B-seE"/>
                                     <segue destination="tCW-bY-PaG" kind="show" identifier="OrderToMenu" id="eZc-Jn-LuU"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="invert" translatesAutoresizingMaskIntoConstraints="NO" id="w08-ZX-vay">
+                                <rect key="frame" x="287" y="110" width="450.5" height="450.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="w08-ZX-vay" secondAttribute="height" multiplier="1:1" id="lie-Wu-BOm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.32941176470588235" green="0.41568627450980389" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="q23-LH-76E" firstAttribute="top" secondItem="w08-ZX-vay" secondAttribute="bottom" constant="20" id="MeP-VH-Gkb"/>
+                            <constraint firstItem="w08-ZX-vay" firstAttribute="centerX" secondItem="08L-mX-eYW" secondAttribute="centerX" id="Nwv-EZ-t1Q"/>
+                            <constraint firstItem="q23-LH-76E" firstAttribute="centerX" secondItem="08L-mX-eYW" secondAttribute="centerX" id="jkf-D0-RYw"/>
+                            <constraint firstItem="w08-ZX-vay" firstAttribute="top" secondItem="08L-mX-eYW" secondAttribute="top" constant="90" id="pb1-mY-FBr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="08L-mX-eYW"/>
                     </view>
                     <connections>
@@ -449,7 +449,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guY-Fm-p7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1117" y="-841"/>
+            <point key="canvasLocation" x="-1117.3828125" y="-841.40625"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="2gz-pb-Wo5">
@@ -459,36 +459,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrap It Up Payments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGl-y5-nGD">
-                                <rect key="frame" x="293.5" y="120" width="437" height="59"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="49"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Login to get Database Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhD-Kf-vW0">
-                                <rect key="frame" x="197" y="209" width="630" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="invert" translatesAutoresizingMaskIntoConstraints="NO" id="mgp-Hk-ZKR">
+                                <rect key="frame" x="287" y="110" width="450.5" height="450.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mgp-Hk-ZKR" secondAttribute="height" multiplier="1:1" id="B1z-3s-dkA"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meq-UQ-zI6">
-                                <rect key="frame" x="453" y="426" width="118" height="72"/>
+                                <rect key="frame" x="440" y="580.5" width="144" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <state key="normal" title="Login"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Sign In"/>
                                 <connections>
                                     <action selector="loginActionWithSender:" destination="GCz-X2-uyt" eventType="touchUpInside" id="rQi-Xe-30Q"/>
                                     <segue destination="vcy-pZ-flU" kind="show" identifier="LoginSegue" id="gKE-Tg-NMa"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.32941176470588235" green="0.41568627450980389" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="WhD-Kf-vW0" firstAttribute="centerX" secondItem="njI-94-mkv" secondAttribute="centerX" id="7CK-ku-Vpo"/>
-                            <constraint firstItem="njI-94-mkv" firstAttribute="bottom" secondItem="meq-UQ-zI6" secondAttribute="bottom" constant="270" id="BfQ-Bx-BFG"/>
-                            <constraint firstItem="AGl-y5-nGD" firstAttribute="centerX" secondItem="njI-94-mkv" secondAttribute="centerX" id="G7Z-u0-VKG"/>
-                            <constraint firstItem="meq-UQ-zI6" firstAttribute="centerX" secondItem="njI-94-mkv" secondAttribute="centerX" id="X1O-o3-HUj"/>
-                            <constraint firstItem="WhD-Kf-vW0" firstAttribute="top" secondItem="AGl-y5-nGD" secondAttribute="bottom" constant="30" id="gTl-SJ-Dz2"/>
-                            <constraint firstItem="AGl-y5-nGD" firstAttribute="top" secondItem="njI-94-mkv" secondAttribute="top" constant="100" id="nMB-9N-qsq"/>
+                            <constraint firstItem="mgp-Hk-ZKR" firstAttribute="centerX" secondItem="njI-94-mkv" secondAttribute="centerX" id="Bgf-Bu-GnO"/>
+                            <constraint firstItem="mgp-Hk-ZKR" firstAttribute="top" secondItem="njI-94-mkv" secondAttribute="top" constant="90" id="Qns-BK-rfw"/>
+                            <constraint firstItem="meq-UQ-zI6" firstAttribute="top" secondItem="mgp-Hk-ZKR" secondAttribute="bottom" constant="20" id="RfR-lS-l1K"/>
+                            <constraint firstItem="meq-UQ-zI6" firstAttribute="centerX" secondItem="njI-94-mkv" secondAttribute="centerX" id="ebr-tn-ZFb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="njI-94-mkv"/>
                     </view>
@@ -513,4 +506,7 @@
             <point key="canvasLocation" x="-836" y="-73"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="invert" width="450.5" height="450.5"/>
+    </resources>
 </document>
