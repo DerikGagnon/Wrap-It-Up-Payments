@@ -32,7 +32,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypl-1F-IIH" userLabel="priceLabel">
                                                     <rect key="frame" x="206" y="10" width="67" height="60.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="67" id="zlZ-yr-gzB"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="67" id="zlZ-yr-gzB"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -141,7 +141,6 @@
                         <constraints>
                             <constraint firstItem="XHF-Ne-cLl" firstAttribute="trailing" secondItem="5st-rz-J2o" secondAttribute="trailing" constant="16" id="5Ke-9i-Xd5"/>
                             <constraint firstItem="XHF-Ne-cLl" firstAttribute="bottom" secondItem="9Ay-9e-Nm9" secondAttribute="bottom" constant="12" id="5lP-mJ-gix"/>
-                            <constraint firstItem="5st-rz-J2o" firstAttribute="top" secondItem="LKN-Pk-yPG" secondAttribute="bottom" constant="8" id="7Vz-dS-oKX"/>
                             <constraint firstItem="XHF-Ne-cLl" firstAttribute="trailing" secondItem="LKN-Pk-yPG" secondAttribute="trailing" constant="16" id="8p6-hk-IwD"/>
                             <constraint firstItem="ekc-gM-gfc" firstAttribute="top" secondItem="5st-rz-J2o" secondAttribute="bottom" constant="10" id="EPZ-wy-KFr"/>
                             <constraint firstItem="5st-rz-J2o" firstAttribute="leading" secondItem="XHF-Ne-cLl" secondAttribute="leading" constant="16" id="FAO-af-HlH"/>
