@@ -152,7 +152,6 @@
 				0C16F0079F954D0D056E1F37 /* Pods-WrapItUpPayments.debug.xcconfig */,
 				9A865A3B0176CF4B837BFD9B /* Pods-WrapItUpPayments.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
