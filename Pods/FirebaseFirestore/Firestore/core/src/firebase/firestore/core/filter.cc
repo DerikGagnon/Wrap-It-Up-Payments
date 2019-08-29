@@ -16,24 +16,14 @@
 
 #include "Firestore/core/src/firebase/firestore/core/filter.h"
 
-#include <utility>
-
-#include "Firestore/core/src/firebase/firestore/core/relation_filter.h"
+#include <ostream>
 
 namespace firebase {
 namespace firestore {
 namespace core {
 
-using model::FieldPath;
-using model::FieldValue;
-
-std::shared_ptr<Filter> Filter::Create(FieldPath path,
-                                       Operator op,
-                                       FieldValue value_rhs) {
-  // TODO(rsgowman): Java performs a number of checks here, and then invokes the
-  // ctor of the relevant Filter subclass. Port those checks here.
-  return std::make_shared<RelationFilter>(std::move(path), op,
-                                          std::move(value_rhs));
+std::ostream& operator<<(std::ostream& os, const Filter& filter) {
+  return os << filter.ToString();
 }
 
 }  // namespace core

@@ -17,8 +17,8 @@
 #import "Firestore/core/src/firebase/firestore/local/local_documents_view.h"
 
 #include <string>
+#include <utility>
 
-#import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Model/FSTDocument.h"
 #import "Firestore/Source/Model/FSTMutation.h"
 #import "Firestore/Source/Model/FSTMutationBatch.h"
@@ -37,6 +37,7 @@ namespace firebase {
 namespace firestore {
 namespace local {
 
+using core::Query;
 using model::DocumentKey;
 using model::DocumentKeySet;
 using model::DocumentMap;
@@ -116,10 +117,10 @@ MaybeDocumentMap LocalDocumentsView::GetLocalViewOfDocuments(
   return results;
 }
 
-DocumentMap LocalDocumentsView::GetDocumentsMatchingQuery(FSTQuery* query) {
-  if ([query isDocumentQuery]) {
-    return GetDocumentsMatchingDocumentQuery(query.path);
-  } else if ([query isCollectionGroupQuery]) {
+DocumentMap LocalDocumentsView::GetDocumentsMatchingQuery(const Query& query) {
+  if (query.IsDocumentQuery()) {
+    return GetDocumentsMatchingDocumentQuery(query.path());
+  } else if (query.IsCollectionGroupQuery()) {
     return GetDocumentsMatchingCollectionGroupQuery(query);
   } else {
     return GetDocumentsMatchingCollectionQuery(query);
@@ -138,12 +139,12 @@ DocumentMap LocalDocumentsView::GetDocumentsMatchingDocumentQuery(
 }
 
 model::DocumentMap LocalDocumentsView::GetDocumentsMatchingCollectionGroupQuery(
-    FSTQuery* query) {
+    const Query& query) {
   HARD_ASSERT(
-      query.path.empty(),
+      query.path().empty(),
       "Currently we only support collection group queries at the root.");
 
-  std::string collection_id = MakeString(query.collectionGroup);
+  const std::string& collection_id = *query.collection_group();
   std::vector<ResourcePath> parents =
       index_manager_->GetCollectionParents(collection_id);
   DocumentMap results;
@@ -151,8 +152,8 @@ model::DocumentMap LocalDocumentsView::GetDocumentsMatchingCollectionGroupQuery(
   // Perform a collection query against each parent that contains the
   // collection_id and aggregate the results.
   for (const ResourcePath& parent : parents) {
-    FSTQuery* collection_query =
-        [query collectionQueryAtPath:parent.Append(collection_id)];
+    Query collection_query =
+        query.AsCollectionQueryAtPath(parent.Append(collection_id));
     DocumentMap collection_results =
         GetDocumentsMatchingCollectionQuery(collection_query);
     for (const auto& kv : collection_results.underlying_map()) {
@@ -165,16 +166,18 @@ model::DocumentMap LocalDocumentsView::GetDocumentsMatchingCollectionGroupQuery(
 }
 
 DocumentMap LocalDocumentsView::GetDocumentsMatchingCollectionQuery(
-    FSTQuery* query) {
+    const Query& query) {
   DocumentMap results = remote_document_cache_->GetMatching(query);
   // Get locally persisted mutation batches.
   std::vector<FSTMutationBatch*> matchingBatches =
       mutation_queue_->AllMutationBatchesAffectingQuery(query);
 
+  results = AddMissingBaseDocuments(matchingBatches, std::move(results));
+
   for (FSTMutationBatch* batch : matchingBatches) {
     for (FSTMutation* mutation : [batch mutations]) {
       // Only process documents belonging to the collection.
-      if (!query.path.IsImmediateParentOf(mutation.key.path())) {
+      if (!query.path().IsImmediateParentOf(mutation.key.path())) {
         continue;
       }
 
@@ -207,12 +210,39 @@ DocumentMap LocalDocumentsView::GetDocumentsMatchingCollectionQuery(
   for (const auto& kv : unfiltered.underlying_map()) {
     const DocumentKey& key = kv.first;
     auto* doc = static_cast<FSTDocument*>(kv.second);
-    if (![query matchesDocument:doc]) {
+    if (!query.Matches(doc)) {
       results = results.erase(key);
     }
   }
 
   return results;
+}
+
+DocumentMap LocalDocumentsView::AddMissingBaseDocuments(
+    const std::vector<FSTMutationBatch*>& matching_batches,
+    DocumentMap existing_docs) {
+  DocumentKeySet missing_doc_keys;
+  for (FSTMutationBatch* batch : matching_batches) {
+    for (FSTMutation* mutation : [batch mutations]) {
+      if ([mutation isKindOfClass:[FSTPatchMutation class]] &&
+          existing_docs.underlying_map().find([mutation key]) ==
+              existing_docs.underlying_map().end()) {
+        missing_doc_keys = missing_doc_keys.insert([mutation key]);
+      }
+    }
+  }
+
+  MaybeDocumentMap missing_docs =
+      remote_document_cache_->GetAll(missing_doc_keys);
+  for (const auto& kv : missing_docs) {
+    FSTMaybeDocument* maybe_doc = kv.second;
+    if (maybe_doc != nil && [maybe_doc isKindOfClass:[FSTDocument class]]) {
+      existing_docs =
+          existing_docs.insert(kv.first, static_cast<FSTDocument*>(maybe_doc));
+    }
+  }
+
+  return existing_docs;
 }
 
 }  // namespace local

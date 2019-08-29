@@ -23,20 +23,20 @@
 #include <vector>
 
 #import "FIRTimestamp.h"
-#import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Local/FSTLRUGarbageCollector.h"
-#import "Firestore/Source/Local/FSTLocalViewChanges.h"
-#import "Firestore/Source/Local/FSTLocalWriteResult.h"
 #import "Firestore/Source/Local/FSTPersistence.h"
 #import "Firestore/Source/Local/FSTQueryData.h"
 #import "Firestore/Source/Model/FSTDocument.h"
 #import "Firestore/Source/Model/FSTMutation.h"
 #import "Firestore/Source/Model/FSTMutationBatch.h"
 
+#include "Firestore/core/include/firebase/firestore/timestamp.h"
 #include "Firestore/core/src/firebase/firestore/auth/user.h"
 #include "Firestore/core/src/firebase/firestore/core/target_id_generator.h"
 #include "Firestore/core/src/firebase/firestore/immutable/sorted_set.h"
 #include "Firestore/core/src/firebase/firestore/local/local_documents_view.h"
+#include "Firestore/core/src/firebase/firestore/local/local_view_changes.h"
+#include "Firestore/core/src/firebase/firestore/local/local_write_result.h"
 #include "Firestore/core/src/firebase/firestore/local/mutation_queue.h"
 #include "Firestore/core/src/firebase/firestore/local/query_cache.h"
 #include "Firestore/core/src/firebase/firestore/local/reference_set.h"
@@ -48,10 +48,15 @@
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 #include "Firestore/core/src/firebase/firestore/util/log.h"
 #include "absl/memory/memory.h"
+#include "absl/types/optional.h"
 
+using firebase::Timestamp;
 using firebase::firestore::auth::User;
+using firebase::firestore::core::Query;
 using firebase::firestore::core::TargetIdGenerator;
 using firebase::firestore::local::LocalDocumentsView;
+using firebase::firestore::local::LocalViewChanges;
+using firebase::firestore::local::LocalWriteResult;
 using firebase::firestore::local::LruResults;
 using firebase::firestore::local::MutationQueue;
 using firebase::firestore::local::QueryCache;
@@ -64,8 +69,9 @@ using firebase::firestore::model::DocumentMap;
 using firebase::firestore::model::DocumentVersionMap;
 using firebase::firestore::model::FieldMask;
 using firebase::firestore::model::FieldPath;
-using firebase::firestore::model::MaybeDocumentMap;
 using firebase::firestore::model::ListenSequenceNumber;
+using firebase::firestore::model::MaybeDocumentMap;
+using firebase::firestore::model::ObjectValue;
 using firebase::firestore::model::Precondition;
 using firebase::firestore::model::SnapshotVersion;
 using firebase::firestore::model::TargetId;
@@ -171,14 +177,14 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
   });
 }
 
-- (FSTLocalWriteResult *)locallyWriteMutations:(std::vector<FSTMutation *> &&)mutations {
-  FIRTimestamp *localWriteTime = [FIRTimestamp timestamp];
+- (LocalWriteResult)locallyWriteMutations:(std::vector<FSTMutation *> &&)mutations {
+  Timestamp localWriteTime = Timestamp::Now();
   DocumentKeySet keys;
   for (FSTMutation *mutation : mutations) {
     keys = keys.insert(mutation.key);
   }
 
-  return self.persistence.run("Locally write mutations", [&]() -> FSTLocalWriteResult * {
+  return self.persistence.run("Locally write mutations", [&]() -> LocalWriteResult {
     // Load and apply all existing mutations. This lets us compute the current base state for
     // all non-idempotent transforms before applying any additional user-provided writes.
     MaybeDocumentMap existingDocuments = _localDocuments->GetDocuments(keys);
@@ -189,30 +195,17 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
     // transform.
     std::vector<FSTMutation *> baseMutations;
     for (FSTMutation *mutation : mutations) {
-      if (mutation.idempotent) {
-        continue;
-      }
+      auto base_document_it = existingDocuments.find(mutation.key);
+      FSTMaybeDocument *base_document =
+          base_document_it != existingDocuments.end() ? base_document_it->second : nil;
 
-      // Theoretically, we should only include non-idempotent fields in this field mask as this mask
-      // is used to prevent flicker for non-idempotent transforms by providing consistent base
-      // values. By including the fields for all DocumentTransforms, we incorrectly prevent rebasing
-      // of idempotent transforms (such as `arrayUnion()`) when any non-idempotent transforms are
-      // present.
-      // TODO(mrschmidt): Expose a method that only returns the a field mask for non-idempotent
-      // transforms
-      const FieldMask *fieldMask = [mutation fieldMask];
-      if (fieldMask) {
-        // `documentsForKeys` is guaranteed to return a (nullable) entry for every document key.
-        FSTMaybeDocument *maybeDocument = existingDocuments.find(mutation.key)->second;
-        FSTObjectValue *baseValues =
-            [maybeDocument isKindOfClass:[FSTDocument class]]
-                ? [((FSTDocument *)maybeDocument).data objectByApplyingFieldMask:*fieldMask]
-                : [FSTObjectValue objectValue];
+      absl::optional<ObjectValue> base_value = [mutation extractBaseValue:base_document];
+      if (base_value) {
         // NOTE: The base state should only be applied if there's some existing document to
         // override, so use a Precondition of exists=true
         baseMutations.push_back([[FSTPatchMutation alloc] initWithKey:mutation.key
-                                                            fieldMask:*fieldMask
-                                                                value:baseValues
+                                                            fieldMask:base_value->ToFieldMask()
+                                                                value:*base_value
                                                          precondition:Precondition::Exists(true)]);
       }
     }
@@ -220,7 +213,7 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
     FSTMutationBatch *batch = _mutationQueue->AddMutationBatch(
         localWriteTime, std::move(baseMutations), std::move(mutations));
     MaybeDocumentMap changedDocuments = [batch applyToLocalDocumentSet:existingDocuments];
-    return [FSTLocalWriteResult resultForBatchID:batch.batchID changes:std::move(changedDocuments)];
+    return LocalWriteResult{batch.batchID, std::move(changedDocuments)};
   });
 }
 
@@ -360,7 +353,7 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
     if (remoteVersion != SnapshotVersion::None()) {
       HARD_ASSERT(remoteVersion >= lastRemoteVersion,
                   "Watch stream reverted to previous snapshot?? (%s < %s)",
-                  remoteVersion.timestamp().ToString(), lastRemoteVersion.timestamp().ToString());
+                  remoteVersion.ToString(), lastRemoteVersion.ToString());
       _queryCache->SetLastRemoteSnapshotVersion(remoteVersion);
     }
 
@@ -405,14 +398,14 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
   return changes > 0;
 }
 
-- (void)notifyLocalViewChanges:(NSArray<FSTLocalViewChanges *> *)viewChanges {
+- (void)notifyLocalViewChanges:(const std::vector<LocalViewChanges> &)viewChanges {
   self.persistence.run("NotifyLocalViewChanges", [&]() {
-    for (FSTLocalViewChanges *viewChange in viewChanges) {
-      for (const DocumentKey &key : viewChange.removedKeys) {
+    for (const LocalViewChanges &viewChange : viewChanges) {
+      for (const DocumentKey &key : viewChange.removed_keys()) {
         [self->_persistence.referenceDelegate removeReference:key];
       }
-      _localViewReferences.AddReferences(viewChange.addedKeys, viewChange.targetID);
-      _localViewReferences.AddReferences(viewChange.removedKeys, viewChange.targetID);
+      _localViewReferences.AddReferences(viewChange.added_keys(), viewChange.target_id());
+      _localViewReferences.AddReferences(viewChange.removed_keys(), viewChange.target_id());
     }
   });
 }
@@ -431,7 +424,7 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
   });
 }
 
-- (FSTQueryData *)allocateQuery:(FSTQuery *)query {
+- (FSTQueryData *)allocateQuery:(Query)query {
   FSTQueryData *queryData = self.persistence.run("Allocate query", [&]() -> FSTQueryData * {
     FSTQueryData *cached = _queryCache->GetTarget(query);
     // TODO(mcg): freshen last accessed date if cached exists?
@@ -447,26 +440,29 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
   // Sanity check to ensure that even when resuming a query it's not currently active.
   TargetId targetID = queryData.targetID;
   HARD_ASSERT(_targetIDs.find(targetID) == _targetIDs.end(),
-              "Tried to allocate an already allocated query: %s", query);
+              "Tried to allocate an already allocated query: %s", query.ToString());
   _targetIDs[targetID] = queryData;
   return queryData;
 }
 
-- (void)releaseQuery:(FSTQuery *)query {
+- (void)releaseQuery:(const Query &)query {
   self.persistence.run("Release query", [&]() {
     FSTQueryData *queryData = _queryCache->GetTarget(query);
-    HARD_ASSERT(queryData, "Tried to release nonexistent query: %s", query);
+    HARD_ASSERT(queryData, "Tried to release nonexistent query: %s", query.ToString());
 
     TargetId targetID = queryData.targetID;
 
     auto found = _targetIDs.find(targetID);
-    FSTQueryData *cachedQueryData = found != _targetIDs.end() ? found->second : nil;
-    if (cachedQueryData.snapshotVersion > queryData.snapshotVersion) {
-      // If we've been avoiding persisting the resumeToken (see shouldPersistQueryData for
-      // conditions and rationale) we need to persist the token now because there will no
-      // longer be an in-memory version to fall back on.
-      queryData = cachedQueryData;
-      _queryCache->UpdateTarget(queryData);
+    if (found != _targetIDs.end()) {
+      FSTQueryData *cachedQueryData = found->second;
+
+      if (cachedQueryData.snapshotVersion > queryData.snapshotVersion) {
+        // If we've been avoiding persisting the resumeToken (see shouldPersistQueryData for
+        // conditions and rationale) we need to persist the token now because there will no
+        // longer be an in-memory version to fall back on.
+        queryData = cachedQueryData;
+        _queryCache->UpdateTarget(queryData);
+      }
     }
 
     // References for documents sent via Watch are automatically removed when we delete a
@@ -482,7 +478,7 @@ static const int64_t kResumeTokenMaxAgeSeconds = 5 * 60;  // 5 minutes
   });
 }
 
-- (DocumentMap)executeQuery:(FSTQuery *)query {
+- (DocumentMap)executeQuery:(const Query &)query {
   return self.persistence.run("ExecuteQuery", [&]() -> DocumentMap {
     return _localDocuments->GetDocumentsMatchingQuery(query);
   });

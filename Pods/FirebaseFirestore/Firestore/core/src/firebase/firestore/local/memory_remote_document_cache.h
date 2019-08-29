@@ -33,7 +33,6 @@
 @class FSTMaybeDocument;
 @class FSTMemoryLRUReferenceDelegate;
 @class FSTMemoryPersistence;
-@class FSTQuery;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -43,27 +42,27 @@ namespace local {
 
 class MemoryRemoteDocumentCache : public RemoteDocumentCache {
  public:
-  explicit MemoryRemoteDocumentCache(FSTMemoryPersistence *persistence);
+  explicit MemoryRemoteDocumentCache(FSTMemoryPersistence* persistence);
 
-  void Add(FSTMaybeDocument *document) override;
-  void Remove(const model::DocumentKey &key) override;
+  void Add(FSTMaybeDocument* document) override;
+  void Remove(const model::DocumentKey& key) override;
 
-  FSTMaybeDocument *_Nullable Get(const model::DocumentKey &key) override;
-  model::MaybeDocumentMap GetAll(const model::DocumentKeySet &keys) override;
-  model::DocumentMap GetMatching(FSTQuery *query) override;
+  FSTMaybeDocument* _Nullable Get(const model::DocumentKey& key) override;
+  model::MaybeDocumentMap GetAll(const model::DocumentKeySet& keys) override;
+  model::DocumentMap GetMatching(const core::Query& query) override;
 
   std::vector<model::DocumentKey> RemoveOrphanedDocuments(
-      FSTMemoryLRUReferenceDelegate *reference_delegate,
+      FSTMemoryLRUReferenceDelegate* reference_delegate,
       model::ListenSequenceNumber upper_bound);
 
-  size_t CalculateByteSize(FSTLocalSerializer *serializer);
+  size_t CalculateByteSize(FSTLocalSerializer* serializer);
 
  private:
   /** Underlying cache of documents. */
   model::MaybeDocumentMap docs_;
 
   // This instance is owned by FSTMemoryPersistence; avoid a retain cycle.
-  __weak FSTMemoryPersistence *persistence_;
+  __weak FSTMemoryPersistence* persistence_;
 };
 
 }  // namespace local

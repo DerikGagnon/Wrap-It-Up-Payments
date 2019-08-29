@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#import "Firestore/core/src/firebase/firestore/core/query_listener.h"
+#include "Firestore/core/src/firebase/firestore/core/query_listener.h"
 
 #include <utility>
 #include <vector>
@@ -25,8 +25,6 @@
 #include "Firestore/core/src/firebase/firestore/util/status.h"
 #include "absl/types/optional.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 namespace firebase {
 namespace firestore {
 namespace core {
@@ -35,6 +33,14 @@ using model::OnlineState;
 using model::TargetId;
 using util::MakeStatus;
 using util::Status;
+
+QueryListener::QueryListener(Query query,
+                             ListenOptions options,
+                             ViewSnapshot::SharedListener&& listener)
+    : query_(std::move(query)),
+      options_(std::move(options)),
+      listener_(std::move(listener)) {
+}
 
 void QueryListener::OnViewSnapshot(ViewSnapshot snapshot) {
   HARD_ASSERT(
@@ -143,5 +149,3 @@ void QueryListener::RaiseInitialEvent(const ViewSnapshot& snapshot) {
 }  // namespace core
 }  // namespace firestore
 }  // namespace firebase
-
-NS_ASSUME_NONNULL_END

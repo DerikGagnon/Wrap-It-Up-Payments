@@ -99,8 +99,8 @@ class WriteStreamCallback {
  */
 class WriteStream : public Stream {
  public:
-  WriteStream(util::AsyncQueue* async_queue,
-              auth::CredentialsProvider* credentials_provider,
+  WriteStream(const std::shared_ptr<util::AsyncQueue>& async_queue,
+              std::shared_ptr<auth::CredentialsProvider> credentials_provider,
               FSTSerializerBeta* serializer,
               GrpcConnection* grpc_connection,
               WriteStreamCallback* callback);

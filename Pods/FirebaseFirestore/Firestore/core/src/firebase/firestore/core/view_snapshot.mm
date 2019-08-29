@@ -18,12 +18,11 @@
 
 #include <ostream>
 
-#import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Model/FSTDocument.h"
 
 #include "Firestore/core/src/firebase/firestore/model/document_set.h"
+#include "Firestore/core/src/firebase/firestore/objc/objc_compatibility.h"
 #include "Firestore/core/src/firebase/firestore/util/hashing.h"
-#include "Firestore/core/src/firebase/firestore/util/objc_compatibility.h"
 #include "Firestore/core/src/firebase/firestore/util/string_format.h"
 #include "Firestore/core/src/firebase/firestore/util/to_string.h"
 
@@ -31,7 +30,6 @@ namespace firebase {
 namespace firestore {
 namespace core {
 
-namespace objc = util::objc;
 using model::DocumentKey;
 using model::DocumentKeySet;
 using model::DocumentSet;
@@ -39,14 +37,21 @@ using util::StringFormat;
 
 // DocumentViewChange
 
+DocumentViewChange::DocumentViewChange(FSTDocument* document, Type type)
+    : document_{document}, type_{type} {
+}
+
+FSTDocument* DocumentViewChange::document() const {
+  return document_;
+}
+
 std::string DocumentViewChange::ToString() const {
   return StringFormat("<DocumentViewChange doc:%s type:%s>",
                       util::ToString(document()), type());
 }
 
 size_t DocumentViewChange::Hash() const {
-  size_t document_hash = static_cast<size_t>([document() hash]);
-  return util::Hash(document_hash, static_cast<int>(type()));
+  return util::Hash(document(), type());
 }
 
 bool operator==(const DocumentViewChange& lhs, const DocumentViewChange& rhs) {
@@ -134,7 +139,7 @@ std::string DocumentViewChangeSet::ToString() const {
 
 // ViewSnapshot
 
-ViewSnapshot::ViewSnapshot(FSTQuery* query,
+ViewSnapshot::ViewSnapshot(Query query,
                            DocumentSet documents,
                            DocumentSet old_documents,
                            std::vector<DocumentViewChange> document_changes,
@@ -142,7 +147,7 @@ ViewSnapshot::ViewSnapshot(FSTQuery* query,
                            bool from_cache,
                            bool sync_state_changed,
                            bool excludes_metadata_changes)
-    : query_{query},
+    : query_{std::move(query)},
       documents_{std::move(documents)},
       old_documents_{std::move(old_documents)},
       document_changes_{std::move(document_changes)},
@@ -153,7 +158,7 @@ ViewSnapshot::ViewSnapshot(FSTQuery* query,
 }
 
 ViewSnapshot ViewSnapshot::FromInitialDocuments(
-    FSTQuery* query,
+    Query query,
     DocumentSet documents,
     DocumentKeySet mutated_keys,
     bool from_cache,
@@ -163,11 +168,19 @@ ViewSnapshot ViewSnapshot::FromInitialDocuments(
     view_changes.emplace_back(doc, DocumentViewChange::Type::kAdded);
   }
 
-  return ViewSnapshot{query, documents,
-                      /*old_documents=*/
-                      DocumentSet{query.comparator}, std::move(view_changes),
-                      std::move(mutated_keys), from_cache,
-                      /*sync_state_changed=*/true, excludes_metadata_changes};
+  DocumentSet old_documents(query.Comparator());
+  return ViewSnapshot{std::move(query),
+                      documents,
+                      old_documents,
+                      std::move(view_changes),
+                      std::move(mutated_keys),
+                      from_cache,
+                      /*sync_state_changed=*/true,
+                      excludes_metadata_changes};
+}
+
+const Query& ViewSnapshot::query() const {
+  return query_;
 }
 
 std::string ViewSnapshot::ToString() const {
@@ -175,7 +188,7 @@ std::string ViewSnapshot::ToString() const {
       "<ViewSnapshot query: %s documents: %s old_documents: %s changes: %s "
       "from_cache: %s mutated_keys: %s sync_state_changed: %s "
       "excludes_metadata_changes: %s>",
-      query(), documents_.ToString(), old_documents_.ToString(),
+      query_.ToString(), documents_.ToString(), old_documents_.ToString(),
       objc::Description(document_changes()), from_cache(),
       mutated_keys().size(), sync_state_changed(), excludes_metadata_changes());
 }
@@ -189,14 +202,13 @@ size_t ViewSnapshot::Hash() const {
   // straightforward way to compute its hash value. Since `ViewSnapshot` is
   // currently not stored in any dictionaries, this has no side effects.
 
-  return util::Hash([query() hash], documents(), old_documents(),
-                    document_changes(), from_cache(), sync_state_changed(),
+  return util::Hash(query(), documents(), old_documents(), document_changes(),
+                    from_cache(), sync_state_changed(),
                     excludes_metadata_changes());
 }
 
 bool operator==(const ViewSnapshot& lhs, const ViewSnapshot& rhs) {
-  return objc::Equals(lhs.query(), rhs.query()) &&
-         lhs.documents() == rhs.documents() &&
+  return lhs.query() == rhs.query() && lhs.documents() == rhs.documents() &&
          lhs.old_documents() == rhs.old_documents() &&
          lhs.document_changes() == rhs.document_changes() &&
          lhs.from_cache() == rhs.from_cache() &&

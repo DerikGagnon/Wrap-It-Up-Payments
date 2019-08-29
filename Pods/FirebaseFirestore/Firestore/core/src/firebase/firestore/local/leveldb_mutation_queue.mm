@@ -20,7 +20,6 @@
 #include <utility>
 
 #import "Firestore/Protos/objc/firestore/local/Mutation.pbobjc.h"
-#import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Local/FSTLevelDB.h"
 #import "Firestore/Source/Local/FSTLocalSerializer.h"
 #import "Firestore/Source/Model/FSTMutation.h"
@@ -40,6 +39,7 @@ namespace firestore {
 namespace local {
 
 using auth::User;
+using core::Query;
 using leveldb::DB;
 using leveldb::Iterator;
 using leveldb::Status;
@@ -82,8 +82,8 @@ BatchId LoadNextBatchIdFromDb(DB* db) {
 
     // At this point there are three possible cases to handle differently. Each
     // case must prepare the next iteration (by assigning to next_user_id or
-    // setting more_user_ids = NO) and seek the iterator to the last row in the
-    // current user's mutation sequence.
+    // setting more_user_ids = false) and seek the iterator to the last row in
+    // the current user's mutation sequence.
     if (!it->Valid()) {
       // The iterator is past the last row altogether (there are no additional
       // userIDs and now rows in any table after mutations). The last row will
@@ -156,7 +156,7 @@ void LevelDbMutationQueue::AcknowledgeBatch(FSTMutationBatch* batch,
 }
 
 FSTMutationBatch* LevelDbMutationQueue::AddMutationBatch(
-    FIRTimestamp* local_write_time,
+    const Timestamp& local_write_time,
     std::vector<FSTMutation*>&& base_mutations,
     std::vector<FSTMutation*>&& mutations) {
   BatchId batch_id = next_batch_id_;
@@ -269,14 +269,14 @@ LevelDbMutationQueue::AllMutationBatchesAffectingDocumentKey(
 }
 
 std::vector<FSTMutationBatch*>
-LevelDbMutationQueue::AllMutationBatchesAffectingQuery(FSTQuery* query) {
-  HARD_ASSERT(![query isDocumentQuery],
+LevelDbMutationQueue::AllMutationBatchesAffectingQuery(const Query& query) {
+  HARD_ASSERT(!query.IsDocumentQuery(),
               "Document queries shouldn't go down this path");
   HARD_ASSERT(
-      ![query isCollectionGroupQuery],
+      !query.IsCollectionGroupQuery(),
       "CollectionGroup queries should be handled in LocalDocumentsView");
 
-  const ResourcePath& query_path = query.path;
+  const ResourcePath& query_path = query.path();
   size_t immediate_children_path_length = query_path.size() + 1;
 
   // TODO(mcg): Actually implement a single-collection query

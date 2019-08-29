@@ -194,12 +194,14 @@ static NSString *const kNextButtonAccessibilityID = @"NextButtonAccessibilityID"
         // New user.
         UIViewController *controller;
         if (emailAuth.allowNewEmailAccounts) {
-          if ([delegate respondsToSelector:@selector(passwordSignUpViewControllerForAuthUI:email:)]) {
+          if ([delegate respondsToSelector:@selector(passwordSignUpViewControllerForAuthUI:email:requireDisplayName:)]) {
             controller = [delegate passwordSignUpViewControllerForAuthUI:self.authUI
-                                                                   email:emailText];
+                                                                   email:emailText
+                                                      requireDisplayName:emailAuth.requireDisplayName];
           } else {
             controller = [[FUIPasswordSignUpViewController alloc] initWithAuthUI:self.authUI
-                                                                           email:emailText];
+                                                                           email:emailText
+                                                              requireDisplayName:emailAuth.requireDisplayName];
           }
         } else {
           [self showAlertWithMessage:FUILocalizedString(kStr_UserNotFoundError)];
@@ -291,9 +293,7 @@ static NSString *const kNextButtonAccessibilityID = @"NextButtonAccessibilityID"
   cell.textField.returnKeyType = UIReturnKeyNext;
   cell.textField.keyboardType = UIKeyboardTypeEmailAddress;
   if (@available(iOS 11.0, *)) {
-    if (![FUIAuthUtils isFirebasePerformanceAvailable]) {
-      cell.textField.textContentType = UITextContentTypeUsername;
-    }
+    cell.textField.textContentType = UITextContentTypeUsername; 
   }
   [cell.textField addTarget:self
                      action:@selector(textFieldDidChange)
@@ -353,9 +353,9 @@ static NSString *const kNextButtonAccessibilityID = @"NextButtonAccessibilityID"
       return;
     }
 
-    [self.auth signInAndRetrieveDataWithCredential:credential
-                                        completion:^(FIRAuthDataResult *_Nullable authResult,
-                                                     NSError *_Nullable error) {
+    [self.auth signInWithCredential:credential
+                         completion:^(FIRAuthDataResult *_Nullable authResult,
+                                      NSError *_Nullable error) {
       [self decrementActivity];
       if (result) {
         result(authResult.user, error);

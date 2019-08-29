@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2016 Google Inc.
+//  Copyright (c) 2019 Google Inc.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -24,3 +24,7 @@ FOUNDATION_EXPORT double FirebaseStorageUIVersionNumber;
 FOUNDATION_EXPORT const unsigned char FirebaseStorageUIVersionString[];
 
 #import "UIImageView+FirebaseStorage.h"
+#import "FUIStorageImageLoader.h"
+#import "FUIStorageDefine.h"
+#import "NSURL+FirebaseStorage.h"
+#import "FIRStorageDownloadTask+SDWebImage.h"

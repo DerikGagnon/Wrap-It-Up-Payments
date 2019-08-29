@@ -17,24 +17,16 @@
 #ifndef FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_MODEL_TRANSFORM_OPERATIONS_H_
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_MODEL_TRANSFORM_OPERATIONS_H_
 
-#if !defined(__OBJC__)
-#error "This header only supports Objective-C++."
-#endif  // !defined(__OBJC__)
-
 #include <utility>
 #include <vector>
 
-#import "Firestore/Source/Model/FSTFieldValue.h"
-
 #include "Firestore/core/include/firebase/firestore/timestamp.h"
+#include "Firestore/core/src/firebase/firestore/model/field_value.h"
+#include "absl/types/optional.h"
 
 namespace firebase {
 namespace firestore {
 namespace model {
-
-// TODO(zxu123): We might want to refactor transform_operations.h into several
-// files when the number of different types of operations grows gigantically.
-// For now, put the interface and the only operation here.
 
 /** Represents a transform within a TransformMutation. */
 class TransformOperation {
@@ -55,21 +47,38 @@ class TransformOperation {
   virtual Type type() const = 0;
 
   /**
-   * Computes the local transform result against the provided `previousValue`,
-   * optionally using the provided localWriteTime.
+   * Computes the local transform result against the provided `previous_value`,
+   * optionally using the provided local_write_time.
    */
-  virtual FSTFieldValue* ApplyToLocalView(
-      FSTFieldValue* previousValue, FIRTimestamp* localWriteTime) const = 0;
+  virtual model::FieldValue ApplyToLocalView(
+      const absl::optional<model::FieldValue>& previous_value,
+      const Timestamp& local_write_time) const = 0;
 
   /**
    * Computes a final transform result after the transform has been acknowledged
-   * by the server, potentially using the server-provided transformResult.
+   * by the server, potentially using the server-provided transform_result.
    */
-  virtual FSTFieldValue* ApplyToRemoteDocument(
-      FSTFieldValue* previousValue, FSTFieldValue* transformResult) const = 0;
+  virtual model::FieldValue ApplyToRemoteDocument(
+      const absl::optional<model::FieldValue>& previous_value,
+      const model::FieldValue& transform_result) const = 0;
 
-  /** Returns whether this field transform is idempotent. */
-  virtual bool idempotent() const = 0;
+  /**
+   * If this transform operation is not idempotent, returns the base value to
+   * persist for this transform operation. If a base value is returned, the
+   * transform operation is always applied to this base value, even if document
+   * has already been updated.
+   *
+   * <p>Base values provide consistent behavior for non-idempotent transforms
+   * and allow us to return the same latency-compensated value even if the
+   * backend has already applied the transform operation. The base value is
+   * empty for idempotent transforms, as they can be re-played even if the
+   * backend has already applied them.
+   *
+   * @return a base value to store along with the mutation, or empty for
+   * idempotent transforms.
+   */
+  virtual absl::optional<model::FieldValue> ComputeBaseValue(
+      const absl::optional<model::FieldValue>& previous_value) const = 0;
 
   /** Returns whether the two are equal. */
   virtual bool operator==(const TransformOperation& other) const = 0;
@@ -81,7 +90,7 @@ class TransformOperation {
 
   // For Objective-C++ hash; to be removed after migration.
   // Do NOT use in C++ code.
-  virtual NSUInteger Hash() const = 0;
+  virtual size_t Hash() const = 0;
 };
 
 /** Transforms a value into a server-generated timestamp. */
@@ -91,44 +100,31 @@ class ServerTimestampTransform : public TransformOperation {
     return Type::ServerTimestamp;
   }
 
-  FSTFieldValue* ApplyToLocalView(FSTFieldValue* previousValue,
-                                  FIRTimestamp* localWriteTime) const override {
-    return [FSTServerTimestampValue
-        serverTimestampValueWithLocalWriteTime:localWriteTime
-                                 previousValue:previousValue];
+  model::FieldValue ApplyToLocalView(
+      const absl::optional<model::FieldValue>& previous_value,
+      const Timestamp& local_write_time) const override;
+
+  model::FieldValue ApplyToRemoteDocument(
+      const absl::optional<model::FieldValue>& previous_value,
+      const model::FieldValue& transform_result) const override;
+
+  absl::optional<model::FieldValue> ComputeBaseValue(
+      const absl::optional<model::FieldValue>& /* previous_value */)
+      const override {
+    return absl::nullopt;  // Server timestamps are idempotent and don't require
+                           // a base value.
   }
 
-  FSTFieldValue* ApplyToRemoteDocument(
-      FSTFieldValue* /* previousValue */,
-      FSTFieldValue* transformResult) const override {
-    return transformResult;
-  }
+  bool operator==(const TransformOperation& other) const override;
 
-  bool idempotent() const override {
-    return true;
-  }
-
-  bool operator==(const TransformOperation& other) const override {
-    // All ServerTimestampTransform objects are equal.
-    return other.type() == Type::ServerTimestamp;
-  }
-
-  static const ServerTimestampTransform& Get() {
-    static ServerTimestampTransform shared_instance;
-    return shared_instance;
-  }
+  static const ServerTimestampTransform& Get();
 
   // For Objective-C++ hash; to be removed after migration.
   // Do NOT use in C++ code.
-  NSUInteger Hash() const override {
-    // arbitrary number, the same as used in ObjC implementation, since all
-    // instances are equal.
-    return 37;
-  }
+  size_t Hash() const override;
 
  private:
-  ServerTimestampTransform() {
-  }
+  ServerTimestampTransform() = default;
 };
 
 /**
@@ -137,7 +133,7 @@ class ServerTimestampTransform : public TransformOperation {
  */
 class ArrayTransform : public TransformOperation {
  public:
-  ArrayTransform(Type type, std::vector<FSTFieldValue*> elements)
+  ArrayTransform(Type type, std::vector<model::FieldValue> elements)
       : type_(type), elements_(std::move(elements)) {
   }
 
@@ -145,98 +141,46 @@ class ArrayTransform : public TransformOperation {
     return type_;
   }
 
-  FSTFieldValue* ApplyToLocalView(
-      FSTFieldValue* previousValue,
-      FIRTimestamp* /* localWriteTime */) const override {
-    return Apply(previousValue);
+  model::FieldValue ApplyToLocalView(
+      const absl::optional<model::FieldValue>& previous_value,
+      const Timestamp& local_write_time) const override;
+
+  model::FieldValue ApplyToRemoteDocument(
+      const absl::optional<model::FieldValue>& previous_value,
+      const model::FieldValue& transform_result) const override;
+
+  absl::optional<model::FieldValue> ComputeBaseValue(
+      const absl::optional<model::FieldValue>& /* previous_value */)
+      const override {
+    return absl::nullopt;  // Array transforms are idempotent and don't require
+                           // a base value.
   }
 
-  FSTFieldValue* ApplyToRemoteDocument(
-      FSTFieldValue* previousValue,
-      FSTFieldValue* /* transformResult */) const override {
-    // The server just sends null as the transform result for array operations,
-    // so we have to calculate a result the same as we do for local
-    // applications.
-    return Apply(previousValue);
-  }
-
-  const std::vector<FSTFieldValue*>& elements() const {
+  const std::vector<model::FieldValue>& elements() const {
     return elements_;
   }
 
-  bool idempotent() const override {
-    return true;
-  }
+  bool operator==(const TransformOperation& other) const override;
 
-  bool operator==(const TransformOperation& other) const override {
-    if (other.type() != type()) {
-      return false;
-    }
-    auto array_transform = static_cast<const ArrayTransform&>(other);
-    if (array_transform.elements_.size() != elements_.size()) {
-      return false;
-    }
-    for (size_t i = 0; i < elements_.size(); i++) {
-      if (![array_transform.elements_[i] isEqual:elements_[i]]) {
-        return false;
-      }
-    }
-    return true;
-  }
+  size_t Hash() const override;
 
-  // For Objective-C++ hash; to be removed after migration.
-  // Do NOT use in C++ code.
-  NSUInteger Hash() const override {
-    NSUInteger result = 37;
-    result = 31 * result + (type() == Type::ArrayUnion ? 1231 : 1237);
-    for (FSTFieldValue* element : elements_) {
-      result = 31 * result + [element hash];
-    }
-    return result;
-  }
-
-  static const std::vector<FSTFieldValue*>& Elements(
-      const TransformOperation& op) {
-    HARD_ASSERT(op.type() == Type::ArrayUnion ||
-                op.type() == Type::ArrayRemove);
-    return static_cast<const ArrayTransform&>(op).elements();
-  }
+  static const std::vector<model::FieldValue>& Elements(
+      const TransformOperation& op);
 
  private:
-  Type type_;
-  std::vector<FSTFieldValue*> elements_;
-
   /**
    * Inspects the provided value, returning a mutable copy of the internal array
-   * if it's an FSTArrayValue and an empty mutable array if it's nil or any
-   * other type of FSTFieldValue.
+   * if it's of type Array and an empty mutable array if it's nil or any other
+   * type of FieldValue.
    */
-  static NSMutableArray<FSTFieldValue*>* CoercedFieldValuesArray(
-      FSTFieldValue* value) {
-    if ([value isMemberOfClass:[FSTArrayValue class]]) {
-      return [NSMutableArray
-          arrayWithArray:reinterpret_cast<FSTArrayValue*>(value).internalValue];
-    } else {
-      // coerce to empty array.
-      return [NSMutableArray array];
-    }
-  }
+  static std::vector<model::FieldValue> CoercedFieldValuesArray(
+      const absl::optional<model::FieldValue>& value);
 
-  FSTFieldValue* Apply(FSTFieldValue* previousValue) const {
-    NSMutableArray<FSTFieldValue*>* result =
-        ArrayTransform::CoercedFieldValuesArray(previousValue);
-    for (FSTFieldValue* element : elements_) {
-      if (type_ == Type::ArrayUnion) {
-        if (![result containsObject:element]) {
-          [result addObject:element];
-        }
-      } else {
-        HARD_ASSERT(type_ == Type::ArrayRemove);
-        [result removeObject:element];
-      }
-    }
-    return [[FSTArrayValue alloc] initWithValueNoCopy:result];
-  }
+  model::FieldValue Apply(
+      const absl::optional<model::FieldValue>& previous_value) const;
+
+  Type type_;
+  std::vector<model::FieldValue> elements_;
 };
 
 /**
@@ -246,98 +190,35 @@ class ArrayTransform : public TransformOperation {
  */
 class NumericIncrementTransform : public TransformOperation {
  public:
-  explicit NumericIncrementTransform(FSTNumberValue* operand)
-      : operand_(operand) {
-  }
+  explicit NumericIncrementTransform(model::FieldValue operand);
 
   Type type() const override {
     return Type::Increment;
   }
 
-  FSTFieldValue* ApplyToLocalView(
-      FSTFieldValue* previousValue,
-      FIRTimestamp* /* localWriteTime */) const override {
-    // Return an integer value only if the previous value and the operand is an
-    // integer.
-    if ([previousValue isKindOfClass:[FSTIntegerValue class]] &&
-        [operand_ isKindOfClass:[FSTIntegerValue class]]) {
-      int64_t sum = SafeIncrement(
-          (static_cast<FSTIntegerValue*>(previousValue)).internalValue,
-          (static_cast<FSTIntegerValue*>(operand_)).internalValue);
-      return [FSTIntegerValue integerValue:sum];
-    } else if ([previousValue isKindOfClass:[FSTIntegerValue class]]) {
-      double sum =
-          (static_cast<FSTIntegerValue*>(previousValue)).internalValue +
-          OperandAsDouble();
-      return [FSTDoubleValue doubleValue:sum];
-    } else if ([previousValue isKindOfClass:[FSTDoubleValue class]]) {
-      double sum = (static_cast<FSTDoubleValue*>(previousValue)).internalValue +
-                   OperandAsDouble();
-      return [FSTDoubleValue doubleValue:sum];
-    } else {
-      // If the existing value is not a number, use the value of the transform
-      // as the new base value.
-      return operand_;
-    }
-  }
+  model::FieldValue ApplyToLocalView(
+      const absl::optional<model::FieldValue>& previous_value,
+      const Timestamp& local_write_time) const override;
 
-  FSTFieldValue* ApplyToRemoteDocument(
-      FSTFieldValue*, FSTFieldValue* transformResult) const override {
-    return transformResult;
-  }
+  model::FieldValue ApplyToRemoteDocument(
+      const absl::optional<model::FieldValue>& previous_value,
+      const model::FieldValue& transform_result) const override;
 
-  FSTNumberValue* operand() const {
+  absl::optional<model::FieldValue> ComputeBaseValue(
+      const absl::optional<model::FieldValue>& previous_value) const override;
+
+  model::FieldValue operand() const {
     return operand_;
   }
 
-  bool idempotent() const override {
-    return false;
-  }
-
-  bool operator==(const TransformOperation& other) const override {
-    if (other.type() != type()) {
-      return false;
-    }
-    auto numeric_add = static_cast<const NumericIncrementTransform&>(other);
-    return [operand_ isEqual:numeric_add.operand_];
-  }
+  bool operator==(const TransformOperation& other) const override;
 
   // For Objective-C++ hash; to be removed after migration.
   // Do NOT use in C++ code.
-  NSUInteger Hash() const override {
-    NSUInteger result = 37;
-    result = 31 * result + [operand_ hash];
-    return result;
-  }
+  size_t Hash() const override;
 
  private:
-  FSTNumberValue* operand_;
-
-  /**
-   * Implements integer addition. Overflows are resolved to LONG_MAX/LONG_MIN.
-   */
-  int64_t SafeIncrement(int64_t x, int64_t y) const {
-    if (x > 0 && y > LONG_MAX - x) {
-      return LONG_MAX;
-    }
-
-    if (x < 0 && y < LONG_MIN - x) {
-      return LONG_MIN;
-    }
-
-    return x + y;
-  }
-
-  double OperandAsDouble() const {
-    if ([operand_ isKindOfClass:[FSTDoubleValue class]]) {
-      return (static_cast<FSTDoubleValue*>(operand_)).internalValue;
-    } else if ([operand_ isKindOfClass:[FSTIntegerValue class]]) {
-      return (static_cast<FSTIntegerValue*>(operand_)).internalValue;
-    } else {
-      HARD_FAIL("Expected 'operand' to be of FSTNumerValue type, but was %s",
-                NSStringFromClass([operand_ class]));
-    }
-  }
+  model::FieldValue operand_;
 };
 
 }  // namespace model

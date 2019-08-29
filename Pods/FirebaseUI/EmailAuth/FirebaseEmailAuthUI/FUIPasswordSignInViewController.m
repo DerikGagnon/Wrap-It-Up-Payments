@@ -179,9 +179,9 @@ static NSString *const kCellReuseIdentifier = @"cellReuseIdentifier";
   // Check for the presence of an anonymous user and whether automatic upgrade is enabled.
   if (self.auth.currentUser.isAnonymous && self.authUI.shouldAutoUpgradeAnonymousUsers) {
     [self.auth.currentUser
-        linkAndRetrieveDataWithCredential:credential
-                               completion:^(FIRAuthDataResult *_Nullable authResult,
-                                            NSError *_Nullable error) {
+        linkWithCredential:credential
+                completion:^(FIRAuthDataResult *_Nullable authResult,
+                             NSError *_Nullable error) {
       if (error) {
         if (error.code == FIRAuthErrorCodeEmailAlreadyInUse) {
           NSDictionary *userInfo = @{ FUIAuthCredentialKey : credential };
@@ -196,7 +196,7 @@ static NSString *const kCellReuseIdentifier = @"cellReuseIdentifier";
       completeSignInBlock(authResult, nil);
     }];
   } else {
-    [self.auth signInAndRetrieveDataWithCredential:credential completion:completeSignInBlock];
+    [self.auth signInWithCredential:credential completion:completeSignInBlock];
   }
 }
 
@@ -258,9 +258,7 @@ static NSString *const kCellReuseIdentifier = @"cellReuseIdentifier";
     _emailField.autocorrectionType = UITextAutocorrectionTypeNo;
     _emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     if (@available(iOS 11.0, *)) {
-      if (![FUIAuthUtils isFirebasePerformanceAvailable]) {
-        _emailField.textContentType = UITextContentTypeUsername;
-      }
+      _emailField.textContentType = UITextContentTypeUsername;
     }
   } else if (indexPath.row == 1) {
     cell.label.text = FUILocalizedString(kStr_Password);
@@ -270,9 +268,7 @@ static NSString *const kCellReuseIdentifier = @"cellReuseIdentifier";
     _passwordField.returnKeyType = UIReturnKeyNext;
     _passwordField.keyboardType = UIKeyboardTypeDefault;
     if (@available(iOS 11.0, *)) {
-      if (![FUIAuthUtils isFirebasePerformanceAvailable]) {
-        _passwordField.textContentType = UITextContentTypePassword;
-      }
+      _passwordField.textContentType = UITextContentTypePassword;
     }
   }
   [cell.textField addTarget:self

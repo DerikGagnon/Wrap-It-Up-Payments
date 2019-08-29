@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "FBSDKBasicUtility.h"
 #import "FBSDKAccessToken.h"
 #import "FBSDKApplicationDelegate.h"
 #import "FBSDKButton.h"
@@ -20,7 +21,6 @@
 #import "FBSDKGraphRequest.h"
 #import "FBSDKGraphRequestConnection.h"
 #import "FBSDKGraphRequestDataAttachment.h"
-#import "FBSDKMacros.h"
 #import "FBSDKMeasurementEvent.h"
 #import "FBSDKMutableCopying.h"
 #import "FBSDKProfile.h"

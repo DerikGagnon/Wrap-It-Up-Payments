@@ -18,6 +18,8 @@
 
 #import "FBSDKLoginCompletion+Internal.h"
 
+#import <FBSDKCoreKit/FBSDKConstants.h>
+
 #import "FBSDKCoreKit+Internal.h"
 #import "FBSDKLoginConstants.h"
 #import "FBSDKLoginError.h"
@@ -65,13 +67,16 @@ static void FBSDKLoginRequestMeAndPermissions(FBSDKLoginCompletionParameters *pa
                                                                 NSError *error) {
     NSMutableSet *grantedPermissions = [NSMutableSet set];
     NSMutableSet *declinedPermissions = [NSMutableSet set];
+    NSMutableSet *expiredPermissions = [NSMutableSet set];
 
     [FBSDKInternalUtility extractPermissionsFromResponse:result
                                       grantedPermissions:grantedPermissions
-                                     declinedPermissions:declinedPermissions];
+                                     declinedPermissions:declinedPermissions
+                                      expiredPermissions:expiredPermissions];
 
     parameters.permissions = [grantedPermissions copy];
     parameters.declinedPermissions = [declinedPermissions copy];
+    parameters.expiredPermissions = [expiredPermissions copy];
     if (error) {
       parameters.error = error;
     }
@@ -114,8 +119,9 @@ static void FBSDKLoginRequestMeAndPermissions(FBSDKLoginCompletionParameters *pa
     _parameters = [[FBSDKLoginCompletionParameters alloc] init];
 
     _parameters.accessTokenString = parameters[@"access_token"];
+    _parameters.nonceString = parameters[@"nonce"];
 
-    if (_parameters.accessTokenString.length > 0) {
+    if (_parameters.accessTokenString.length > 0 || _parameters.nonceString.length > 0) {
       [self setParametersWithDictionary:parameters appID:appID];
     } else {
       _parameters.accessTokenString = nil;
@@ -125,9 +131,12 @@ static void FBSDKLoginRequestMeAndPermissions(FBSDKLoginCompletionParameters *pa
   return self;
 }
 
-- (void)completeLogIn:(FBSDKLoginManager *)loginManager withHandler:(void(^)(FBSDKLoginCompletionParameters *parameters))handler
+- (void)completeLoginWithHandler:(FBSDKLoginCompletionParametersBlock)handler
 {
-  if (_parameters.accessTokenString && !_parameters.userID) {
+  if (_parameters.nonceString) {
+    [self _exchangeNonceForTokenWithHandler:handler];
+    return;
+  } else if (_parameters.accessTokenString && !_parameters.userID) {
     void(^handlerCopy)(FBSDKLoginCompletionParameters *) = [handler copy];
     FBSDKLoginRequestMeAndPermissions(_parameters, ^{
       handlerCopy(self->_parameters);
@@ -154,6 +163,8 @@ static void FBSDKLoginRequestMeAndPermissions(FBSDKLoginCompletionParameters *pa
   ? [NSSet setWithArray:[declinedPermissionsString componentsSeparatedByString:@","]]
   : [NSSet set];
 
+  _parameters.expiredPermissions = [NSSet set];
+
   _parameters.appID = appID;
 
   if (userID.length == 0 && signedRequest.length > 0) {
@@ -178,7 +189,7 @@ static void FBSDKLoginRequestMeAndPermissions(FBSDKLoginCompletionParameters *pa
   _parameters.dataAccessExpirationDate = dataAccessExpirationDate;
 
   NSError *error = nil;
-  NSDictionary *state = [FBSDKInternalUtility objectForJSONString:parameters[@"state"] error:&error];
+  NSDictionary<id, id> *state = [FBSDKBasicUtility objectForJSONString:parameters[@"state"] error:&error];
   _parameters.challenge = [FBSDKUtility URLDecode:state[@"challenge"]];
 }
 
@@ -211,6 +222,58 @@ static void FBSDKLoginRequestMeAndPermissions(FBSDKLoginCompletionParameters *pa
       [self attemptBrowserLogIn:loginManager];
     });
   }
+}
+
+- (void)_exchangeNonceForTokenWithHandler:(FBSDKLoginCompletionParametersBlock)handler
+{
+  if (!handler) {
+      return;
+  }
+
+  NSString *nonce = _parameters.nonceString ?: @"";
+  NSString *appID = [FBSDKSettings appID] ?: @"";
+
+  if (nonce.length == 0 || appID.length == 0) {
+    _parameters.error = [FBSDKError errorWithCode:FBSDKErrorInvalidArgument message:@"Missing required parameters to exchange nonce for access token."];
+
+    handler(_parameters);
+    return;
+  }
+
+  FBSDKGraphRequestConnection *connection = [[FBSDKGraphRequestConnection alloc] init];
+  FBSDKGraphRequest *tokenRequest = [[FBSDKGraphRequest alloc]
+                                     initWithGraphPath:@"oauth/access_token"
+                                     parameters:@{ @"grant_type" : @"fb_exchange_nonce",
+                                                   @"fb_exchange_nonce" : nonce,
+                                                   @"client_id" : appID,
+                                                   @"fields" : @"" }
+                                     flags:FBSDKGraphRequestFlagDoNotInvalidateTokenOnError |
+                                     FBSDKGraphRequestFlagDisableErrorRecovery];
+  __block FBSDKLoginCompletionParameters *parameters = _parameters;
+  [connection addRequest:tokenRequest completionHandler:^(FBSDKGraphRequestConnection *requestConnection,
+                                                          id result,
+                                                          NSError *error) {
+    if (!error) {
+      parameters.accessTokenString = result[@"access_token"];
+      NSDate *expirationDate = [NSDate distantFuture];
+      if (result[@"expires_in"] && [result[@"expires_in"] integerValue] > 0) {
+        expirationDate = [NSDate dateWithTimeIntervalSinceNow:[result[@"expires_in"] integerValue]];
+      }
+      parameters.expirationDate = expirationDate;
+
+      NSDate *dataAccessExpirationDate = [NSDate distantFuture];
+      if (result[@"data_access_expiration_time"] && [result[@"data_access_expiration_time"] integerValue] > 0) {
+        dataAccessExpirationDate = [NSDate dateWithTimeIntervalSince1970:[result[@"data_access_expiration_time"] integerValue]];
+      }
+      parameters.dataAccessExpirationDate = dataAccessExpirationDate;
+    } else {
+      parameters.error = error;
+    }
+
+    handler(parameters);
+  }];
+
+  [connection start];
 }
 
 @end

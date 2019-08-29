@@ -25,21 +25,24 @@
 #import "Firestore/Protos/objc/firestore/local/Mutation.pbobjc.h"
 #import "Firestore/Protos/objc/firestore/local/Target.pbobjc.h"
 #import "Firestore/Protos/objc/google/firestore/v1/Document.pbobjc.h"
-#import "Firestore/Source/Core/FSTQuery.h"
 #import "Firestore/Source/Local/FSTQueryData.h"
 #import "Firestore/Source/Model/FSTDocument.h"
-#import "Firestore/Source/Model/FSTFieldValue.h"
 #import "Firestore/Source/Model/FSTMutationBatch.h"
 #import "Firestore/Source/Remote/FSTSerializerBeta.h"
 
 #include "Firestore/core/include/firebase/firestore/timestamp.h"
+#include "Firestore/core/src/firebase/firestore/core/query.h"
+#include "Firestore/core/src/firebase/firestore/model/document.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 
 using firebase::Timestamp;
+using firebase::firestore::core::Query;
 using firebase::firestore::model::DocumentKey;
+using firebase::firestore::model::DocumentState;
 using firebase::firestore::model::ListenSequenceNumber;
+using firebase::firestore::model::ObjectValue;
 using firebase::firestore::model::SnapshotVersion;
 using firebase::firestore::model::TargetId;
 
@@ -124,14 +127,14 @@ using firebase::firestore::model::TargetId;
           withCommittedMutations:(BOOL)committedMutations {
   FSTSerializerBeta *remoteSerializer = self.remoteSerializer;
 
-  FSTObjectValue *data = [remoteSerializer decodedFields:document.fields];
+  ObjectValue data = [remoteSerializer decodedFields:document.fields];
   DocumentKey key = [remoteSerializer decodedDocumentKey:document.name];
   SnapshotVersion version = [remoteSerializer decodedVersion:document.updateTime];
-  return [FSTDocument documentWithData:data
-                                   key:key
+  return [FSTDocument documentWithData:std::move(data)
+                                   key:std::move(key)
                                version:version
-                                 state:committedMutations ? FSTDocumentStateCommittedMutations
-                                                          : FSTDocumentStateSynced];
+                                 state:committedMutations ? DocumentState::kCommittedMutations
+                                                          : DocumentState::kSynced];
 }
 
 /** Encodes a NoDocument value to the equivalent proto. */
@@ -180,8 +183,7 @@ using firebase::firestore::model::TargetId;
 
   FSTPBWriteBatch *proto = [FSTPBWriteBatch message];
   proto.batchId = batch.batchID;
-  proto.localWriteTime = [remoteSerializer
-      encodedTimestamp:Timestamp{batch.localWriteTime.seconds, batch.localWriteTime.nanoseconds}];
+  proto.localWriteTime = [remoteSerializer encodedTimestamp:batch.localWriteTime];
 
   NSMutableArray<GCFSWrite *> *baseWrites = proto.baseWritesArray;
   for (FSTMutation *baseMutation : [batch baseMutations]) {
@@ -210,12 +212,10 @@ using firebase::firestore::model::TargetId;
 
   Timestamp localWriteTime = [remoteSerializer decodedTimestamp:batch.localWriteTime];
 
-  return [[FSTMutationBatch alloc]
-      initWithBatchID:batchID
-       localWriteTime:[FIRTimestamp timestampWithSeconds:localWriteTime.seconds()
-                                             nanoseconds:localWriteTime.nanoseconds()]
-        baseMutations:std::move(baseMutations)
-            mutations:std::move(mutations)];
+  return [[FSTMutationBatch alloc] initWithBatchID:batchID
+                                    localWriteTime:localWriteTime
+                                     baseMutations:std::move(baseMutations)
+                                         mutations:std::move(mutations)];
 }
 
 - (FSTPBTarget *)encodedQueryData:(FSTQueryData *)queryData {
@@ -231,8 +231,8 @@ using firebase::firestore::model::TargetId;
   proto.snapshotVersion = [remoteSerializer encodedVersion:queryData.snapshotVersion];
   proto.resumeToken = queryData.resumeToken;
 
-  FSTQuery *query = queryData.query;
-  if ([query isDocumentQuery]) {
+  const Query &query = queryData.query;
+  if (query.IsDocumentQuery()) {
     proto.documents = [remoteSerializer encodedDocumentsTarget:query];
   } else {
     proto.query = [remoteSerializer encodedQueryTarget:query];
@@ -249,7 +249,7 @@ using firebase::firestore::model::TargetId;
   SnapshotVersion version = [remoteSerializer decodedVersion:target.snapshotVersion];
   NSData *resumeToken = target.resumeToken;
 
-  FSTQuery *query;
+  Query query;
   switch (target.targetTypeOneOfCase) {
     case FSTPBTarget_TargetType_OneOfCase_Documents:
       query = [remoteSerializer decodedQueryFromDocumentsTarget:target.documents];
@@ -263,7 +263,7 @@ using firebase::firestore::model::TargetId;
       HARD_FAIL("Unknown Target.targetType %s", target.targetTypeOneOfCase);
   }
 
-  return [[FSTQueryData alloc] initWithQuery:query
+  return [[FSTQueryData alloc] initWithQuery:std::move(query)
                                     targetID:targetID
                         listenSequenceNumber:sequenceNumber
                                      purpose:FSTQueryPurposeListen

@@ -17,9 +17,11 @@
 #ifndef FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_CORE_FILTER_H_
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_CORE_FILTER_H_
 
+#include <iosfwd>
 #include <memory>
 #include <string>
 
+#include "Firestore/core/src/firebase/firestore/immutable/append_only_list.h"
 #include "Firestore/core/src/firebase/firestore/model/document.h"
 #include "Firestore/core/src/firebase/firestore/model/field_path.h"
 #include "Firestore/core/src/firebase/firestore/model/field_value.h"
@@ -31,26 +33,46 @@ namespace core {
 /** Interface used for all query filters. All filters are immutable. */
 class Filter {
  public:
+  /**
+   * Operator is a value relation operator that can be used to filter documents.
+   * It is similar to NSPredicateOperatorType, but only has operators supported
+   * by Firestore.
+   */
   enum class Operator {
     LessThan,
     LessThanOrEqual,
     Equal,
-    GreaterThan,
     GreaterThanOrEqual,
+    GreaterThan,
+    ArrayContains,
+    In,
+    ArrayContainsAny,
   };
 
-  /**
-   * Creates a Filter instance for the provided path, operator, and value.
-   *
-   * Note that if the relational operator is Equal and the value is NullValue or
-   * NaN, then this will return the appropriate NullFilter or NaNFilter class
-   * instead of a RelationFilter.
-   */
-  static std::shared_ptr<Filter> Create(model::FieldPath path,
-                                        Operator op,
-                                        model::FieldValue value_rhs);
+  // For lack of RTTI, all subclasses must identify themselves so that
+  // comparisons properly take type into account.
+  enum class Type {
+    kArrayContainsAnyFilter,
+    kArrayContainsFilter,
+    kFieldFilter,
+    kInFilter,
+    kKeyFieldFilter,
+    kKeyFieldInFilter,
+  };
 
-  virtual ~Filter() {
+  virtual ~Filter() = default;
+
+  virtual Type type() const = 0;
+
+  /**
+   * Returns true if this instance is FieldFilter or any derived class.
+   * Equivalent to `instanceof FieldFilter` on other platforms.
+   *
+   * Note this is different than checking `type() == Type::kFieldFilter` which
+   * is only true if the type is exactly FieldFilter.
+   */
+  virtual bool IsAFieldFilter() const {
+    return false;
   }
 
   /** Returns the field the Filter operates over. */
@@ -61,7 +83,32 @@ class Filter {
 
   /** A unique ID identifying the filter; used when serializing queries. */
   virtual std::string CanonicalId() const = 0;
+
+  /** A debug description of the Filter. */
+  virtual std::string ToString() const = 0;
+
+  virtual size_t Hash() const = 0;
+
+  virtual bool IsInequality() const {
+    return false;
+  }
+
+  friend bool operator==(const Filter& lhs, const Filter& rhs) {
+    return lhs.Equals(rhs);
+  }
+
+ private:
+  virtual bool Equals(const Filter& other) const = 0;
 };
+
+inline bool operator!=(const Filter& lhs, const Filter& rhs) {
+  return !(lhs == rhs);
+}
+
+/** A list of Filters, as used in Queries and elsewhere. */
+using FilterList = immutable::AppendOnlyList<std::shared_ptr<const Filter>>;
+
+std::ostream& operator<<(std::ostream& os, const Filter& filter);
 
 }  // namespace core
 }  // namespace firestore

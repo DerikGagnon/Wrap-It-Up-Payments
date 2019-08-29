@@ -32,11 +32,10 @@
 #include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 #include "Firestore/core/src/firebase/firestore/model/types.h"
-#include "Firestore/core/src/firebase/firestore/util/objc_compatibility.h"
+#include "Firestore/core/src/firebase/firestore/objc/objc_compatibility.h"
 
 @class FSTLocalSerializer;
 @class FSTMemoryPersistence;
-@class FSTQuery;
 @class FSTQueryData;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -56,7 +55,7 @@ class MemoryQueryCache : public QueryCache {
 
   void RemoveTarget(FSTQueryData* query_data) override;
 
-  FSTQueryData* _Nullable GetTarget(FSTQuery* query) override;
+  FSTQueryData* _Nullable GetTarget(const core::Query& query) override;
 
   void EnumerateTargets(const TargetCallback& callback) override;
 
@@ -106,7 +105,7 @@ class MemoryQueryCache : public QueryCache {
   model::SnapshotVersion last_remote_snapshot_version_;
 
   /** Maps a query to the data about that query. */
-  util::objc::unordered_map<FSTQuery*, FSTQueryData*> queries_;
+  std::unordered_map<core::Query, FSTQueryData*> queries_;
 
   /**
    * A ordered bidirectional mapping between documents and the remote target

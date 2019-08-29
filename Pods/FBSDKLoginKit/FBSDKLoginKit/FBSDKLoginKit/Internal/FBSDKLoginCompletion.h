@@ -19,21 +19,31 @@
 #import <Foundation/Foundation.h>
 
 @class FBSDKLoginManager;
+@class FBSDKLoginCompletionParameters;
+
+/**
+ Success Block
+ */
+typedef void (^FBSDKLoginCompletionParametersBlock)(FBSDKLoginCompletionParameters *parameters)
+NS_SWIFT_NAME(LoginCompletionParametersBlock);
 
 /**
   Structured interface for accessing the parameters used to complete a log in request.
  If \c accessTokenString is non-<code>nil</code>, the authentication succeeded. If \c error is
  non-<code>nil</code> the request failed. If both are \c nil, the request was cancelled.
  */
+NS_SWIFT_NAME(LoginCompletionParameters)
 @interface FBSDKLoginCompletionParameters : NSObject
 
 - (instancetype)init NS_DESIGNATED_INITIALIZER;
 - (instancetype)initWithError:(NSError *)error;
 
 @property (nonatomic, copy, readonly) NSString *accessTokenString;
+@property (nonatomic, copy, readonly) NSString *nonceString;
 
 @property (nonatomic, copy, readonly) NSSet *permissions;
 @property (nonatomic, copy, readonly) NSSet *declinedPermissions;
+@property (nonatomic, copy, readonly) NSSet *expiredPermissions;
 
 @property (nonatomic, copy, readonly) NSString *appID;
 @property (nonatomic, copy, readonly) NSString *userID;
@@ -46,13 +56,14 @@
 @property (nonatomic, copy, readonly) NSString *challenge;
 @end
 
+NS_SWIFT_NAME(LoginCompleting)
 @protocol FBSDKLoginCompleting
 
 /**
   Invoke \p handler with the login parameters derived from the authentication result.
  See the implementing class's documentation for whether it completes synchronously or asynchronously.
  */
-- (void)completeLogIn:(FBSDKLoginManager *)loginManager withHandler:(void(^)(FBSDKLoginCompletionParameters *parameters))handler;
+- (void)completeLoginWithHandler:(FBSDKLoginCompletionParametersBlock)handler;
 
 @end
 
@@ -67,6 +78,7 @@
 
  Completion occurs synchronously.
  */
+NS_SWIFT_NAME(LoginURLCompleter)
 @interface FBSDKLoginURLCompleter : NSObject <FBSDKLoginCompleting>
 
 - (instancetype)init NS_UNAVAILABLE;
@@ -74,3 +86,4 @@
 - (instancetype)initWithURLParameters:(NSDictionary *)parameters appID:(NSString *)appID NS_DESIGNATED_INITIALIZER;
 
 @end
+

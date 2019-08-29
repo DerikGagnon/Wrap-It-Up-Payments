@@ -75,8 +75,8 @@ class Datastore : public std::enable_shared_from_this<Datastore> {
   using CommitCallback = std::function<void(const util::Status&)>;
 
   Datastore(const core::DatabaseInfo& database_info,
-            util::AsyncQueue* worker_queue,
-            auth::CredentialsProvider* credentials);
+            const std::shared_ptr<util::AsyncQueue>& worker_queue,
+            std::shared_ptr<auth::CredentialsProvider> credentials);
 
   virtual ~Datastore() {
   }
@@ -141,8 +141,8 @@ class Datastore : public std::enable_shared_from_this<Datastore> {
  protected:
   /** Test-only constructor */
   Datastore(const core::DatabaseInfo& database_info,
-            util::AsyncQueue* worker_queue,
-            auth::CredentialsProvider* credentials,
+            const std::shared_ptr<util::AsyncQueue>& worker_queue,
+            std::shared_ptr<auth::CredentialsProvider> credentials,
             std::unique_ptr<ConnectivityMonitor> connectivity_monitor);
 
   /** Test-only method */
@@ -189,8 +189,8 @@ class Datastore : public std::enable_shared_from_this<Datastore> {
   // down.
   bool is_shut_down_ = false;
 
-  util::AsyncQueue* worker_queue_ = nullptr;
-  auth::CredentialsProvider* credentials_ = nullptr;
+  std::shared_ptr<util::AsyncQueue> worker_queue_;
+  std::shared_ptr<auth::CredentialsProvider> credentials_;
 
   // A separate executor dedicated to polling gRPC completion queue (which is
   // shared for all spawned gRPC streams and calls).
