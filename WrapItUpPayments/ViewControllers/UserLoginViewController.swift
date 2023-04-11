@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import FirebaseAuth
 import FirebaseAuthUI
 import SDWebImage
 import FirebaseEmailAuthUI
 import FirebaseGoogleAuthUI
+import Firebase
 
 class UserLoginViewController: UIViewController, FUIAuthDelegate {
     
@@ -19,7 +19,8 @@ class UserLoginViewController: UIViewController, FUIAuthDelegate {
     fileprivate(set) var authUI: FUIAuth? //only set internally but get externally
     fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
     
-    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+
         // jump out once we have a valid user
         guard let authError = error else {
             print("Login Successful")

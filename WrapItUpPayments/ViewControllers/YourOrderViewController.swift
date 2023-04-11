@@ -24,7 +24,7 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         
         // Your client ID is the same as your Square Application ID.
         // Note: You only need to set your client ID once, before creating your first request.
-        SCCAPIRequest.setClientID("sq0idp-LD09GWHOBMDC48jYiDcY7g")
+        SCCAPIRequest.setApplicationID("sq0idp-LD09GWHOBMDC48jYiDcY7g")
 
         do {
             // Specify the amount of money to charge.
@@ -33,17 +33,17 @@ class YourOrderViewController: UIViewController, UITableViewDelegate, UITableVie
             
             // Create the request.
             let apiRequest =
-                try SCCAPIRequest(
-                    callbackURL: callbackURL,
-                    amount: money,
-                    userInfoString: nil,
-                    locationID: nil,
-                    notes: nil,
-                    customerID: nil,
-                    supportedTenderTypes: .card,
-                    clearsDefaultFees: false,
-                    returnAutomaticallyAfterPayment: true
-            )
+                try SCCAPIRequest(callbackURL: callbackURL,
+                                  amount: money,
+                                  userInfoString: nil,
+                                  locationID: nil,
+                                  notes: nil,
+                                  customerID: nil,
+                                  supportedTenderTypes: .card,
+                                  clearsDefaultFees: false,
+                                  returnsAutomaticallyAfterPayment: true,
+                                  disablesKeyedInCardEntry: false,
+                                  skipsReceipt: false)
             
             // Open Point of Sale to complete the payment.
             try SCCAPIConnection.perform(apiRequest)

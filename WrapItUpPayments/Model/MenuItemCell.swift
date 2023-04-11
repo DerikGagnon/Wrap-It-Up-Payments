@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MenuRowDelegate: class {
+protocol MenuRowDelegate: AnyObject {
     func didTapCell(_ item: MenuItem)
 }
 
@@ -43,7 +43,7 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! MenuCollectionCell
         
         // Add items to cells
-        cell.itemImage?.sd_setImage(with: menuItems[indexPath.item].image)
+//        cell.itemImage?.sd_setImage(with: menuItems[indexPath.item].image)
         cell.itemName?.text = menuItems[indexPath.item].name
         let formattedPrice = String(format: "$%.2f", menuItems[indexPath.item].price)
         cell.itemPrice?.text = formattedPrice
