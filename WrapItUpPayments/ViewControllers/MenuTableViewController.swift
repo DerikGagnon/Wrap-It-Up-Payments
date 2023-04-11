@@ -9,7 +9,7 @@
 import UIKit
 
 // Delegate to send items to the order table
-protocol MenuDatabaseDelegate: class {
+protocol MenuDatabaseDelegate: AnyObject {
     func addItem(_ item: MenuItem)
 }
 

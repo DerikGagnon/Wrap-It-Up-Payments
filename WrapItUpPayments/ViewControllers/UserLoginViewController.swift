@@ -7,8 +7,11 @@
 //
 
 import UIKit
-import FirebaseUI
+import FirebaseAuth
+import FirebaseAuthUI
 import SDWebImage
+import FirebaseEmailAuthUI
+import FirebaseGoogleAuthUI
 
 class UserLoginViewController: UIViewController, FUIAuthDelegate {
     
@@ -16,7 +19,7 @@ class UserLoginViewController: UIViewController, FUIAuthDelegate {
     fileprivate(set) var authUI: FUIAuth? //only set internally but get externally
     fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
     
-    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         // jump out once we have a valid user
         guard let authError = error else {
             print("Login Successful")
@@ -42,8 +45,8 @@ class UserLoginViewController: UIViewController, FUIAuthDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SDImageCache.shared().clearMemory()
-        SDImageCache.shared().clearDisk()
+        SDImageCache.shared.clearMemory()
+        SDImageCache.shared.clearDisk()
         
         // Force a signout so that a different user could potentially sign back in
         // Useful if the users have different accounts for different time menus.

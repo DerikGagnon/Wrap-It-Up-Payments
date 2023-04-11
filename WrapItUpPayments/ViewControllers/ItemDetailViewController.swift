@@ -36,7 +36,7 @@ class ItemDetailViewController: UIViewController {
         // Set all the labels and images to data from the menu item
         let formattedPrice = String(format: "$%.2f", item.price)
         PriceLabel.text = formattedPrice
-        ItemImageView.sd_setImage(with: item.image)
+//        ItemImageView.sd_setImage(with: item.image)
         AllergiesLabel.text = item.allergies
         NameLabel.text = item.name
         DescriptionLabel.text = item.desc

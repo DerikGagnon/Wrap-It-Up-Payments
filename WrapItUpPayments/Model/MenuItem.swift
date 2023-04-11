@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseStorage
 
 class MenuItem {
     // Item variables
