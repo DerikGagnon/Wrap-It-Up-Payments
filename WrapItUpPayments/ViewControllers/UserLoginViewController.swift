@@ -57,7 +57,12 @@ class UserLoginViewController: UIViewController, FUIAuthDelegate {
         self.auth = Auth.auth()
         self.authUI = FUIAuth.defaultAuthUI()
         self.authUI?.delegate = self
-        self.authUI?.providers = [FUIEmailAuth(), FUIGoogleAuth()]
+        var authProviders: [FUIAuthProvider] = []
+        if let authUI = self.authUI {
+            let googleAuthProvider = FUIGoogleAuth(authUI: authUI)
+            authProviders = [googleAuthProvider, FUIEmailAuth()]
+        }
+        self.authUI?.providers = authProviders
         
         
         self.authStateListenerHandle = self.auth?.addStateDidChangeListener { (auth, user) in

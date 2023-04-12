@@ -36,6 +36,8 @@
 		A7C798C129E4F20C009B3A4A /* FirebaseFacebookAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = A7C798C029E4F20C009B3A4A /* FirebaseFacebookAuthUI */; };
 		A7C798C429E4F338009B3A4A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = A7C798C329E4F338009B3A4A /* SDWebImage */; };
 		A7C798C729E4F3C8009B3A4A /* FirebaseGoogleAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = A7C798C629E4F3C8009B3A4A /* FirebaseGoogleAuthUI */; };
+		A7C798CA29E74174009B3A4A /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = A7C798C929E74174009B3A4A /* GoogleSignIn */; };
+		A7C798CC29E74174009B3A4A /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A7C798CB29E74174009B3A4A /* GoogleSignInSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C798C129E4F20C009B3A4A /* FirebaseFacebookAuthUI in Frameworks */,
+				A7C798CA29E74174009B3A4A /* GoogleSignIn in Frameworks */,
 				A7C798BF29E4F20C009B3A4A /* FirebaseEmailAuthUI in Frameworks */,
 				A7C798B129E4EA93009B3A4A /* FirebaseDatabaseSwift in Frameworks */,
 				A7C798AF29E4EA93009B3A4A /* FirebaseDatabase in Frameworks */,
@@ -74,6 +77,7 @@
 				A7C798C729E4F3C8009B3A4A /* FirebaseGoogleAuthUI in Frameworks */,
 				A7C798A929E4EA93009B3A4A /* FirebaseAnalyticsSwift in Frameworks */,
 				A7C798AD29E4EA93009B3A4A /* FirebaseCrashlytics in Frameworks */,
+				A7C798CC29E74174009B3A4A /* GoogleSignInSwift in Frameworks */,
 				A7C798AB29E4EA93009B3A4A /* FirebaseAuth in Frameworks */,
 				A7C798A729E4EA93009B3A4A /* FirebaseAnalytics in Frameworks */,
 				A7C798BA29E4EBE4009B3A4A /* SquarePointOfSaleSDK in Frameworks */,
@@ -201,6 +205,8 @@
 				A7C798C029E4F20C009B3A4A /* FirebaseFacebookAuthUI */,
 				A7C798C329E4F338009B3A4A /* SDWebImage */,
 				A7C798C629E4F3C8009B3A4A /* FirebaseGoogleAuthUI */,
+				A7C798C929E74174009B3A4A /* GoogleSignIn */,
+				A7C798CB29E74174009B3A4A /* GoogleSignInSwift */,
 			);
 			productName = FoodTruckPOS;
 			productReference = 63CE57E921ADB14C00962B65 /* WrapItUpPayments.app */;
@@ -237,6 +243,7 @@
 				A7C798B829E4EBE4009B3A4A /* XCRemoteSwiftPackageReference "SquarePointOfSaleSDK-iOS" */,
 				A7C798BB29E4F20B009B3A4A /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */,
 				A7C798C229E4F338009B3A4A /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				A7C798C829E74174009B3A4A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 63CE57EA21ADB14C00962B65 /* Products */;
 			projectDirPath = "";
@@ -511,6 +518,14 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		A7C798C829E74174009B3A4A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -588,6 +603,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A7C798BB29E4F20B009B3A4A /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
 			productName = FirebaseGoogleAuthUI;
+		};
+		A7C798C929E74174009B3A4A /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7C798C829E74174009B3A4A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		A7C798CB29E74174009B3A4A /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7C798C829E74174009B3A4A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
