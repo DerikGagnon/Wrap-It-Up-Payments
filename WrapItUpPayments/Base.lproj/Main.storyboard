@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GCz-X2-uyt">
-    <device id="ipad9_7" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GCz-X2-uyt">
+    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,22 +13,22 @@
             <objects>
                 <viewController storyboardIdentifier="101" id="kKY-1T-61z" customClass="YourOrderViewController" customModule="WrapItUpPayments" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bP3-Za-Qsd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="420" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5st-rz-J2o">
-                                <rect key="frame" x="16" y="95.5" width="288" height="506.5"/>
+                                <rect key="frame" x="16" y="145.5" width="388" height="456.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderCell" rowHeight="81" id="okm-1a-2sk" customClass="YourOrderTableCell" customModule="WrapItUpPayments" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="288" height="81"/>
+                                        <rect key="frame" x="0.0" y="50" width="388" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="okm-1a-2sk" id="Jfv-qd-RAn">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="80.5"/>
+                                            <rect key="frame" x="84" y="0.0" width="304" height="81"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypl-1F-IIH" userLabel="priceLabel">
-                                                    <rect key="frame" x="206" y="10" width="67" height="60.5"/>
+                                                    <rect key="frame" x="306" y="10" width="67" height="61"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="67" id="zlZ-yr-gzB"/>
                                                     </constraints>
@@ -39,7 +37,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usf-cd-96t" userLabel="nameLabel">
-                                                    <rect key="frame" x="15" y="10" width="181" height="60.5"/>
+                                                    <rect key="frame" x="15" y="10" width="281" height="61"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -66,8 +64,8 @@
                                     <outlet property="delegate" destination="kKY-1T-61z" id="3TS-fL-7P1"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ay-9e-Nm9">
-                                <rect key="frame" x="0.0" y="698" width="320" height="58"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ay-9e-Nm9">
+                                <rect key="frame" x="0.0" y="698" width="420" height="58"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <state key="normal" title="Order Now"/>
                                 <connections>
@@ -75,7 +73,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ekc-gM-gfc" userLabel="PriceBreakdownPrices">
-                                <rect key="frame" x="204" y="612" width="100" height="82"/>
+                                <rect key="frame" x="304" y="612" width="100" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdF-bO-n20">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="24"/>
@@ -131,12 +129,13 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Order" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKN-Pk-yPG">
-                                <rect key="frame" x="16" y="35" width="288" height="45.5"/>
+                                <rect key="frame" x="16" y="85" width="388" height="45.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="XHF-Ne-cLl"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="XHF-Ne-cLl" firstAttribute="trailing" secondItem="5st-rz-J2o" secondAttribute="trailing" constant="16" id="5Ke-9i-Xd5"/>
@@ -155,7 +154,6 @@
                             <constraint firstItem="WWD-Fj-P89" firstAttribute="leading" secondItem="XHF-Ne-cLl" secondAttribute="leading" constant="16" id="gyA-J5-EMV"/>
                             <constraint firstItem="9Ay-9e-Nm9" firstAttribute="leading" secondItem="XHF-Ne-cLl" secondAttribute="leading" id="h8Y-Yg-Uey"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="XHF-Ne-cLl"/>
                     </view>
                     <navigationItem key="navigationItem" id="i8g-hH-i0f"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -181,14 +179,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="250" id="l0m-Qb-lO7" customClass="MenuItemCell" customModule="WrapItUpPayments" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="703.5" height="250"/>
+                                <rect key="frame" x="0.0" y="50" width="703.5" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l0m-Qb-lO7" id="ac7-KA-c4m">
-                                    <rect key="frame" x="0.0" y="0.0" width="703.5" height="249.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="703.5" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5p4-HG-9Ak">
-                                            <rect key="frame" x="20" y="11" width="663.5" height="228"/>
+                                            <rect key="frame" x="20" y="11" width="667.5" height="228"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XJU-Hd-HK3">
                                                 <size key="itemSize" width="235" height="224"/>
@@ -322,7 +320,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="$123.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEk-ip-mSB">
-                                        <rect key="frame" x="21" y="57.5" width="98" height="31.5"/>
+                                        <rect key="frame" x="22" y="57.5" width="96.5" height="31.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -356,7 +354,7 @@
                                     <constraint firstAttribute="bottom" secondItem="G1z-A5-ZY7" secondAttribute="bottom" id="gbO-qK-Hz5"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZZ-oj-8pD">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZZ-oj-8pD">
                                 <rect key="frame" x="248" y="695" width="208" height="58"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <state key="normal" title="Add to Order"/>
@@ -371,6 +369,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="SmT-oF-Ug7"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="crJ-TL-Yms" firstAttribute="top" secondItem="nHh-E7-eXU" secondAttribute="bottom" constant="15" id="5HG-cB-Gjg"/>
@@ -390,7 +389,6 @@
                             <constraint firstItem="q7d-iY-6Rn" firstAttribute="leading" secondItem="SmT-oF-Ug7" secondAttribute="leading" constant="50" id="sL7-Nm-Y2P"/>
                             <constraint firstItem="SmT-oF-Ug7" firstAttribute="trailing" secondItem="pd9-jy-Gwb" secondAttribute="trailing" constant="110" id="wwv-UQ-fK1"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="SmT-oF-Ug7"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -409,13 +407,13 @@
         <!--SplashScreen-->
         <scene sceneID="I6U-jz-86I">
             <objects>
-                <viewController title="SplashScreen" id="vcy-pZ-flU" customClass="PlaceOrderViewController" customModule="WrapItUpPayments" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="SplashScreen" wantsFullScreenLayout="YES" id="vcy-pZ-flU" customClass="PlaceOrderViewController" customModule="WrapItUpPayments" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K0v-MM-KDr">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="728"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q23-LH-76E">
-                                <rect key="frame" x="334.5" y="580.5" width="355" height="72"/>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q23-LH-76E">
+                                <rect key="frame" x="174.5" y="560.5" width="355" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Place Your Order">
@@ -427,12 +425,13 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="invert" translatesAutoresizingMaskIntoConstraints="NO" id="w08-ZX-vay">
-                                <rect key="frame" x="287" y="110" width="450.5" height="450.5"/>
+                                <rect key="frame" x="127" y="90" width="450.5" height="450.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="w08-ZX-vay" secondAttribute="height" multiplier="1:1" id="lie-Wu-BOm"/>
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="08L-mX-eYW"/>
                         <color key="backgroundColor" red="0.32941176470588235" green="0.41568627450980389" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="q23-LH-76E" firstAttribute="top" secondItem="w08-ZX-vay" secondAttribute="bottom" constant="20" id="MeP-VH-Gkb"/>
@@ -440,7 +439,6 @@
                             <constraint firstItem="q23-LH-76E" firstAttribute="centerX" secondItem="08L-mX-eYW" secondAttribute="centerX" id="jkf-D0-RYw"/>
                             <constraint firstItem="w08-ZX-vay" firstAttribute="top" secondItem="08L-mX-eYW" secondAttribute="top" constant="90" id="pb1-mY-FBr"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="08L-mX-eYW"/>
                     </view>
                     <connections>
                         <outlet property="OrderPlacedButton" destination="q23-LH-76E" id="iYO-Fg-pNP"/>
@@ -464,7 +462,7 @@
                                     <constraint firstAttribute="width" secondItem="mgp-Hk-ZKR" secondAttribute="height" multiplier="1:1" id="B1z-3s-dkA"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meq-UQ-zI6">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meq-UQ-zI6">
                                 <rect key="frame" x="440" y="580.5" width="144" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -475,6 +473,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="njI-94-mkv"/>
                         <color key="backgroundColor" red="0.32941176470588235" green="0.41568627450980389" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mgp-Hk-ZKR" firstAttribute="centerX" secondItem="njI-94-mkv" secondAttribute="centerX" id="Bgf-Bu-GnO"/>
@@ -482,7 +481,6 @@
                             <constraint firstItem="meq-UQ-zI6" firstAttribute="top" secondItem="mgp-Hk-ZKR" secondAttribute="bottom" constant="20" id="RfR-lS-l1K"/>
                             <constraint firstItem="meq-UQ-zI6" firstAttribute="centerX" secondItem="njI-94-mkv" secondAttribute="centerX" id="ebr-tn-ZFb"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="njI-94-mkv"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qN-KI-xdW" userLabel="First Responder" sceneMemberID="firstResponder"/>

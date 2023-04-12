@@ -64,7 +64,6 @@ class UserLoginViewController: UIViewController, FUIAuthDelegate {
         }
         self.authUI?.providers = authProviders
         
-        
         self.authStateListenerHandle = self.auth?.addStateDidChangeListener { (auth, user) in
             // Jumps out when the state changes to valid user
             guard user != nil else {
@@ -83,8 +82,10 @@ class UserLoginViewController: UIViewController, FUIAuthDelegate {
     
     @IBAction func loginAction(sender: AnyObject) {
         // Present the default login view controller provided by authUI
-        let authViewController = authUI?.authViewController();
-        self.present(authViewController!, animated: true, completion: nil)
+        if let authViewController = authUI?.authViewController() {
+            authViewController.modalPresentationStyle = .fullScreen
+            self.present(authViewController, animated: true, completion: nil)
+        }
         
     }
 
