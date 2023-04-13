@@ -44,6 +44,14 @@ class MenuItemCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         
         // Add items to cells
 //        cell.itemImage?.sd_setImage(with: menuItems[indexPath.item].image)
+        menuItems[indexPath.item].image.getData(maxSize: 2 * 2048 * 2048) { data, error in
+            if let error {
+                print("Image error: \(error.localizedDescription)")
+            } else if let data {
+                let image = UIImage(data: data)
+                cell.itemImage?.image = image
+            }
+        }
         cell.itemName?.text = menuItems[indexPath.item].name
         let formattedPrice = String(format: "$%.2f", menuItems[indexPath.item].price)
         cell.itemPrice?.text = formattedPrice

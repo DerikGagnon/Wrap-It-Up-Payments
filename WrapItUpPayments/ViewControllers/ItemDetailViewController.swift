@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class ItemDetailViewController: UIViewController {
 
@@ -36,7 +37,16 @@ class ItemDetailViewController: UIViewController {
         // Set all the labels and images to data from the menu item
         let formattedPrice = String(format: "$%.2f", item.price)
         PriceLabel.text = formattedPrice
-//        ItemImageView.sd_setImage(with: item.image)
+        item.image.getData(maxSize: 2 * 2048 * 2048) { [weak self] data, error in
+            guard let self else { return }
+            if let error {
+                print("Image error: \(error.localizedDescription)")
+            } else if let data {
+                let image = UIImage(data: data)
+                self.ItemImageView.image = image
+            }
+        }
+//        ItemImageView.sd_setImage
         AllergiesLabel.text = item.allergies
         NameLabel.text = item.name
         DescriptionLabel.text = item.desc
